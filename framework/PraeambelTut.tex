@@ -1,15 +1,13 @@
-%% Beamer-Klasse im korrekten Modus
 \ifdefined \handout
-\documentclass[handout]{beamer} % Handout mode
+\documentclass[handout]{sdqbeamer} % Handout mode
 \else
-\documentclass{beamer}
+\documentclass{sdqbeamer}
 \fi
 
 %% UTF-8-Encoding
 \usepackage[utf8]{inputenc}
 
 \input{../framework/gbi-macros}
-\usepackage[blue]{../framework/thwregex}
 \usepackage{environ}
 \usepackage{bm}
 \usepackage{calc}
@@ -20,15 +18,14 @@
 
 % Das ist der KIT-Stil
 %\usepackage{../TutTexbib/beamerthemekit}
-\usepackage[deutsch,titlepage0]{../framework/KIT/beamerthemeKITmod}
-\TitleImage[width=\titleimagewd]{../figures/titlepage.jpg}
+\titleimage{banner_2020_kit}
 %\usetheme[deutsch,titlepage0]{KIT}
 
 % Include PDFs
 \usepackage{pdfpages}
 
 % Libertine font (Original GBI font)
-\usepackage{libertine}
+%\usepackage{libertine}
 %\renewcommand*\familydefault{\sfdefault}  %% Only if the base font of the document is to be sans serif
 
 % Nicer math symbols
@@ -513,7 +510,7 @@
 	\GenericQuestion{adaptinglightblue}{black}{\minusquad}{#1}{#2}
 }
 
-\ifnum\thisyear=2018 \else \errmessage{Old ILIAS link inside preamble. Please update.} \fi
+%\ifnum\thisyear=2018 \else \errmessage{Old ILIAS link inside preamble. Please update.} \fi
 
 \newcommand{\ILIAS}{\urlnamed{ILIAS}{\myILIASurl}\xspace}
 \newcommand{\Klausurtermin}{\myKlausurtermin\xspace}
@@ -538,18 +535,18 @@
 \newcounter{weeknum}
 
 %% Titelinformationen
-\title[GBI-Tutorium \mytutnumber, Woche \theweeknum]{Grundbegriffe der Informatik \\ Tutorium \mytutnumber}
+\title[GBI-Tutorium \mytutnumber, Woche \theweeknum]{Grundbegriffe der Informatik Tutorium \mytutnumber}
 
-\subtitle{Woche \theweeknum\xspace |\xspace\mydate{\theweeknum} \\ \myname \ \  \normalfont (\mailto{\mymail})}
-\author[\myname]{\myname}
-\institute{KIT -- Karlsruher Institut für Technologie}
-\date{\mydate{\theweeknum}\ }
+\subtitle{Woche \theweeknum \xspace}
+\author[\myname]{\myname \xspace \normalfont (\mailto{\mymail})}
+\groupname{KIT -- Karlsruher Institut für Technologie}
+\date[\myshortdate{\theweeknum}]{\mydate{\theweeknum}}
 
 % Modified, DJ (better safe than sorry)
-\AuthorTitleSep{ – }
+%\AuthorTitleSep{ – }
 
 %% Titel einfügen
-\newcommand{\titleframe}{\frame{\titlepage}}
+\newcommand{\titleframe}{\KITtitleframe}
 
 %% Alles starten mit \starttut{X}
 \newcommand{\starttut}[1]{\setcounter{weeknum}{#1}\pdfinfo{
@@ -568,19 +565,34 @@
 }
 
 \newcommand{\lastframetitled}[6]{
-	\frame{\frametitle{#6}
-		\vspace{-#2\baselineskip}
-		\begin{figure}[H]
-			\centering
-			\LARGE \textbf{\textsc{#5}} \\
-			\vspace{.2\baselineskip}
-			\includegraphics[#1]{#3}
-			\vspace{-6pt}
-			\begin{center}
-				\small \url{#4} 
-			\end{center}
-		\end{figure} 
-	}
+% 	\frame{\frametitle{#6}
+% 		\vspace{-#2\baselineskip}
+% 		\begin{figure}[H]
+% 			\centering
+% 			\LARGE \textbf{\textsc{#5}} \\
+% 			\vspace{.2\baselineskip}
+% 			\includegraphics[#1]{#3}
+% 			\vspace{-6pt}
+% 			\begin{center}
+% 				\small \url{#4} 
+% 			\end{center}
+% 		\end{figure} 
+% 	}
+\begin{frame}[plain]
+    \vspace{\baselineskip}
+    \centering
+    \Large\textbf{#6}
+    \begin{figure}[H]
+		\centering
+% 		\LARGE \textbf{\textsc{#5}} \\
+% 		\vspace{.2\baselineskip}
+		\includegraphics[#1]{#3}
+		\vspace{-6pt}
+		\begin{center}
+			\small \url{#4} 
+		\end{center}
+	\end{figure}
+\end{frame}
 }
 
 % #1 number
