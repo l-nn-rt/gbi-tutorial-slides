@@ -9,7 +9,6 @@
 		Sei $\Gamma$\thasse{\footnote{Gamma}} eine Formelmenge.
 		Eine Interpretation $I$ heißt \textbf{Modell} von $\Gamma$, wenn für alle Formeln $G \in  \Gamma$ gilt: \quad $val_I(G) = \W$.
 	\end{Definition}
-	\bigskip
 	\pause
 	\begin{block}{Schreibweisen}
 		$\Gamma \models G$: jedes Modell von $\Gamma$ auch Modell von $G$ \\
@@ -64,7 +63,9 @@
 		Für Formeln $G$ und $H$ gilt \\
 		\[ G \equiv H \quad \text{ genau dann, wenn } \quad G \bgdw H \text{ Tautologie ist.} \]
 	\end{block}
-	\pause
+\end{frame}
+
+\begin{frame}{Tautologie, Äquivalenz}
 	\begin{Beispiel}
 		\centered{$\bnot(\bnot G) \bgdw G$ ist Tautologie, also $\bnot(\bnot G) \equiv G$}
 	\end{Beispiel}
@@ -96,12 +97,11 @@
 		\includegraphics[width=.90\linewidth]{../figures/Axiome} \\
 		Wir bestimmen: Das sind unsere „Basis-Tautologien“.
 	\end{block}
-	\pause
+\end{frame}
+\begin{frame}{Axiome, Modus Ponens}
 	\begin{block}{Modus Ponens (MP)}
-		
 		\begin{columns}[T] 
 			\begin{column}[T]{.45\textwidth} 
-				\vspace{-.6\baselineskip}
 				\begin{itemize}
 					\item<2-> Wenn $G$ gilt
 					\item<2-> und $G \bimp H$ gilt \\ \mbox{}
@@ -111,7 +111,6 @@
 			\end{column}
 			\hspace{-2\baselineskip}
 			\begin{column}[T]{.55\textwidth} 
-				\vspace{-.6\baselineskip}
 				\begin{itemize}
 					\item<3-> Wir wissen: „Es regnet.“
 					\item<3-> Wir erinnern uns: \\ „Wenn es regnet, ist die Straße nass.“
@@ -172,7 +171,8 @@
 		Für jede AL-Formel $G$ gilt: \qquad $\models G \; \Gdw \; \vdash G$.\\
 	\end{block}
 	(Achtung: Es gibt Kalküle / Logiken, für die so etwas nicht gilt!)
-	\pause
+\end{frame}
+\begin{frame}{Beweisbarkeit}
 	\begin{block}{Lemma}
 		Für Formeln $G$, $H$ gilt $G \vdash H$ genau dann, wenn $\vdash \bleftBr G \bimp H \brightBr$.
 	\end{block}

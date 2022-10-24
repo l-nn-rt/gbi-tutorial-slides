@@ -4,7 +4,7 @@
 
 \begin{frame}{Mengen}
 	\pause % -> HIER Sammeln, was Tutanden bereits wissen (an der Tafel)
-	\begin{block}{Definition: Mengen} \vspace{-.5\baselineskip}
+	\begin{block}{Definition: Mengen}
 		\begin{itemize}
 			\item \textbf{Menge} $M$: Ansammlung verschiedener Objekte
 			\item $m \in M$: Objekt $m$ ist \textbf{Element} der Menge $M$
@@ -54,7 +54,7 @@
 
 \begin{frame}{Kardinalität, Teilmengen, Gleichheit}
 	
-	\begin{block}{Definitionen}  \vspace{-.4\baselineskip}
+	\begin{block}{Definitionen}
 		\begin{itemize}
 			\item \textbf{Kardinalität} $\setsize{M}$: \\
 			Anzahl der Elemente einer endlichen Menge $M$ \\
@@ -88,7 +88,6 @@
 \end{frame}
 
 \begin{frame}{Schnitt und Vereinigung}
-	
 	\begin{block}{Definition}
 		Seien $M$ und $N$ zwei Mengen, so heißen
 		$$M \cap N := \left\{x \Mid x \in M \text{ und } x \in N \right\} \qquad M \cup N := \left\{x \Mid x \in M \text{ oder } x \in N \right\} $$
@@ -97,18 +96,17 @@
 		$M$ und $N$ heißen \textbf{disjunkt}, wenn sie keine gemeinsamen Elemente haben, also $M \cap N = \emptyset$ (der Schnitt ist leer).
 	\end{block}
 	
-	\pause
+    \pause
+	
 	\begin{exampleblock}{Beispiel}
-		\centered{$ \{1,2\} \cup \{2,3\} = \{1,2,3\} \qquad \{1,2\} \cap \{2,3\} = \{2\} $}
+		\text{ }\centered{$ \{1,2\} \cup \{2,3\} = \{1,2,3\} \qquad \{1,2\} \cap \{2,3\} = \{2\} $}
 	\end{exampleblock}
-	
-	\pause
-	
+    
+\end{frame}
+\begin{frame}{Schnitt und Vereinigung}
 	\begin{block}{Lemma}
 		Es gilt: \\ \centered{$\setsize{M \cup N} \ = \ \setsize{M} + \setsize{N} - \setsize{M \cap N}$}
 	\end{block}
-	
-	
 \end{frame}
 
 \begin{frame}{Mengendifferenz}
@@ -121,19 +119,17 @@
 	\begin{block}{Lemma}
 		Es gilt: $$ A \subseteq B \iff A \setminus B = \emptyset $$
 	\end{block} 
-	
-	\pause
-	
+\end{frame}
+
+\begin{frame}{Mengendifferenz}
 	\begin{exampleblock}{Weitere Beispiele}
-		\vspace{-2\baselineskip} % WtF LaTeX??
 		\begin{align*}
-		A \cup \emptyset &= \uncover<4->{  A }  \\
-		A \cap \emptyset &= \uncover<5->{ \emptyset }\\
-		\N_+ \cup \{0\} &= \uncover<6->{ \N_0} \\
-		\N_0 \setminus \{0\} &= \uncover<7->{ \N_+} 
+    		A \cup \emptyset &= \uncover<4->{  A }  \\
+    		A \cap \emptyset &= \uncover<5->{ \emptyset }\\
+    		\N_+ \cup \{0\} &= \uncover<6->{ \N_0} \\
+    		\N_0 \setminus \{0\} &= \uncover<7->{ \N_+} 
 		\end{align*}
 	\end{exampleblock}
-	
 \end{frame}
 
 \begin{frame}[t]{Mengengleichheit: Beispiel}
@@ -199,10 +195,13 @@
 
 \begin{frame}{Potenzmengen}
 	\begin{block}{Aufgabe}
-		Wie viele Elemente enthält $2^M$? \\[0.5em]
+		Wie viele Elemente enthält $2^M$?
 		
 		\pause
-		$2^{\setsize{M}}$
+		
+		\begin{equation*}
+		    \setsize{2^M} = 2^{\setsize{M}}
+		\end{equation*}
 	\end{block}
 	
 	\pause
