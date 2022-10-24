@@ -82,7 +82,12 @@
 % Nicht unbed. nötig. Je nach Zeitbudget.
 \input{../Bloecke/Relationen2.tex}
 
-\begin{frame}	
+\appendix
+\beginbackup
+
+\section{Zusammenfassung und Ausblick}
+
+\begin{frame}
 	\begin{block}{Was ihr nun wissen solltet}
 		\begin{itemize}
 			%\item Mehr Eigenschaften von Relationen
@@ -101,8 +106,15 @@
 	\end{block}
 \end{frame}	
 
+
+\only<handout:0>{\slideThanks}
+
+
+
+%% Letzte Seite
 \xkcdframe{327}{Danke für eure Aufmerksamkeit! \smiley}{2.5}
 
-\slideThanks
+\only<beamer:0>{\slideThanks}
 
+\backupend
 \end{document}

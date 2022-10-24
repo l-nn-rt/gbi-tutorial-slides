@@ -137,7 +137,12 @@
 
 \input{../Bloecke/GrossO}
 
-\begin{frame}	
+\appendix
+\beginbackup
+
+\section{Zusammenfassung und Ausblick}
+
+\begin{frame}
 	\begin{block}{Was ihr nun wissen solltet}
 		\begin{itemize}
 			\item Wie man Graphen darstellen kann
@@ -158,9 +163,16 @@
 	\end{block}
 \end{frame}
 
+
+\only<handout:0>{\slideThanks}
+
+
+
+%% Letzte Seite
 %TODO
 \xkcdframevert{612}{Danke für eure Aufmerksamkeit! \smiley}{2.5}
 %\lastframe{0.65}{15}{xkcd/file_transfer_612.png}{http://www.xkcd.com/612}
-\slideThanks
+\only<beamer:0>{\slideThanks}
 
+\backupend
 \end{document}

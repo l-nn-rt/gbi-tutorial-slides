@@ -78,7 +78,13 @@
 
 
 \def\abbrsize{\footnotesize}
-\begin{frame}	
+
+\appendix
+\beginbackup
+
+\section{Zusammenfassung und Ausblick}
+
+\begin{frame}
 	\begin{block}{Was ihr nun wissen solltet}
 		\begin{itemize}
 			\item Rechtslineare Grammatiken
@@ -145,12 +151,19 @@
 	--- The End ---
 \end{headframe}
 
+
+
+\only<handout:0>{\slideThanks}
+
+
+
+%% Letzte Seite
 % Scheint leider kein vernünftiges Abschieds-XKCD zu geben
 \thasse{
 	\xkcdframevert{287}{}{4.0}
 	%\xkcdframe{5.8}{30}{xkcd/np_complete.png}{http://www.xkcd.com}{}
 }
+\only<beamer:0>{\slideThanks}
 
-\slideThanks
-
+\backupend
 \end{document}
