@@ -87,6 +87,11 @@
 
 %\input{../Bloecke/Darstellung.tex}
 
+\appendix
+\beginbackup
+
+\section{Zusammenfassung und Ausblick}
+
 \begin{frame}	
 	\begin{block}{Was ihr nun wissen solltet}
 		\begin{itemize}
@@ -108,12 +113,18 @@
 	\end{block}
 \end{frame}
 
+
+\only<handout:0>{\slideThanks}
+
 % TODO 
 \thassedaniel{
 	\xkcdframevert{953}{Danke für eure Aufmerksamkeit! \smiley}{2.5}
 }{
-	\xkcdframe{1516}{Win by Induction}{2}
+	\xkcdframe{1516}{Win by Induction}{1.5}
 }
-\slideThanks
+
+\only<beamer:0>{\slideThanks}
+
+\backupend
 
 \end{document}

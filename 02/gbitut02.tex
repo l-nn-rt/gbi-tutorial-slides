@@ -80,6 +80,11 @@
 
 \input{../Bloecke/Woerter.tex}
 
+\appendix
+\beginbackup
+
+\section{Zusammenfassung und Ausblick}
+
 \begin{frame}	
 	\begin{block}{Was ihr nun wissen solltet}
 		\begin{itemize}
@@ -98,7 +103,12 @@
 	\end{block}
 \end{frame}
 
+\only<handout:0>{\slideThanks}
+
 \xkcdframe{1121}{Danke für eure Aufmerksamkeit! \smiley}{1.5}
-\slideThanks
+
+\only<beamer:0>{\slideThanks}
+
+\backupend
 
 \end{document}
