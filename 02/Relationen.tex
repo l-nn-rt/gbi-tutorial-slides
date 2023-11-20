@@ -1,0 +1,359 @@
+
+\section{Relationen}
+\begin{frame}{Relation}
+  \begin{block}{Relation}
+	Eine \emph{Relation} $R$ ist eine Teilmenge eines kartesischen Produkts, also $R \subseteq A \times B$. \\
+  \end{block}
+\end{frame}
+
+
+
+
+\begin{frame}{Eigenschaften von Relationen}
+  \begin{block}{Linkstotal}
+	Eine Relation $R$ heißt \emph{linkstotal}, wenn es für jedes $a \in A$ \emph{mindestens} ein $b \in B$ gibt. \\
+	\glqq \hspace{1pt}Von jedem Element in A geht mindestens ein Pfeil nach B.\grqq
+  \end{block}
+  \begin{figure}
+    \begin{minipage}{0.44\textwidth}
+      \centering
+      \begin{tikzpicture}[x={(12mm,0mm)},y={(0mm,-5mm)}]
+        \tikzset{
+          blob/.style={circle,fill,minimum size=0.7mm,inner sep=0,outer sep=0}
+        }
+        \tikzset{
+          rahmen/.style={draw,inner sep=3mm,rounded corners=2mm}
+        }
+        \tikzset{
+          pfeil/.style={shorten >=0.1mm,shorten <=1mm,thick,-latex}
+        }
+
+        \node[blob]  (Al) at (0,0) {};
+        \node[blob]  (Bl) at (0,1) {};
+        \node[blob]  (Cl) at (0,2) {};
+        \node[rahmen,fit=(Al) (Bl) (Cl)] {};
+        \node at ($ (Al) + (0,-1.3) $) {$A$};
+
+        \node[blob]  (Ar) at (1,0) {};
+        \node[blob]  (Br) at (1,1) {};
+        \node[blob]  (Cr) at (1,2) {};
+        \node[rahmen,fit=(Ar) (Br) (Cr)] {};
+        \node at ($ (Ar) + (0,-1.3) $) {$B$};
+
+        \draw[pfeil] (Al) -- (Br);
+        \draw[pfeil] (Bl) -- (Cr);
+
+        \draw[red,line width=0.7mm,opacity=0.9] (Cl) -- +(-1.5mm,-1.5mm) (Cl)
+  -- ++(1.5mm,-1.5mm)
+        (Cl) -- ++(-1.5mm,1.5mm) (Cl) -- ++(1.5mm,1.5mm);
+      \end{tikzpicture}
+      \\ \emph{Nicht} linkstotal
+    \end{minipage}%
+	\begin{minipage}{0.44\textwidth}
+      \centering
+      \begin{tikzpicture}[x={(12mm,0mm)},y={(0mm,-5mm)}]
+        \tikzset{blob/.style={circle,fill,minimum size=0.7mm,inner sep=0,outer
+  sep=0}}
+        \tikzset{rahmen/.style={draw,inner sep=3mm,rounded corners=2mm}}
+        \tikzset{pfeil/.style={shorten >=0.1mm,shorten <=1mm,thick, -latex}}
+
+        \node[blob]  (Al) at (0,0) {};
+        \node[blob]  (Bl) at (0,1) {};
+        \node[blob]  (Cl) at (0,2) {};
+        \node[rahmen,fit=(Al) (Bl) (Cl)] {};
+        \node at ($ (Al) + (0,-1.3) $) {$A$};
+
+        \node[blob]  (Ar) at (1,0) {};
+        \node[blob]  (Br) at (1,1) {};
+        \node[blob]  (Cr) at (1,2) {};
+        \node[rahmen,fit=(Ar) (Br) (Cr)] {};
+        \node at ($ (Ar) + (0,-1.3) $) {$B$};
+
+        \draw[pfeil] (Al) -- (Br);
+        \draw[pfeil] (Bl) -- (Cr);
+        \draw[pfeil] (Cl) -- (Cr);
+
+        \foreach \x in {Al, Bl, Cl} {
+          \node at ([xshift=-3pt, yshift=3pt]\x.west)
+            {\color{green!75!black}\checkmark};
+        }
+      \end{tikzpicture}
+      \\ Linkstotal
+    \end{minipage}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}{Eigenschaften von Relationen}
+  \begin{block}{Rechtseindeutig}
+	Eine Relation $R$ heißt \emph{rechtseindeutig}, wenn es für jedes $a \in A$ \emph{höchstens} ein $b \in B$ gibt. \\
+	\glqq \hspace{1pt}Von einem Element in A geht höchstens ein Pfeil nach B.\grqq
+  \end{block}
+  \begin{figure}
+    \begin{minipage}{0.44\textwidth}
+      \centering
+      \begin{tikzpicture}[x={(12mm,0mm)},y={(0mm,-5mm)}]
+        \tikzset{
+          blob/.style={circle,fill,minimum size=0.7mm,inner sep=0,outer sep=0}
+        }
+        \tikzset{
+          rahmen/.style={draw,inner sep=3mm,rounded corners=2mm}
+        }
+        \tikzset{
+          pfeil/.style={shorten >=0.1mm,shorten <=1mm,thick,-latex}
+        }
+
+        \node[blob]  (Al) at (0,0) {};
+        \node[blob]  (Bl) at (0,1) {};
+        \node[blob]  (Cl) at (0,2) {};
+        \node[rahmen,fit=(Al) (Bl) (Cl)] {};
+        \node at ($ (Al) + (0,-1.3) $) {$A$};
+
+        \node[blob]  (Ar) at (1,0) {};
+        \node[blob]  (Br) at (1,1) {};
+        \node[blob]  (Cr) at (1,2) {};
+        \node[rahmen,fit=(Ar) (Br) (Cr)] {};
+        \node at ($ (Ar) + (0,-1.3) $) {$B$};
+
+        \draw[pfeil] (Al) -- (Br);
+        \draw[pfeil] (Bl) -- (Cr);
+        \draw[pfeil] (Al) -- (Cr);
+
+        \coordinate (All) at ($ (Al) + (1.5mm,-0.75mm) $);
+        \draw[red,line width=0.7mm,opacity=0.9]
+          (All) -- +(-1.75mm,-0.68mm)
+          (All) -- ++(0.68mm,-1.75mm)
+          (All) -- ++(-0.68mm,1.75mm)
+          (All) -- ++(1.75mm,0.68mm);
+      \end{tikzpicture}
+      \\ \emph{Nicht} rechtseindeutig
+    \end{minipage}%
+    \begin{minipage}{0.44\textwidth}
+      \centering
+      \begin{tikzpicture}[x={(12mm,0mm)},y={(0mm,-5mm)}]
+        \tikzset{
+          blob/.style={circle,fill,minimum size=0.7mm,inner sep=0,outer sep=0}
+        }
+        \tikzset{
+          rahmen/.style={draw,inner sep=3mm,rounded corners=2mm}
+        }
+        \tikzset{
+          pfeil/.style={shorten >=0.1mm,shorten <=1mm,thick,-latex}
+        }
+
+        \node[blob]  (Al) at (0,0) {};
+        \node[blob]  (Bl) at (0,1) {};
+        \node[blob]  (Cl) at (0,2) {};
+        \node[rahmen,fit=(Al) (Bl) (Cl)] {};
+        \node at ($ (Al) + (0,-1.3) $) {$A$};
+
+        \node[blob]  (Ar) at (1,0) {};
+        \node[blob]  (Br) at (1,1) {};
+        \node[blob]  (Cr) at (1,2) {};
+        \node[rahmen,fit=(Ar) (Br) (Cr)] {};
+        \node at ($ (Ar) + (0,-1.3) $) {$B$};
+
+        \draw[pfeil] (Al) -- (Br);
+        \draw[pfeil] (Bl) -- (Cr);
+
+        \foreach \x in {Al, Bl, Cl} {
+          \node at ([xshift=-3pt, yshift=3pt]\x.west)
+            {\color{green!75!black}\checkmark};
+        }
+      \end{tikzpicture}
+      \\ Rechtseindeutig
+    \end{minipage}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}{Eigenschaften von Relationen}
+  \begin{block}{Abbildung}
+    Eine Relation $R$, welche linkstotal und rechtseindeutig ist, heißt eine \emph{Abbildung} $f$. \\
+    \vspace{6pt}
+    Man schreibt: $f: A \to B$, wobei $A$ der Definitionsbereich und $B$ der Ziel-/Wertebereich ist.
+  \end{block}
+  \begin{exampleblock}{Abbildung}
+      Abbildung die alle geraden Zahlen auf 1 und alle ungeraden Zahlen auf 0 abbildet:
+      $f \from \N \functionto \N, \; x \mapsto \casesl{ 1 & \text{wenn $x$ gerade} \\ 0 & \text{sonst} }$
+  \end{exampleblock}
+\end{frame}
+
+
+\begin{frame}{Eigenschaften von Relationen}
+  \begin{block}{Linkseindeutig}
+	Eine Relation $R$ heißt \emph{linkseindeutig}, wenn es für jedes $b \in B$ \emph{höchstens} ein $a \in A$ gibt. \\
+	Eine linkseindeutige Abbildung heißt \emph{injektiv}. \\
+	\glqq \hspace{1pt}Zu jedem Element in B kommt höchstens ein Pfeil von A.\grqq
+  \end{block}
+  \begin{figure}
+    \centering
+    \begin{minipage}{0.44\textwidth}
+      \centering
+      \begin{tikzpicture}[x={(12mm,0mm)},y={(0mm,-5mm)}]
+        \tikzset{
+          blob/.style={circle,fill,minimum size=0.7mm,inner sep=0,outer sep=0}
+        }
+        \tikzset{
+          rahmen/.style={draw,inner sep=3mm,rounded corners=2mm}
+        }
+        \tikzset{
+          pfeil/.style={shorten >=0.1mm,shorten <=1mm,thick,-latex}
+        }
+
+        \node[blob]  (Al) at (0,0) {};
+        \node[blob]  (Bl) at (0,1) {};
+        \node[blob]  (Cl) at (0,2) {};
+        \node[rahmen,fit=(Al) (Bl) (Cl)] {};
+        \node at ($ (Al) + (0,-1.3) $) {$A$};
+
+        \node[blob]  (Ar) at (1,0) {};
+        \node[blob]  (Br) at (1,1) {};
+        \node[blob]  (Cr) at (1,2) {};
+        \node[rahmen,fit=(Ar) (Br) (Cr)] {};
+        \node at ($ (Ar) + (0,-1.3) $) {$B$};
+
+        \draw[pfeil] (Al) -- (Br);
+        \draw[pfeil] (Bl) -- (Cr);
+        \draw[pfeil] (Al) -- (Cr);
+
+        \coordinate (Crr) at ($ (Cr) + (-1.5mm,0.75mm) $);
+        \draw[red,line width=0.7mm,opacity=0.9]
+          (Crr) -- +(-1.75mm,-0.68mm)
+          (Crr) -- ++(0.68mm,-1.75mm)
+          (Crr) -- ++(-0.68mm,1.75mm)
+          (Crr) -- ++(1.75mm,0.68mm);
+      \end{tikzpicture}
+      \\ \emph{Nicht} linkseindeutig
+    \end{minipage}%
+    \begin{minipage}{0.44\textwidth}
+      \centering
+      \begin{tikzpicture}[x={(12mm,0mm)},y={(0mm,-5mm)}]
+        \tikzset{blob/.style={circle,fill,minimum size=0.7mm,inner sep=0,outer
+  sep=0}}
+        \tikzset{rahmen/.style={draw,inner sep=3mm,rounded corners=2mm}}
+        \tikzset{pfeil/.style={shorten >=0.1mm,shorten <=1mm,thick,-latex }}
+
+        \node[blob]  (Al) at (0,0) {};
+        \node[blob]  (Bl) at (0,1) {};
+        \node[blob]  (Cl) at (0,2) {};
+        \node[rahmen,fit=(Al) (Bl) (Cl)] {};
+        \node at ($ (Al) + (0,-1.3) $) {$A$};
+
+        \node[blob]  (Ar) at (1,0) {};
+        \node[blob]  (Br) at (1,1) {};
+        \node[blob]  (Cr) at (1,2) {};
+        \node[rahmen,fit=(Ar) (Br) (Cr)] {};
+        \node at ($ (Ar) + (0,-1.3) $) {$B$};
+
+        \draw[pfeil] (Al) -- (Br);
+        \draw[pfeil] (Bl) -- (Cr);
+
+        \foreach \x in {Ar, Br, Cr} {
+          \node at ([xshift=5pt, yshift=2pt]\x.east)
+            {\color{green!75!black}\checkmark};
+        }
+      \end{tikzpicture}
+      \\ Linkseindeutig
+    \end{minipage}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}{Eigenschaften von Relationen}
+  \begin{block}{Rechtstotal}
+	Eine Relation $R$ heißt \emph{rechtstotal}, wenn es für jedes $b \in B$ \emph{mindestens} ein $a \in A$ gibt. \\
+	Eine rechtstotale Abbildung heißt \emph{surjektiv}. \\
+	\glqq \hspace{1pt}Zu jedem Element in B kommt ein Pfeil von A.\grqq
+  \end{block}
+  \begin{figure}
+    \begin{minipage}{0.44\textwidth}
+      \centering
+      \begin{tikzpicture}[x={(12mm,0mm)},y={(0mm,-5mm)}]
+        \tikzset{
+          blob/.style={circle,fill,minimum size=0.7mm,inner sep=0,outer sep=0}
+        }
+        \tikzset{
+          rahmen/.style={draw,inner sep=3mm,rounded corners=2mm}
+        }
+        \tikzset{
+          pfeil/.style={shorten >=0.1mm,shorten <=1mm,thick,-latex}
+        }
+
+        \node[blob]  (Al) at (0,0) {};
+        \node[blob]  (Bl) at (0,1) {};
+        \node[blob]  (Cl) at (0,2) {};
+        \node[rahmen,fit=(Al) (Bl) (Cl)] {};
+        \node at ($ (Al) + (0,-1.3) $) {$A$};
+
+        \node[blob]  (Ar) at (1,0) {};
+        \node[blob]  (Br) at (1,1) {};
+        \node[blob]  (Cr) at (1,2) {};
+        \node[rahmen,fit=(Ar) (Br) (Cr)] {};
+        \node at ($ (Ar) + (0,-1.3) $) {$B$};
+
+        \draw[pfeil] (Al) -- (Br);
+        \draw[pfeil] (Bl) -- (Cr);
+
+        \draw[red,line width=0.7mm,opacity=0.9] (Ar) -- +(-1.5mm,-1.5mm) (Ar)
+  -- ++(1.5mm,-1.5mm)
+        (Ar) -- ++(-1.5mm,1.5mm) (Ar) -- ++(1.5mm,1.5mm);
+      \end{tikzpicture}
+      \\ \emph{Nicht} rechtstotal
+    \end{minipage}%
+    \begin{minipage}{0.44\textwidth}
+      \centering
+      \begin{tikzpicture}[x={(12mm,0mm)},y={(0mm,-5mm)}]
+        \tikzset{
+          blob/.style={circle,fill,minimum size=0.7mm,inner sep=0,outer sep=0}
+        }
+        \tikzset{
+          rahmen/.style={draw,inner sep=3mm,rounded corners=2mm}
+        }
+        \tikzset{
+          pfeil/.style={shorten >=0.1mm,shorten <=1mm,thick,-latex}
+        }
+
+        \node[blob]  (Al) at (0,0) {};
+        \node[blob]  (Bl) at (0,1) {};
+        \node[blob]  (Cl) at (0,2) {};
+        \node[rahmen,fit=(Al) (Bl) (Cl)] {};
+        \node at ($ (Al) + (0,-1.3) $) {$A$};
+
+        \node[blob]  (Ar) at (1,0) {};
+        \node[blob]  (Br) at (1,1) {};
+        \node[blob]  (Cr) at (1,2) {};
+        \node[rahmen,fit=(Ar) (Br) (Cr)] {};
+        \node at ($ (Ar) + (0,-1.3) $) {$B$};
+
+        \draw[pfeil] (Al) -- (Br);
+        \draw[pfeil] (Bl) -- (Cr);
+        \draw[pfeil] (Al) -- (Ar);
+
+        \foreach \x in {Ar, Br, Cr} {
+          \node at ([xshift=5pt, yshift=2pt]\x.east)
+            {\color{green!75!black}\checkmark};
+        }
+      \end{tikzpicture}
+      \\ Rechtstotal
+    \end{minipage}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}{Eigenschaften von Relationen}
+  \begin{block}{Bijektiv}
+    Ist eine Abbildung injektiv und surjektiv, so nennt man sie \emph{bijektiv}.
+  \end{block}
+  \pause
+  \begin{exampleblock}{Beispiel}
+	\begin{center}
+			$g \colon \{1, 2\} \to \{3, 4\}$ \\
+			$1 \mapsto 3$ \\
+			$2 \mapsto 4$
+	\end{center}		
+		Ja, alle Zuordnungen einzeln auflisten geht auch (Formeln sind aber manchmal praktischer). \\
+		Als Relation geschrieben ist $g = \{(1, 3), (2, 4)\}$. Diese Abbildung ist bijektiv.
+	\end{exampleblock}
+\end{frame}
+

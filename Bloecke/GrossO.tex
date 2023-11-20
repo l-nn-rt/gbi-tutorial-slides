@@ -64,8 +64,10 @@
 	Mit $c := 2$, \, $c' := 3$,\, $n_0 := 1$ ist die Bedingung erfüllt. \qed \pause
 	
 	\begin{block}{Quiz}
-		\TrueQuestion{$n^{100} + 10^9 n^{99} \in \Th{n^{100}}$}
-		\FalseQuestion{$2^n \in \Th{n^2}$}
+        \mbox{
+		\TrueQuestion{$n^{100} + 10^9 n^{99} \in \Th{n^{100}}$} 
+        \FalseQuestion{$2^n \in \Th{n^2}$}
+        }
 	\end{block}
 \end{frame}
 
@@ -118,6 +120,7 @@
 		\item Wurzel
 		\item Exponentialfunktion
 		\item Logarithmus
+        \item Quadratisch
 	\end{itemize}
 \end{frame}
 
@@ -164,15 +167,21 @@
 %	Der Quotient $$\frac{f(n)}{g(n)} = \frac{n^4 + n^3}{n^2} = n^2 + n \to \infty$$ Also ist $\lim f/g > 0$ und damit $$g \in O(f) \qquad f \in \Omega(g)$$ aber $\lim f/g = \infty$ also $$f \not \in O(g) \qquad g \not \in \Omega(f)$$ und vor allem $$f \not \in \Theta(g)$$
 %\end{frame}
 
+
+
 \begin{frame}{Logarithmen}
 	\only<handout:0>{Informatiker LIEBEN Logarithmen...\\}
 	\begin{block}{Einige Rechenregeln}
 		\begin{align*}
 			a^{\log_a n} &= n\\
 			\visible<2-|handout:1>{\log_b (n \cdot m) &= \log_b n + \log_b m\\ 
-			\log_b n^a &= a \cdot \log_b n\\}
+			\log_b n^a &= a \cdot \log_b n \\}
 			\visible<3-|handout:1>{a^{\log_b n} &= n^{\log_b a}}
 		\end{align*}
+      \visible<4-|handout:1>{
+      \centering
+        \includegraphics[height=.6cm]{11/logmoji.jpg}
+      }
 	\end{block}
 \end{frame}
 
@@ -203,13 +212,15 @@
 	\end{block}
 \end{frame}
 
+
+
 \begin{frame}{Logarithmen: Übung}
 	\begin{block}{Einige Rechenregeln}
 		\begin{align*}
 			a^{\log_a n} &= n\\
 			\log_b (n \cdot m) &= \log_b n + \log_b m\\ 
-			\log_b n^a &= a \cdot \log_b n\\
-			a^{\log_b n} &= n^{\log_b a}
+			\log_b n^a &= a \cdot \log_b n  \\
+			a^{\log_b n} &= n^{\log_b a} 
 		\end{align*}
 	\end{block}
 

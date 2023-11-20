@@ -13,13 +13,6 @@
 \framePrevEpisode
 
 \subsection{Wahr oder Falsch?}
-\begin{frame}[t]{Wahr oder Falsch?}
-	\FalseQuestionE{Eine Funktion muss linkseindeutig sein.}{\impl Eine Funktion muss rechtseindeutig \textbf{und linkstotal} sein.}
-	\TrueQuestion{Eine injektive Funktion ist linkseindeutig.}
-	\TrueQuestion{Eine surjektive Funktion ist rechtstotal.}
-	\FalseQuestion{Jede Relation ist eine Funktion.}
-	\TrueQuestion{Jede Funktion ist eine Relation.}
-\end{frame}
 
 \begin{frame}[t]{Wahr oder Falsch?}
 	\delimitershortfall=0pt
@@ -28,73 +21,75 @@
 	\FalseQuestionE{Wenn $\eps \in A^*$, dann $\size{\eps^3} = 3$.}{$\size{\eps^3} = 0$; außerdem gilt $\eps \in A^*$  immer, also für alle Alphabete $A$.}
 \end{frame}
 
-\section{Induktive Definitionen}
 
-\begin{frame}{Zum Aufwärmen: Domino}
-	Drei Dominosteine sind mit gleichem Abstand (kleiner halbe Größe) in einer Reihe aufgestellt. Wir stoßen den ersten Stein der Reihe in Richtung des zweiten Steins um. \\
-	Wird der dritte Stein umfallen? Kann man das (einfach) beweisen? \\[1em]
-	\pause
-	Nun stehen (abzählbar) unendlich viele Dominosteine wie oben hintereinander. Wieder stoßen wir den ersten Stein um. \\
-	Wird jeder Stein irgendwann umfallen? Kann man das (einfach) beweisen? \\[1em]
-	\pause
-	Werden irgendwann alle Steine umgefallen sein? \\
-	\pause Nein, denn für jeden Zeitpunkt können wir (mindestens) einen Stein angeben, der noch nicht umgefallen ist.\\
-	Wir sehen also: Alle Steine fallen um, aber es sind niemals alle umgefallen.
-\end{frame}
-
-\newcommand{\Fib}{\mathcal{F}\hspace{-1pt}}
-
-\begin{frame}{Induktive Definitionen}
-	\begin{exampleblock}{Beispiel: \emph{Fibonacci}-Reihe}
-		\begin{align*}
-		\Fib_0 &:= 0 \\
-		\Fib_1 &:= 1 \\
-		\text{Für } n \geq 0: \quad \Fib_{n+2} &:= \Fib_{n+1} + \Fib_n 		
-		\end{align*}
-		\pause
-		\vspace{-\baselineskip}
-		\begin{table}
-			\centering
-			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-				\hline
-				$n$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ \hline
-				$\Fib_n$ & 0 & 1 & 1 & 2 & 3 & 5 & 8 & 13 & 21 & 34 \\ \hline
-			\end{tabular}
-		\end{table}
-		
-		\pause
-		\textbf{Wohldefiniertheit}: 
-		\begin{itemize}
-			\item Für alle Fälle etwas definieren 
-			\item Nicht für einen Fall was Widersprüchliches definieren
-		\end{itemize}
-		
-	\end{exampleblock}
-	
-\end{frame}
-
-\input{../Bloecke/Induktion.tex}
 
 \input{../Bloecke/Aussagenlogik.tex}
 
+\newcommand{\alnand}{\alv{\bar \land}}
+
+%Übungsaufgabe 3.2 WS22/23
+\begin{frame}{NAND}
+	Man nennt eine Menge von Konnektiven, mit denen alle boolenschen Funktonen
+	als aussagenlogische Formel ausgedrückt werden können, eine Basis der Aussagenlogik.
+	Das aussagenlogische Konnektiv $NAND (\alv{ \bar \land})$ ist definiert als
+	\begin{align*}
+		val_I (G \aland H) = 
+		\begin{cases}
+			\W, & \text{falls } val_I(G) = \F \text{ oder } val_I (H) = \F \\
+			\F, & \text{sonst}
+		\end{cases}
+	\end{align*}
+	für beliebige Fromeln $G, H \in \LAL$
+
+	\visible<+(-1)>{}
+	\begin{alist}
+		\item Geben Sie die Wahrheitstabelle für $G \alnand H$ an.
+		\item Zeigen Sie dass $\alnand$ eine Basis ist. Geben Sie dafür (ohne Beweis)
+		für die folgenden Formeln je eine äquivalente aussagenlogische Formel an, die nur $\alnand$ benutzt:
+		\begin{enumerate}[i]
+			\item $\bnot \plfoo{P}$ 
+			\visible<+-|handout:2->{
+				$\equiv \plfoo{P} \alnand \plfoo{P}$
+			}
+			\item $\plfoo{P} \bund \plfoo{Q}$
+			\visible<+-|handout:2->{
+				$ \equiv \bleftBr \plfoo{P} \alnand \plfoo{Q} \brightBr \alnand \bleftBr \plfoo{P} \alnand \plfoo{Q} \brightBr$
+			}
+			\item $\plfoo{P} \boder \plfoo{Q}$
+			\visible<+-|handout:2->{
+				$ \equiv \bleftBr \plfoo{P} \alnand \plfoo{P} \brightBr \alnand \bleftBr \plfoo{Q} \alnand \plfoo{Q} \brightBr$
+			}
+			\item $\plfoo{P} \bimp \plfoo{Q}$
+			\visible<+-|handout:2->{
+				$ \equiv \plfoo{P} \alnand \bleftBr \plfoo{Q} \alnand \plfoo{Q} \brightBr$
+			}
+		\end{enumerate}
+	\end{alist}
+\end{frame}
+
 \input{../Bloecke/Aussagenlogik2}
+
+
+
+\input{../Bloecke/Induktion.tex}
 
 \appendix
 \beginbackup
 
 \section{Zusammenfassung und Ausblick}
 
-\begin{frame}	
+\begin{frame}
 	\begin{block}{Was ihr nun wissen solltet}
 		\begin{itemize}
 			\item Wie vollständige Induktion geht
 			\item Aussagenlogik: Syntax und Semantik
-			\item Wie man wahre Aussagen konstruiert \qquad (\#NoFakeNews!) 
+			\item Wie man wahre Aussagen konstruiert \qquad (\#NoFakeNews!)
 		\end{itemize}
 	\end{block}
-	
+
 	\begin{block}{Was nächstes Mal kommt}
 		\begin{itemize}
+			\item Induktion
 			\item Formale Sprachen
 			\item Aus \word2 mach \word{10}: Übersetzungen
 		\end{itemize}

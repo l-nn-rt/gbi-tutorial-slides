@@ -1,7 +1,7 @@
 %beamer
 
 % Comment/uncomment this line to toggle handout mode
-% \newcommand{\handout}{}
+%  \newcommand{\handout}{}
 
 \input{../framework/PraeambelTut.tex}
 
@@ -10,50 +10,41 @@
 \begin{document}
 \starttut{2}
 
+\mycomment{
+	Hier einmal Beweise und Gegenbeweise erklären damit die Tutanden
+	es leichter haben das erste Übungsblatt zu lösen.
+}
+
 \Comment{
 \begin{frame}{Organisatorisches}
 	
 	
 		\begin{itemize}
-			\item Nächsten Donnerstag: Abgabe des ersten Übungsblattes! (Achtung: Bei nachfolgenden Blättern müsst ihr euch selber erinnern!)
+	    \item Nächsten Donnerstag: Abgabe des ersten Übungsblattes! (Achtung: Bei nachfolgenden Blättern müsst ihr euch selber erinnern!)
 		\end{itemize}
 	
 \end{frame}
-}
-
 \begin{frame}{Zu Blatt \#1}
-	
-	Schnitt: \quad \thassedaniel{14.6}{13.7} / 17~P
-	
 	\begin{itemize}[<+->]
 		\item Erstmal: Volle Punktzahl ist utopisch. Fehler macht man, um draus zu lernen – dazu sind ÜBs da
-		\item \textbf{Einfachstes} Beispiel für $(A \setminus (B \setminus C)) \setminus D = (A \setminus B) \setminus (C \setminus D)$? \only<beamer:0>{\\ \impl $A = B = C = D = \emptyset$.}
-		\item Für eine Menge $A$ ist $\setsize{A + x}$ nicht definiert! \\
-		Passt mit euren \textbf{Operatoren} auf: \impl $\setsize{A \cup \set{x}}$
-		\item Wenn keine Begründung/Beweis gefordert ist, müsst ihr keinen angeben. („Geben Sie an...“ / „Was ist...“)
 		\item Nicht mehrere Alternativen angeben, unter denen ich mir die richtige heraussuchen soll. (That's \emph{your} job!)
-		\mycomment{\item \textbf{TACKERN} und \textbf{DECKBLÄTTER}! Sonst \alert{\textbf{null Punkte}}!}
-		\daniel{\item Bitte die Aufgabenblätter \textbf{nicht} mitabgeben (Deckblatt reicht), sonst wird mein Stapel so fett. \smiley}
 	\end{itemize}
-	\thasse{\FalseQuestionE{Ein Beispiel langt als Beweis.}{...bis ein anderes Beispiel herkommt, bei dem es kaputt geht... \\
-			\impl eine Behauptung \textbf{widerlegen} geht mit nem Beispiel sehr gut!}}
 \end{frame}
 
-\mycomment{  % Keine Zeit... Auch nicht sehr nötig diesmal...
-	\begin{frame}[t]{Übungsblätter: Häufige Fehler \daniel{und anderer Kram}}
-		
-		\TrueQuestionE{Beweise fängt man mit der Behauptung an.}{}
-		\FalseQuestionE{Wenn wir $A$ schreiben, ist das immer eine Menge, \\ und $f, g$ sind immer Funktionen.}{Das muss man \textbf{explizit} angeben.}
-		\FalseQuestionE{Ein Beispiel langt als Beweis.}{...bis ein anderes Beispiel herkommt, bei dem es kaputt geht... \\
-			\impl eine Behauptung \textbf{widerlegen} geht mit nem Beispiel sehr gut!}
-		%Mit einem Beispiel kann man eine Behauptung widerlegen, es zeigt aber nicht die Allgemeingültigkeit}
-		\FalseQuestionE{$\setsize{M} = M$ für $M \subseteq \N$.}{$\setsize{M}$ ist die \textbf{Anzahl} der Elemente in $M$. Nix mit „Betrag“.}
-		
-		\medskip
-		
-		\uncover<9->{Passt auf, was eure Variablen sind und welche Operationen ihr darauf anwenden könnt. Mengen kann man nicht mit $\bund$ und $\boder$ verknüpfen und auch keine \impl dazwischen tun.}
-		
-	\end{frame}
+\begin{frame}[t]{Übungsblätter: Häufige Fehler \daniel{und anderer Kram}}
+	
+	\TrueQuestionE{Beweise fängt man mit der Behauptung an.}{}
+	\FalseQuestionE{Wenn wir $A$ schreiben, ist das immer eine Menge, \\ und $f, g$ sind immer Funktionen.}{Das muss man \textbf{explizit} angeben.}
+	\FalseQuestionE{Ein Beispiel langt als Beweis.}{...bis ein anderes Beispiel herkommt, bei dem es kaputt geht... \\
+		\impl eine Behauptung \textbf{widerlegen} geht mit nem Beispiel sehr gut!}
+	%Mit einem Beispiel kann man eine Behauptung widerlegen, es zeigt aber nicht die Allgemeingültigkeit}
+
+	
+	\medskip
+	
+	\uncover<8->{Passt auf, was eure Variablen sind und welche Operationen ihr darauf anwenden könnt. Mengen kann man nicht mit $\bund$ und $\boder$ verknüpfen und auch keine \impl dazwischen tun.}
+	
+\end{frame}
 }
 
 
@@ -74,11 +65,72 @@
 	\end{block}
 	}
 \end{frame}
+\begin{frame}[t]{Wahr oder Falsch?}
+	\FalseQuestionE{Eine Funktion muss linkseindeutig sein.}{\impl Eine Funktion muss rechtseindeutig \textbf{und linkstotal} sein.}
+	\TrueQuestion{Eine injektive Funktion ist linkseindeutig.}
+	\TrueQuestion{Eine surjektive Funktion ist rechtstotal.}
+	\FalseQuestion{Jede Relation ist eine Funktion.}
+	\TrueQuestion{Jede Funktion ist eine Relation.}
+\end{frame}
 
 
-\input{../Bloecke/Relationen1b.tex}
+\input{./Relationen.tex}
+
+%Springerzugaufgabe von ÜB 01 WS 22/23
+\begin{frame}{Springerzüge}
+	\begin{block}{Aufgabe}
+		Sei $B = \set{(a, b) \in \N \times \N \mid 1 \leq a \leq 8 \text{ und } 1 \leq b \leq 8}$
+		die Formailiserung eines Schachbrettes.
+		Das schwarze Feld a1 hat die Koordinaten $(1, 1)$ 
+		und das weiße Feld b1 die Koordinaten $(2, 1)$.
+
+		\begin{alist}
+			\item Geben Sie die Menge $S \subseteq B$ aller schwarzen Felder an, ohne diese erschöpfend aufzuzählen.
+			\item Geben Sie die Menge $R \subseteq B \times B$ an, die genau alle möglichen Springerzüge enthält, 
+			ohne diese erschöpfend aufzuzählen.
+			\item Geben Sie die Menge aller Springerzüge, die auf einem schwarzen Feld starten als Mengenausdruck,
+			 ohne Klassentermschreibweise (set comprehension) zu verwenden.
+		\end{alist}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Springerzüge}
+	\centering
+	\includegraphics[height=6cm]{./Screenshot 2023-11-08 110527.png}
+\end{frame}
+
+\begin{frame}{Springerzüge}
+	\begin{block}{Aufgabe + Lösung}
+		Sei $B = \set{(a, b) \in \N \times \N \mid 1 \leq a \leq 8 \text{ und } 1 \leq b \leq 8}$
+		die Formailiserung eines Schachbrettes.
+		Das schwarze Feld a1 hat die Koordinaten $(1, 1)$ 
+		und das weiße Feld b1 die Koordinaten $(2, 1)$.
+		\visible<+(-1)>{}
+		\begin{alist}
+			\item Geben Sie die Menge $S \subseteq B$ aller schwarzen Felder an, ohne diese erschöpfend aufzuzählen. \\
+			\visible<+-|handout:2->{
+				$S = \set{(a, b) \in B \mid a + b \text{ ist gerade}}$
+			}
+			\item Geben Sie die Menge $R \subseteq B \times B$ an, die genau alle möglichen Springerzüge enthält, 
+			ohne diese erschöpfend aufzuzählen. \\
+			\visible<+-|handout:2->{
+				Die Menge 
+				$R = \set{((a_1, b_1), (a_2, b_2)) \in B \times B \mid \size{a_1 - a_2} + \size{b_1 - b_2} = 3 \wedge (\size{a_1 - a_2}) \in \set{1, 2}}$
+				erfüllt die Bedingung.
+			}
+			\item Geben Sie die Menge aller Springerzüge, die auf einem schwarzen Feld starten als Mengenausdruck,
+			 ohne Klassentermschreibweise (\emph{Set-Comprehension}) zu verwenden. \\
+			 \visible<+-|handout:2->{
+				$R \cap (S \times B)$
+			}
+		\end{alist}
+	\end{block}
+\end{frame}
+
+\input{./binaryOperation.tex}
 
 \input{../Bloecke/Woerter.tex}
+
 
 \appendix
 \beginbackup
@@ -89,8 +141,8 @@
 	\begin{block}{Was ihr nun wissen solltet}
 		\begin{itemize}
 			\item Wie man mit Relationen umgeht
-			\item Welche Eigenschaften Relationen haben können
-			\item Was Abbildungen sind und welche Eigenschaften sie haben können
+% 			\item Welche Eigenschaften Relationen haben können
+% 			\item Was Abbildungen sind und welche Eigenschaften sie haben können
 			\item Wie man mit Wörtern rechnet
 		\end{itemize}
 	\end{block}

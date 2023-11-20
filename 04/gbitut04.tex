@@ -1,7 +1,8 @@
+% !TeX root = gbitut04.tex
 %beamer
 
 % Comment/uncomment this line to toggle handout mode
-%\newcommand{\handout}{}
+\newcommand{\handout}{}
 
 \input{../framework/PraeambelTut.tex}
 
@@ -9,6 +10,121 @@
 
 \begin{document}
 \starttut{4}
+
+\begin{frame}{Zu Blatt \#3}
+	
+	Schnitt: \quad 17 / 22~P
+	
+	\pause
+	\begin{figure}
+	    \centering
+	    \includegraphics[scale=0.45]{./Punkteverteilung.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Zu Blatt \#3}{Aufgabe 3.1 a) ii)}
+    Beweisen Sie folgende Äquivalenz mittels Äquivalenzumformungen:
+    $$ \alA \bimp \alB \equiv \bnot \alB \bimp \bnot \alA $$
+    % $$ F_1 = \left(\left(\left(\alB \bimp \alA \right) \boder \alB \right) \bimp (\bnot \alA)\right) \bund \alB$$
+    Lösung:
+    \[ \alA \bimp \alB \equiv \bnot \alA \boder \alB \equiv \alB \boder \bnot \alA \equiv \bnot \bnot \alB \boder \bnot \alA \equiv \bnot \alB \bimp \bnot \alA \]
+    oder
+    \begin{align*}
+        \alA \bimp \alB &\equiv \bnot \alA \boder \alB \\
+        &\equiv \alB \boder \bnot \alA \\
+        &\equiv \bnot \bnot \alB \boder \bnot \alA \\
+        &\equiv \bnot \alB \bimp \bnot \alA
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Zu Blatt \#3}{Aufgabe 3.4 b)}
+        \begin{align*}
+            f_0 &= 0 \\
+            f_1 &= 1 \\
+            f_{n+1} &= f_n + f_{n-1} \\
+        \end{align*}
+
+    	Behauptung: \[\forall n \in \N_+ : f_n \le \left(\frac{7}{4}\right)^{n-1}\]
+	\pause
+	\begin{block}{Induktionsanfang}
+		$n = 1$: $f_n = f_1 = 1 \le \left(\frac{7}{4}\right)^{0} = 1$. \;
+		$n = 2$: $f_n = f_2 = 1 \le \left(\frac{7}{4}\right)^{1} = \frac{7}{4}$. \;
+		\textbf{\checked}
+	\end{block}
+\end{frame}
+
+\begin{frame}[t]	
+	\begin{block}{Induktionsvoraussetzung}
+		Für festes, aber beliebiges $n \in \N_0$ gelte: $f_n \le \left(\frac{7}{4}\right)^{n-1}$ und $f_{n-1} \le \left(\frac{7}{4}\right)^{n-2}$.
+	\end{block}
+    \pause
+	\uncover<+->{}
+	\begin{block}{Induktionsschritt}
+		Zeige die Aussage für $n+1$:\\
+		\begin{align*}
+			f_{n+1} &\stackrel{\text{Def.}}{=} f_{n} + f_{n-1} \\
+				&\stackrel{\text{IV}}{\le} \left(\frac{7}{4}\right)^{n-1} + \left(\frac{7}{4}\right)^{n-2}\\
+				&= \left(\frac{7}{4}\right)^{n-2} \cdot \left(1 + \frac{7}{4}\right)
+				= \left(\frac{7}{4}\right)^{n-2} \cdot \left(\frac{44}{16}\right) \\
+				&\le \left(\frac{7}{4}\right)^{n-2} \cdot \left(\frac{49}{16}\right)
+				= \left(\frac{7}{4}\right)^{n-2} + \left(\frac{7}{4}\right)^{2}
+				= \left(\frac{7}{4}\right)^{n} \qed
+		\end{align*}
+	\end{block}
+\end{frame}
+
+% Induktion Wörter Länge
+% \begin{frame}{Induktion mit Wörtern}
+% 	\begin{block}{Behauptung}
+% 		Seien $A, B$ zwei beliebige Alphabete. Definiere die Funktion $f \from A^* \functionto A^*$,
+% 		\begin{align*}
+% 			f(\eps) &:= \eps \\
+% 			\text{Für } w \in A^*, a \in A: \quad f(a \* w) &:= 
+% 			\begin{cases}
+% 				a \* f(w), &a \in B \\
+% 				f(w), &\text{sonst}
+% 			\end{cases}\\
+% 		\end{align*}
+	
+% 	Dann gilt $\forall w \in A^*: \size{f(w)} \le \size w$.
+% 	\end{block}
+% \end{frame}
+
+% \begin{frame}{Und jetzt mit Wörtern}
+% 	Induktion über die Wortlänge ($n = \size w$):\\[0.5em]
+% 	\pause
+% 	\begin{block}{Induktionsanfang}
+% 		$n = 0$: Nur das leere Wort hat Länge 0. Also $w = \eps$.\\
+% 		$f(\eps) = \eps \impl \size{f(w)} = \size w = 0$. \; \textbf{\checked}
+% 	\end{block}
+% 	\pause
+% 	\begin{block}{Induktionsvoraussetzung}
+% 		Für \textbf{ein} $n \in \N_0$ gelte: Für alle Wörter der Länge $n$ über $A$ (also $w \in A^n$) ist $\size{f(w)} \le \size w$.
+% 	\end{block}
+% \end{frame}
+
+% \begin{frame}{Und jetzt mit Wörtern}
+% 	\begin{block}{Induktionsschritt}
+% 		Zeige die Aussage für $n+1$:\\
+% 		Sei $w \in A^{n+1}$ ein Wort der Länge $n+1$.\\
+% 		\pause
+% 		Dann teilen wir es auf in $w = a \* v$, wobei $a \in A$ und $v \in A^n$.\\
+% 		Nach IV gilt: $\size{f(v)} \le \size v$.\\
+% 		\pause
+% 		\smallskip
+% 		\textbf{Fall 1}: \\
+% 			\quad $a \in B$: $f(w) = a \* f(v)$ \\
+% 			\quad \impl $\size{f(w)} = 1 + \size{f(v)} \le 1 + \size v = 1+n = \size w$.\\
+% 		\pause
+% 		\smallskip
+% 		\textbf{Fall 2}: \\
+% 			\quad $a \notin B$: $f(w) = f(v)$ \\
+% 			\quad \impl $\size{f(w)} = \size{f(v)} \le \size v = n \le n+1 = \size w$.\\
+% 		\pause
+% 		\smallskip
+% 		Also gilt: $\size{f(w)} \le \size w. \qed$
+% 	\end{block}
+% \end{frame}
 
 
 
@@ -33,11 +149,14 @@
  	\FalseQuestionE{$\alA \boder \alB = \alB \boder \alA$}{Das sind syntaktisch verschiedene AL-Formeln!}
  	\TrueQuestion{$\alA \boder \alB \equiv \alB \boder \alA$}
  	% \TrueQuestion{Der AL-Kalkül ist vollständig und korrekt.}  % Wurde noch gar nicht erklärt...!?
- 	\TrueQuestion{Es gibt unendlich viele Axiome im Aussagenkalkül.}
- 	\FalseQuestion{$\bleftBr \word G \bimp \word H \brightBr \; \vdash \;  \bleftBr \word H \bimp \word G \brightBr$}
+%  	\TrueQuestion{Es gibt unendlich viele Axiome im Aussagenkalkül.}
+%  	\FalseQuestion{$\bleftBr \word G \bimp \word H \brightBr \; \vdash \;  \bleftBr \word H \bimp \word G \brightBr$}
  	\FalseQuestion{Induktion kann man nur auf Zahlen anwenden.}
 \end{frame}
 
+
+
+\input{../Bloecke/Induktion.tex}
 \input{../Bloecke/FormaleSprachen.tex}
 
 
@@ -90,6 +209,59 @@
 \appendix
 \beginbackup
 
+% Induktion Wörter Länge
+\begin{frame}{Induktion mit Wörtern}
+	\begin{block}{Behauptung}
+		Seien $A, B$ zwei beliebige Alphabete. Definiere die Funktion $f \from A^* \functionto A^*$,
+		\begin{align*}
+			f(\eps) &:= \eps \\
+			\text{Für } w \in A^*, a \in A: \quad f(a \* w) &:= 
+			\begin{cases}
+				a \* f(w), &a \in B \\
+				f(w), &\text{sonst}
+			\end{cases}\\
+		\end{align*}
+	
+	Dann gilt $\forall w \in A^*: \size{f(w)} \le \size w$.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Und jetzt mit Wörtern}
+	Induktion über die Wortlänge ($n = \size w$):\\[0.5em]
+	\pause
+	\begin{block}{Induktionsanfang}
+		$n = 0$: Nur das leere Wort hat Länge 0. Also $w = \eps$.\\
+		$f(\eps) = \eps \impl \size{f(w)} = \size w = 0$. \; \textbf{\checked}
+	\end{block}
+	\pause
+	\begin{block}{Induktionsvoraussetzung}
+		Für \textbf{ein} $n \in \N_0$ gelte: Für alle Wörter der Länge $n$ über $A$ (also $w \in A^n$) ist $\size{f(w)} \le \size w$.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Und jetzt mit Wörtern}
+	\begin{block}{Induktionsschritt}
+		Zeige die Aussage für $n+1$:\\
+		Sei $w \in A^{n+1}$ ein Wort der Länge $n+1$.\\
+		\pause
+		Dann teilen wir es auf in $w = a \* v$, wobei $a \in A$ und $v \in A^n$.\\
+		Nach IV gilt: $\size{f(v)} \le \size v$.\\
+		\pause
+		\smallskip
+		\textbf{Fall 1}: \\
+			\quad $a \in B$: $f(w) = a \* f(v)$ \\
+			\quad \impl $\size{f(w)} = 1 + \size{f(v)} \le 1 + \size v = 1+n = \size w$.\\
+		\pause
+		\smallskip
+		\textbf{Fall 2}: \\
+			\quad $a \notin B$: $f(w) = f(v)$ \\
+			\quad \impl $\size{f(w)} = \size{f(v)} \le \size v = n \le n+1 = \size w$.\\
+		\pause
+		\smallskip
+		Also gilt: $\size{f(w)} \le \size w. \qed$
+	\end{block}
+\end{frame}
+
 \section{Zusammenfassung und Ausblick}
 
 \begin{frame}	
@@ -117,11 +289,10 @@
 \only<handout:0>{\slideThanks}
 
 % TODO 
-\thassedaniel{
 	\xkcdframevert{953}{Danke für eure Aufmerksamkeit! \smiley}{2.5}
-}{
-	\xkcdframe{1516}{Win by Induction}{1.5}
-}
+
+% 	\xkcdframe{1516}{Win by Induction}{1.5}
+
 
 \only<beamer:0>{\slideThanks}
 

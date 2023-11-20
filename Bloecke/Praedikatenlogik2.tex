@@ -1,7 +1,7 @@
 
 \section{Prädikatenlogik: Semantik}
 
-\begin{frame}[t]{Interpretationen}
+\begin{frame}{Interpretationen}
 	\begin{block}{Interpretation $(D,I)$}
 		\begin{itemize}
 			\item nichtleere Menge $D$ \quad „Universum“
@@ -10,27 +10,27 @@
 			\item $I(\word R_i) \subseteq D^k$ \; Relation auf D \quad ($k$: Stelligkeit von $\word R_i$)
 			\item \textbf{KEINE} Werte für Variablen!
 		\end{itemize}
-		Beispiel: \\
-		\only<all:1>{
-			\begin{itemize}
-				\item $D = \N_0$
-				\item $I(\word c) = 42$
-				\item $\ar(\word f) = 1$, \\ $I(\word f) \from \N_0 \functionto \N_0, \, I(\word f)(n) = n+2$
-				\item $\ar(\word R) = 2$, \; $I(\word R) = \set{(n, m) \Mid 2n \geq m }$ 
-			\end{itemize}
-		}
-		\visible<all:2>{
-			\begin{itemize}
-				\item $D = \text{Alle Menschen} \cup \text{Alle Namen}$
-				\item $I(\word{knuth}) = \text{Donald E. Knuth}$
-				\item $\ar(\word{vorname}) = 1$, \\ $I(\word {vorname}) \from D \functionto D, \, I(\word {vorname})(\text{Donald E. Knuth}) = \word{Donald}$, ....
-				\item $\ar(\word {bekannt}) = 1$, \; $I(\word {bekannt}) = \set{\text{Donald E. Knuth, Donald Trump, ...}}$
-			\end{itemize}
-		}
-	\end{block}
+    \end{block}
+\end{frame}
+\begin{frame}{Interpretationen}
+    \begin{exampleblock}{Beispiel}
+        \begin{itemize}
+            \item $D = \N_0$
+            \item $I(\word c) = 42$
+            \item $\ar(\word f) = 1$, \\ $I(\word f) \from \N_0 \functionto \N_0, \, I(\word f)(n) = n+2$
+            \item $\ar(\word R) = 2$, \; $I(\word R) = \set{(n, m) \Mid 2n \geq m }$ 
+        \end{itemize}
+        \pause
+        \begin{itemize}
+            \item $D = \text{Alle Menschen} \cup \text{Alle Namen}$
+            \item $I(\word{knuth}) = \text{Donald E. Knuth}$
+            \item $\ar(\word{vorname}) = 1$, \\ $I(\word {vorname}) \from D \functionto D, \, I(\word {vorname})(\text{Donald E. Knuth}) = \word{Donald}$, ....
+            \item $\ar(\word {bekannt}) = 1$, \; $I(\word {bekannt}) = \set{\text{Donald E. Knuth, Donald Trump, ...}}$
+        \end{itemize}
+	\end{exampleblock}
 \end{frame}
 
-\begin{frame}{Variablenbelegungen, Auswertung}
+\begin{frame}{Variablenbelegungen}
 	\begin{block}{Variablenbelegung $\beta \from \VPL \functionto D$}
 		Mehrere verschiedene für eine feste Interpretation $(D,I)$ möglich! \\
 		Beispiel: \\
@@ -39,7 +39,8 @@
 			\item $\beta_2(\word x) = 2$ und $\beta_2(\word y) = 10000$ 
 		\end{itemize}
 	\end{block}
-	\pause
+ \end{frame}
+\begin{frame}{Auswertung}
 	\begin{block}{Auswertung}
 		$\valDIb$ \quad „Auswertungsfunktion“ \\
 		\begin{itemize}

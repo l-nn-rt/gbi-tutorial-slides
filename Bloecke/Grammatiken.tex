@@ -1,6 +1,5 @@
 \section{Kontextfreie Grammatiken}
 \begin{frame}{Kontextfreie Grammatiken}
-	
 	\begin{Definition}
 		Eine \textbf{kontextfreie Grammatik} ist ein 4-Tupel $G = (N, T, S ,P)$ mit
 		\begin{itemize}
@@ -10,9 +9,9 @@
 			\item[$P$] Produktionsmenge ($P \subseteq N \times (N \cup T)^\ast$)
 		\end{itemize}
 	\end{Definition}
-
-	\pause
-	\begin{Beispiel}
+ \end{frame}
+ \begin{frame}{Kontextfreie Grammatiken}
+        \begin{Beispiel}
 		Sei $A$ das deutsche Alphabet (mit Klein-/Großbuchstaben).\\
 		$G_{MI} := \left(\{S, M, I, N\}, \, A \cup \N_+, \, S, \, P\right)$ mit
 		\begin{align*}
@@ -36,12 +35,14 @@
 		Mehrere Möglichkeiten zur Auswahl: \\
 		\qquad $L \to [\text{rechte Seite}]_1 \mid [\text{rechte Seite}]_2 \mid [\text{rechte Seite}]_3 \mid ...$ \\
 		Heißt: $L$ kann durch die rechte Seite 1, 2 oder 3 ersetzt werden. \textbf{Wie wir wollen.} \\
-		\pause
-		\begin{Beispiel}
-			$S \to \word aB\word x \mid \word{zz}$ \\
-			\impl $S$ kann durch $\word aB\word x$ oder \word{zz} ersetzt werden.
-		\end{Beispiel}
 	\end{block}
+\end{frame}
+
+\begin{frame}{Kontextfreie Grammatiken}
+    \begin{Beispiel}
+        $S \to \word aB\word x \mid \word{zz}$ \\
+        \impl $S$ kann durch $\word aB\word x$ oder \word{zz} ersetzt werden.
+    \end{Beispiel}
 \end{frame}
 
 \begin{frame}{Ableitungen von Wörtern}

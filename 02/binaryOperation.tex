@@ -1,0 +1,51 @@
+\section{Binäre Operationen}
+
+\begin{frame}{Definition}
+    \begin{block}{Definition}
+          Eine \textbf{binäre Operation} auf einer Menge $A$ ist eine Abbildung $\diamond: A \times A \to A$.
+    \end{block}
+\end{frame}
+
+
+
+\begin{frame}{Eigenschaften von binären Operationen}
+  \begin{block}{Assoziativ}
+    Eine binäre Operation $\diamond: A \times A \to A$ auf einer Menge A heißt \textbf{assoziativ}, wenn für alle $a, b, c \in A$ gilt:
+    \begin{center}
+        $a \diamond (b \diamond c) = (a \diamond b) \diamond c$
+    \end{center}
+  \end{block}
+  \begin{block}{Kommutativ}
+    Eine binäre Operation $\diamond: A \times A \to A$ auf einer Menge A heißt \textbf{kommutativ}, wenn für alle $a, b \in A$ gilt:
+    \begin{center}
+        $a \diamond b = b \diamond a$
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Aufgabe 3}
+        Auf $\Z \times \Z$ sei eine binäre Operation $\diamond: (\Z \times \Z)^2 \to \Z \times \Z$ wie folgt für alle Paare $(x_1, y_1),(x_2, y_2) \in \Z \times \Z$ definiert:
+        \begin{center}
+            $(x_1, y_1) \diamond (x_2, y_2) = (x_1 y_2, x_2y_1)$.
+        \end{center}
+        \visible<+(-1)>{}
+    
+        \begin{alist}
+            \item Zeigen Sie, dass $\diamond$ nicht kommutativ ist. \\
+            \visible<+-|handout:2->{
+            $(1,0)\diamond(1,1)=(1,0)\neq(0,1)=(1,1)\diamond(1,0)$
+            }
+            \item Zeigen Sie, dass $\diamond$ nicht assoziativ ist. \\
+            \visible<+-|handout:2->{
+            $((1,1)\diamond(1,1))\diamond(1,0)=(1,1)\diamond(1,0)=(0,1)\neq(1,0)=(1,1)\diamond(0,1)=(1,1)\diamond((1,1,)\diamond(1,0))$
+            }
+            \item Geben Sie eine \textit{unendliche} Menge $K \subset \Z \times \Z$ an, für die folgendes gilt: Wenn $k_1, k_2 \in K$ sind, dann gilt $k_1 \diamond k_2 = k_2 \diamond k_1$ \\
+            \visible<+-|handout:2->{
+            z.B. $K = \{(x,x)\mid x \in \Z \}$
+            }
+            \item Beweisen Sie, dass Ihr $K$ die in Teilaufgabe c) verlangte Eigenschaft hat.\\
+            \visible<+-|handout:2->{
+                Für jede $(x,x),(y,y) \in K$ gilt: $(x,x)\diamond(y,y)=(xy,xy)=(y,y)\diamond(x,x)$.
+            }
+        \end{alist}
+\end{frame}

@@ -163,28 +163,28 @@
 	\end{tabbing}
 \end{frame}
 
-\begin{frame}{Übung: Modulo 3}
-	Schreibe ein Programm, das eine an Speicheradresse $a_1$ gegebenen positive Zahl Modulo \textbf{3} (drei!) rechnet und an Adresse $a_2$ ablegt.
-\end{frame}
+% \begin{frame}{Übung: Modulo 3}
+% 	Schreibe ein Programm, das eine an Speicheradresse $a_1$ gegebenen positive Zahl Modulo \textbf{3} (drei!) rechnet und an Adresse $a_2$ ablegt.
+% \end{frame}
 
-\begin{frame}{Lösung: Modulo 3}
-  \begin{tabbing}
-    start: \quad \= LDC 1 \\
-           \> STV One\\
-           \> LDC 3\\
-           \> NOT\\
-           \> ADD One\\
-           \> STV MinusThree\\
-           \> LDV $a_1$\\
-    \medskip
-    while: \> ADD MinusThree\\
-           \> JMN end\\
-           \> JMP while\\
-    \medskip
-    end:   \> STV $a_1$\\
-           \> LDC 3\\
-           \> ADD $a_1$\\
-           \> STV $a_2$ \\
-           \> HALT\\
-  \end{tabbing}
-\end{frame}
+% \begin{frame}{Lösung: Modulo 3}
+%   \begin{tabbing}
+%     start: \quad \= LDC 1 \\
+%            \> STV One\\
+%            \> LDC 3\\
+%            \> NOT\\
+%            \> ADD One\\
+%            \> STV MinusThree\\
+%            \> LDV $a_1$\\
+%     \medskip
+%     while: \> ADD MinusThree\\
+%            \> JMN end\\
+%            \> JMP while\\
+%     \medskip
+%     end:   \> STV $a_1$\\
+%            \> LDC 3\\
+%            \> ADD $a_1$\\
+%            \> STV $a_2$ \\
+%            \> HALT\\
+%   \end{tabbing}
+% \end{frame}

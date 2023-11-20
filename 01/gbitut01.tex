@@ -1,19 +1,16 @@
 %beamer
 
-% Start with video if you like it and can get the sound working well:
-% https://www.youtube.com/watch?v=Dy0hJWltsyE
-
 % Comment/uncomment this line to toggle handout mode
-% \newcommand{\handout}{}
+\newcommand{\handout}{}
 
 \input{../framework/PraeambelTut.tex}
 
 \begin{document}
 \starttut{1}
 
-\section{\thassedaniel{Organisatorisches}{Orga-Kram}}
+\section{Organisatorisches}
 
-\aboutMeFrame
+\only<handout:0>{\aboutMeFrame}
 
 \begin{frame}[t]{Was machen wir hier?}
 	\begin{itemize}[<+->]
@@ -53,7 +50,9 @@
 \begin{frame}[t]{Leistungen}
 	\begin{itemize}
 		\item \textbf{Übungsschein}: \\
-			  bestanden, wenn 50~\% der Gesamtpunkte aller Übungsblätter erreicht \\
+			bestanden, wenn 50~\% der Gesamtpunkte aller Übungsblätter erreicht\\
+			min. 40~\% der Punkte der ersten 6 Übungsblätter \\
+			min. 40~\% der Punkte der letzten 6 Übungsblätter \\
 		\item \textbf{Klausur}: \Klausurtermin \\
 			  schriftlich, keine Hilfsmittel. \quad Stay tuned... 
 	\end{itemize}
@@ -65,28 +64,32 @@
 		Teilnahme auch ohne Übungsschein möglich. \\
 		Versuch \textbf{spätestens} im zweiten Semester, bestehen im Dritten!
 	\end{itemize}
-	\pause
-	\DependsQuestionE{Muss ich den Schein machen?}{
-		Infos, InWis, Info-Lehramt: \quad  Ja \\
-		{\small Techno- und Mathematiker, Physiker, Geodäten und Geoinfos:} \quad Vielleicht nicht (?) \\
-		Das alles \textbf{ohne Gewähr}! Eure Fakultäten haben am Ende recht. \\
-		\smallskip
-		\Impl Trotzdem: ÜBs machen lohnt sich. \smiley
-	}
+	% \pause
+	% \DependsQuestionE{Muss ich den Schein machen?}{
+	% 	Infos, InWis, Info-Lehramt: \quad  Ja \\
+	% 	{\small Techno- und Mathematiker, Physiker, Geodäten und Geoinfos:} \quad Vielleicht nicht (?) \\
+	% 	Das alles \textbf{ohne Gewähr}! Eure Fakultäten haben am Ende recht. \\
+	% 	\smallskip
+	% 	\Impl Trotzdem: ÜBs machen lohnt sich. \smiley
+	% }
 \end{frame}
 
+% @todo hier neue regel einfügen
 \begin{frame}{Übungsblätter}
 	\begin{itemize}
-		\item \textbf{Ausgabe}: Freitags im \ILIAS \\
-			  \hstretchto{\textbf{Ausgabe}:}{\textbf{Abgabe}:} Freitag (7 Tage später), 12:30~Uhr, im GBI-Kasten im U-Geschoss des Infobaus
+		\item \textbf{Ausgabe}: Dienstags im \ILIAS \\
+			  \hstretchto{\textbf{Ausgabe}:}{\textbf{Abgabe}:} Freitag (10 Tage später), 12:30~Uhr, im GBI-Kasten im U-Geschoss des Infobaus
 		\pause
+		\begin{block}{Frage}
+			 Möglichkeit zur online Abgabe?
+		\end{block}
 		\item Handschriftlich, \\ 
 		mit \textbf{Deckblatt} (Tutoriums-Nr. \mytutnumber\  drauf!), \\ 
 		\textbf{getackert} abgeben!
 		\item Rechtzeitig! 
 		\item \textbf{Keine} Plagiate (sonst \textbf{Übungsschein weg}!)
 		\item Die \textbf{ersten 6} Übungsblätter in \textbf{Zweiergruppen}
-		\item Übungslätter \textbf{7-12 alleine!} (sonst \textbf{Übungsschein weg}!)
+		\item Übungslätter \textbf{7-12 alleine!} (sonst auch \textbf{Übungsschein weg}!)
 % 		\item \textbf{Rückgabe}: Hier im Tut \\ (Nach zwei Wochen Abholung beim Lehrstuhl. Details tba)
 	\end{itemize}
 \end{frame}
@@ -115,19 +118,20 @@
 			\pause
 			\item Organisatorischer Spezialkram? \impl an Kern/Ulbrich (\mailto{philipp.kern@kit.edu} / \mailto{ulbrich@kit.edu}) \\
 			Bei Orga-Problemen aber \textbf{Name} und \textbf{Matrikelnummer}  mitangeben! \\
-			Fachliches bitte nicht per Mail, lieber \impl Sprechstunde, ILIAS...!
+			Fachliches bitte nicht per Mail, lieber \impl Sprechstunde, \ILIAS...!
 			\item Tut-spezifisches an \textbf{mich} (\mailto{\mymail})
 		\end{itemize}
 	\end{block}
 	\pause
 	\begin{block}{Content}
 		\begin{itemize}
-			\item VL-Folien, Skript, Ü-Blätter, Lösungen, ...: im \ILIAS.
-			\item Archiv: \url{http://gbi.ira.uka.de} \\
-			Altklausuren, Alte ÜBs, ...
+			\item VL-Folien, Skript, Ü-Blätter, Lösungen, ...: im \ILIAS
+			\item Altklausuren, Alte ÜBs, ...: im \ARCHIV\\
 		\end{itemize}
 	\end{block}
 \end{frame}
+
+\only<handout:0>{\aboutYouFrame}
 
 
 
@@ -164,6 +168,8 @@
 \input{../Bloecke/Mengen.tex}
 
 \input{../Bloecke/Relationen1a.tex}
+\input{../Bloecke/Relationen1b.tex}
+
 
 \appendix
 \beginbackup
@@ -173,16 +179,18 @@
 \begin{frame}
 	\begin{block}{Was ihr nun wissen solltet}
 		\begin{itemize}
-			\item wie man mit Mengen umgeht
-			\item wie man mit noch mehr Mengen umgeht
-			\item was Paare sind
-			\item wie man mehr als zwei Elemente geordnet zusammenbringt (Tupel)
-			\item wie man mit Relationen Chaos in die Ordnung bringt
+			\item Wie man mit Mengen umgeht
+			\item Wie man mit noch mehr Mengen umgeht
+			\item Was Paare sind
+			\item Wie man mehr als zwei Elemente geordnet zusammenbringt (Tupel)
+			\item Wie man mit Relationen Chaos in die Ordnung bringt
+			\item Welche Eigenschaften Relationen haben können
+			\item Was Abbildungen sind und welche Eigenschaften sie haben können
 		\end{itemize}
 	\end{block}
 	\begin{block}{Was nächstes Mal kommt}
 		\begin{itemize}
-			\item wie Funktionen funktionieren
+% 			\item wie Funktionen funktionieren
 			\item \textcolor{white}{.}\!% sHAME ON YOU, LATEX!!! I FUCKING HATE YOU!
 				  \word{ada}: eure ersten Wörter als Informatiker 
 		\end{itemize}

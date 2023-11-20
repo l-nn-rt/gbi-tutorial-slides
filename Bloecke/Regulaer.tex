@@ -4,19 +4,18 @@
 %		Use \rx everywhere
 
 % Fuck you, Latex. In my algo tutorial slides, this isn't necessary. Why here then!?
-\begin{frame}[t]
-	\fakeframetitle{\only<2->{Grenzen endlicher Akzeptoren}}
+\begin{frame}[t]{Grenzen endlicher Akzeptoren}
 	Gibt es einen endlichen Akzeptor $A$ mit $$L(A) = \set{ \word a^k\word b^k \Mid k\in \N_0 }?$$
 	\pause
 	Nein! Warum nicht? \visible<3->{Endliche Automaten können nicht unendlich weit „zählen“!}\\
 	
 	Gibt es einen endlichen Akzeptor, der alle gültigen Klammerausdrücke erkennt?\\ \pause
 	Nein, aus dem selben Grund.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.5]{xkcd/tags_1144}
-		{ {\url{https://www.xkcd.com/1144/}} }
-	\end{figure}
+	% \begin{figure}[H]
+	% 	\centering
+	% 	\includegraphics[scale=0.5]{xkcd/tags_1144}
+	% 	{ {\url{https://www.xkcd.com/1144/}} }
+	% \end{figure}
 	\pause
 	Kontextfreie Grammatiken \enquote{können also mehr} als endliche Akzeptoren.\\
 	Wir wollen nun ein \enquote{gleichmächtiges} Konzept zu Akzeptoren.
@@ -74,7 +73,8 @@
 			$= \{\word a,\word b\}^*$.  
 		\end{itemize}
 	\end{Beispiel}
-	\pause
+ \end{frame}
+\begin{frame}{Sprache eines regulären Ausdrucks}
 	\begin{block}{Aufgabe}
 		Gebt einen regulären Ausdruck $R$ an mit $\lang{R} = $  
 		\begin{itemize}
