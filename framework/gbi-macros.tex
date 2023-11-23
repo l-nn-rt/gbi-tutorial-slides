@@ -17,17 +17,24 @@
 \RequirePackage{tikz}
 \usetikzlibrary{arrows.meta}
 \newcommand{\alimpl}{\mathrel{\tikz[x={(0.1ex,0ex)},y={(0ex,0.1ex)},>={Classical TikZ Rightarrow[]}]{\draw[alcolor,->,line width=0.7pt,line cap=round] (0,0) -- (15,0);\path (0,-6);}}}
+\newcommand{\alrimpl}{\mathrel{\tikz[x={(0.1ex,0ex)},y={(0ex,0.1ex)},>={Classical TikZ Leftarrow[]}]{\draw[alcolor,->,line width=0.7pt,line cap=round] (0,0) -- (15,0);\path (0,-6);}}}
 \newcommand{\aleqv}{\mathrel{\tikz[x={(0.1ex,0ex)},y={(0ex,0.1ex)},>={Classical TikZ Rightarrow[]}]{\draw[alcolor,<->,line width=0.7pt,line cap=round] (0,0) -- (18,0);\path (0,-6);}}}
 \newcommand{\aland}{\mathbin{\raisebox{-0.6pt}{\rotatebox{90}{\texttt{\color{alcolor}\char62}}}}}
 \newcommand{\alor}{\mathbin{\raisebox{-0.8pt}{\rotatebox{90}{\texttt{\color{alcolor}\char60}}}}}
 %\newcommand{\ali}[1]{_{\mathtt{\color{alcolor}#1}}}
 \newcommand{\alv}[1]{\mathtt{\color{alcolor}#1}}
 \newcommand{\alnot}{\mathop{\tikz[x={(0.1ex,0ex)},y={(0ex,0.1ex)}]{\draw[alcolor,line width=0.7pt,line cap=round,line join=round] (0,0) -- (10,0) -- (10,-4);\path (0,-8) ;}}}
+\newcommand{\alvdash}{\mathrel{\tikz[x=4pt,y=3pt] {\draw[alcolor,line width=0.7pt,line cap=round,line join=round] (0,0) -- (0,1) -- (1,1) -- (0,1) -- (0,2);}}}
 \newcommand{\alP}{\alv{P}} %ali{#1}}
+\newcommand{\alQ}{\alv{Q}} %ali{#1}}
+\newcommand{\alR}{\alv{R}} %ali{#1}}
+\newcommand{\alS}{\alv{S}} %ali{#1}}
 %\newcommand{\alka}{\negthinspace\hbox{\texttt{\color{alcolor}(}}}
 \newcommand{\alka}{\negthinspace\text{\texttt{\color{alcolor}(}}}
 %\newcommand{\alkz}{\texttt{\color{alcolor})}}\negthinspace}
 \newcommand{\alkz}{\text{\texttt{\color{alcolor})}}\negthinspace}
+\newcommand{\altrue}{\texttt{\textcolor{alcolor}{WAHR}}}
+\newcommand{\alfalse}{\texttt{\textcolor{alcolor}{FALSCH}}}
 \newcommand{\AAL}{A_{AL}}
 \newcommand{\LAL}{\hbox{\textit{For}}_{AL}}
 \newcommand{\AxAL}{\hbox{\textit{Ax}}_{AL}}

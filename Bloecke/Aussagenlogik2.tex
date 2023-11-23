@@ -1,3 +1,30 @@
+
+
+\newcommand{\inferrule}[2]{\displaystyle\frac{\quad #1 \quad}{\quad #2 \quad}}
+\newcommand{\rulename}[1]{{~\textsf{\scriptsize(#1)}}}
+\newcommand{\schlussregeln}{
+	\centering
+	\begin{displaymath}
+		\begin{array}
+			{c@{\hspace{2cm}}c} \displaystyle
+			\inferrule{A \quad B}{A \aland B} \rulename{$\aland$I}
+			 & \inferrule{A \aland B}{A}\rulename{$\aland$E$_l$} \quad
+			\inferrule{A \aland B}{B} \rulename{$\aland$E$_r$}                                \\[2ex]
+			\inferrule{A}{A \alor B}\rulename{$\alor$I$_l$} \quad
+			\inferrule{B}{A \alor B}\rulename{$\alor$I$_r$}
+			 & \inferrule{A \alor B\quad A \alimpl C \quad B \alimpl C}{C}\rulename{$\alor$E} \\[2ex]
+			\inferrule{A \alvdash B}{A \alimpl B}\rulename{$\alimpl$I}
+			 & \inferrule{A \quad A \alimpl B}{B}\rulename{MP}\rulename{$\alimpl$E}           \\[2ex]
+			\inferrule{A \alimpl \alfalse}{\alnot A}\rulename{$\alnot$I}
+			 & \inferrule{A \quad \alnot A}{\alfalse}\rulename{$\alnot$E} \quad
+			\inferrule{\alnot \alnot A}{A}\rulename{$\alnot\alnot$E}
+			\\[2ex]
+			\inferrule{\alnot A \alimpl \alfalse}{A}\rulename{RAA}
+			 & \inferrule{}{A \alvdash A}\rulename{Ax}
+		\end{array}
+	\end{displaymath}
+}
+
 \section{Beweisbarkeit}
 
 \begin{frame}{Modelle}
@@ -17,35 +44,35 @@
 		Schreibe $H \models G$ statt $\set{H} \models G$ \\
 		\medskip
 		Schreibe $\models G$ statt $\set{} \models G$ \\
-		\impl G ist \emph{Tautologie} oder \emph{allgemeingültig} 
+		\impl G ist \emph{Tautologie} oder \emph{allgemeingültig}
 	\end{block}
 \end{frame}
 
 \begin{frame}{Modelle}
 	\begin{Definition}
 		Eine Formel $G$ heißt \textbf{erfüllbar}, wenn für mindestens ein $I$ wahr. \\
-		
+
 	\end{Definition}
-% 	\pause
-% 	\begin{Beispiel}
-% 		Alle Modelle von \mword{(C \boder \bnot C) \bimp \left(\bnot(B \bimp A)\right)}? \\
-% 		\pause
-% 		\impl $I_1, I_2 \from \set{\word A, \word B, \word C} \functionto \BB, \; 
-% 		I_1(v) = 
-% 		\caseslr{\F, & v = \word A \\
-% 				\W, & v = \word B \\
-% 				\W, & v = \word C}, \;
-% 		I_2(v) = 
-% 		\caseslr{\F, & v = \word A \\
-% 				\W, & v = \word B \\
-% 				\F, & v = \word C}$. \\
-% 		\impl Formel \emph{erfüllbar}. \\
-% 		\pause
-% 		\medskip
-% 		Alle Modelle von \mword{\bnot(C \bimp C)}? \\
-% 		\pause
-% 		\impl Gibt keine, Formel \emph{unerfüllbar}.
-% 	\end{Beispiel}
+	\pause
+	\begin{Beispiel}
+		Alle Modelle von \mword{(C \boder \bnot C) \bimp \left(\bnot(B \bimp A)\right)}? \\
+		\pause
+		\impl $I_1, I_2 \from \set{\word A, \word B, \word C} \functionto \BB, \;
+			I_1(v) =
+			\caseslr{\F, & v = \word A \\
+				\W, & v = \word B \\
+				\W, & v = \word C}, \;
+			I_2(v) =
+			\caseslr{\F, & v = \word A \\
+				\W, & v = \word B \\
+				\F, & v = \word C}$. \\
+		\impl Formel \emph{erfüllbar}. \\
+		\pause
+		\medskip
+		Alle Modelle von \mword{\bnot(C \bimp C)}? \\
+		\pause
+		\impl Gibt keine, Formel \emph{unerfüllbar}.
+	\end{Beispiel}
 \end{frame}
 
 \begin{frame}{Tautologie, Äquivalenz}
@@ -67,31 +94,32 @@
 
 \begin{frame}{Tautologie, Äquivalenz}
 	\begin{Beispiel}
-	    \text{ }
+		\text{ }
 		\centered{$\bnot(\bnot G) \bgdw G$ ist Tautologie, also $\bnot(\bnot G) \equiv G$}
 	\end{Beispiel}
 \end{frame}
 
-% \begin{frame}{Der Aussagenkalkül}
-% 	\begin{block}{Was ist ein Kalkül?}
-% 		\begin{itemize}
-% 			\item Ein \emph{Rechensystem}: \; \textbf{Dinge} und was man mit ihnen \textbf{anstellen} darf. \\
-% 			Bsp.: \quad $\R$ und $+, -, \*, /$ \qquad Schachbrett, Figuren und Zugregeln
-% 		\end{itemize}
-% 	\end{block}
-% 	\pause
-% 	\begin{block}{Aussagenkalkül}
-% 		Haben
-% 		\begin{itemize}
-% 			\item Syntaktisch korrekte Formeln $For_{AL}$ \\
-% 			\impl können erfüllbar sein oder nicht 
-% 			\item Davon nennen wir einige bestimmte \textbf{Axiome} \\
-% 			\impl setzen wir als Tautologien voraus
-% 			\item Eine \emph{Schlussregel}: \textbf{Modus Ponens} \\
-% 			...um neue wahre Aussagen zu konstruieren
-% 		\end{itemize}
-% 	\end{block}
-% \end{frame}
+\begin{frame}{Der Aussagenkalkül}
+	\begin{block}{Was ist ein Kalkül?}
+		\begin{itemize}
+			\item Ein \emph{Rechensystem}: \; \textbf{Dinge} und was man mit ihnen \textbf{anstellen} darf. \\
+			      Bsp.: \quad $\R$ und $+, -, \*, /$ \qquad Schachbrett, Figuren und Zugregeln
+		\end{itemize}
+	\end{block}
+	\pause
+	\begin{block}{Aussagenkalkül}
+		Haben
+		\begin{itemize}
+			\item Syntaktisch korrekte Formeln $For_{AL}$ \\
+			      \impl können erfüllbar sein oder nicht
+			\item Davon nennen wir einige bestimmte \textbf{Axiome} \\
+			      \impl setzen wir als Tautologien voraus
+			\item Eine \emph{Schlussregel}: \textbf{Modus Ponens} \\
+			      ...um neue wahre Aussagen zu konstruieren
+		\end{itemize}
+	\end{block}
+\end{frame}
+
 
 % \begin{frame}{Axiome, Modus Ponens}
 % 	\begin{block}{Axiome}
@@ -99,28 +127,28 @@
 % 		Wir bestimmen: Das sind unsere „Basis-Tautologien“.
 % 	\end{block}
 % \end{frame}
-\begin{frame}{Axiome, Modus Ponens}
+
+\begin{frame}{Modus Ponens}
 	\begin{block}{Modus Ponens (MP)}
-		\begin{columns}[T] 
-			\begin{column}[T]{.45\textwidth} 
+		\begin{columns}[T]
+			\begin{column}[T]{.45\textwidth}
 				\begin{itemize}
 					\item<2-> Wenn $G$ gilt
 					\item<2-> und $G \bimp H$ gilt \\ \mbox{}
-					\implitem<2-> dann gilt auch $H$.
-					\item<4-> Schreibweise: \deduction{G \qquad G \bimp H \concludes H} 
+					      \implitem<2-> dann gilt auch $H$.
+					\item<4-> Schreibweise: \deduction{G \qquad G \bimp H \concludes H}
 				\end{itemize}
 			\end{column}
 			\hspace{-2\baselineskip}
-			\begin{column}[T]{.55\textwidth} 
+			\begin{column}[T]{.55\textwidth}
 				\begin{itemize}
 					\item<3-> Wir wissen: „Es regnet.“
 					\item<3-> Wir erinnern uns: \\ „Wenn es regnet, ist die Straße nass.“
-					\implitem<3-> Also wissen wir: „Die Straße ist nass“.
+					      \implitem<3-> Also wissen wir: „Die Straße ist nass“.
 				\end{itemize}
 				\hspace{.6\baselineskip} \only<5->{\fbox{\parbox{.9\linewidth}{Mit MP können wir aus bekannten \\ Wahrheiten neue konstruieren!}}}
 			\end{column}
 		\end{columns}
-		
 	\end{block}
 \end{frame}
 
@@ -136,22 +164,22 @@
 % 			\item<+-> aus syntaktisch korrekten Formeln \emph{Axiome} bilden und hinschreiben
 % 			\item<.-> \emph{Prämissen} aus $\Gamma$ hinschreiben
 % 			\item<.-> aus zwei vorherigen Formeln mit \emph{Modus Ponens} eine neue konstruieren
-% 			\implitem<+-> das machen wir solange, bis wir $G$ konstruiert haben
+% 			      \implitem<+-> das machen wir solange, bis wir $G$ konstruiert haben
 % 		\end{itemize}
 % 	\end{block}
 % \end{frame}
 
 % \begin{frame}{Ableitungen}
 % 	\begin{exampleblock}{Beispiel}   % geklaut aus 2017 ÜB2 A4
-% 		Gegeben sei die Prämissenmenge $\Gamma = \set{\alA \bimp \alB, \, \alA \bimp \bnot \alB}$ und die Formel $F = \bnot \alA$. \\ 
+% 		Gegeben sei die Prämissenmenge $\Gamma = \set{\alA \bimp \alB, \, \alA \bimp \bnot \alB}$ und die Formel $F = \bnot \alA$. \\
 % 		Ableitung $\Gamma \vdash F$: \\
 % 		\begin{tabular}{@{}l@{\;\;}l@{\;\;}l}
-% 			1. & $\alA \bimp \alB$ & Prämisse 1; ist $\in \Gamma$ \\
-% 			2. & $\alA \bimp \bnot \alB$ & Prämisse 2; ist $\in \Gamma$ \\
-% 			3. & $\alka \alA \bimp \alB \alkz \bimp \alka \alka \alA \bimp \bnot \alB \alkz \bimp \bnot \alA \alkz$ & Anwendung von $Ax_{AL3}$ {\small (mit $H = \bnot \alA$ und $G = \bnot \alB$)} \\ 
-% 			& & ({\small  Schema $Ax_{AL3}$:  $\alka \bnot H \bimp \bnot G \alkz \bimp \alka \alka \bnot H \bimp G \alkz \bimp H \alkz $ }) \\
-% 			4. & $\alka \alA \bimp \bnot \alB \alkz \bimp \bnot \alA $ & MP (3, 1) \quad {\small (Modus Ponens mit Formeln 3 und 1)} \\
-% 			5. & $\bnot \alA$ & MP (4, 2) \quad {\small (Modus Ponens mit Formeln 4 und 2)} \\
+% 			1. & $\alA \bimp \alB$                                                                                  & Prämisse 1; ist $\in \Gamma$                                                                                                \\
+% 			2. & $\alA \bimp \bnot \alB$                                                                            & Prämisse 2; ist $\in \Gamma$                                                                                                \\
+% 			3. & $\alka \alA \bimp \alB \alkz \bimp \alka \alka \alA \bimp \bnot \alB \alkz \bimp \bnot \alA \alkz$ & Anwendung von $Ax_{AL3}$ {\small (mit $H = \bnot \alA$ und $G = \bnot \alB$)}                                               \\
+% 			   &                                                                                                    & ({\small  Schema $Ax_{AL3}$:  $\alka \bnot H \bimp \bnot G \alkz \bimp \alka \alka \bnot H \bimp G \alkz \bimp H \alkz $ }) \\
+% 			4. & $\alka \alA \bimp \bnot \alB \alkz \bimp \bnot \alA $                                              & MP (3, 1) \quad {\small (Modus Ponens mit Formeln 3 und 1)}                                                                 \\
+% 			5. & $\bnot \alA$                                                                                       & MP (4, 2) \quad {\small (Modus Ponens mit Formeln 4 und 2)}                                                                 \\
 % 		\end{tabular}
 % 	\end{exampleblock}
 % \end{frame}
@@ -163,11 +191,11 @@
 % 		Schreibweise: \quad $\vdash G$ \qquad „$G$ ist beweisbar“ \\
 % 		Ein solches beweisbares $G$ nennen wir \textbf{Theorem} des Kalküls.
 % 	\end{block}
-% 	\pause 
+% 	\pause
 % 	\begin{block}{Lemma}
 % 		Eine AL-Formel $G$ ist genau dann Tautologie, wenn $G$ ein Theorem des AL-Kalküls ($=$~im Kalkül beweisbar) ist. \\
 % 		\smallskip
-% 		\centered{--- bzw. ---} 
+% 		\centered{--- bzw. ---}
 % 		\smallskip
 % 		Für jede AL-Formel $G$ gilt: \qquad $\models G \; \Gdw \; \vdash G$.\\
 % 	\end{block}
@@ -178,3 +206,118 @@
 % 		Für Formeln $G$, $H$ gilt $G \vdash H$ genau dann, wenn $\vdash \bleftBr G \bimp H \brightBr$.
 % 	\end{block}
 % \end{frame}
+
+\begin{frame}{Schlussregeln}
+	Allgemein schreiben wir Schlussregeln als
+	\begin{align}
+		\inferrule{V_1 \quad V_2 \quad \dots \quad V_n}{C}
+	\end{align}
+	Wenn die Vorraussetzungen $V_1, \dots V_n$ gelten, dann gilt auf die Folgerung $C$.
+	Sie ist gültig wenn man $C$ aus dem Prämissen $\set{V_1, \dots, V_n}$ ableiten kann
+	\begin{align}
+		\set{V_1, \dots, V_n} \models C
+	\end{align}
+\end{frame}
+
+\begin{frame}{Schlussregeln}
+	\schlussregeln
+\end{frame}
+
+
+
+\begin{frame}{Aufgabe}
+	Zeige $\alP \alimpl (\alQ \alimpl \alP)$ mittels natürlichem Schließen.
+
+	\schlussregeln
+\end{frame}
+
+\begin{frame}{Lösung}
+	\begin{prooftree}
+		\def\ScoreOverhang{1em}
+		\def\extraVskip{3pt}
+		\def\fCenter{\mbox{~~$\alvdash$~~}}
+
+		\AxiomC{$~$}
+		\RightLabel{\rulename{Ax}}
+		\UnaryInf $\alP, \alQ \fCenter \alQ$
+
+		\AxiomC{$~$}
+		\RightLabel{\rulename{Ax}}
+		\UnaryInf $\alP, \alQ \fCenter \alP$
+
+		\RightLabel{\rulename{$\aland$I}}
+		\BinaryInf $\alP, \alQ \fCenter \alP \aland \alQ$
+
+		\RightLabel{\rulename{$\aland$E$_l$}}
+		\UnaryInf $\alP, \alQ \fCenter \alP$
+
+		\RightLabel{\rulename{$\alimpl$I}}
+		\UnaryInf $\alP \fCenter \alQ \alimpl \alP$
+
+		\def\fCenter{\mbox{~~$\alQ$~~}}
+		\RightLabel{\rulename{$\alimpl$I}}
+		\UnaryInf $\alP \alimpl (\fCenter \alimpl \alP)$
+	\end{prooftree}
+\end{frame}
+
+\begin{frame}{Aufgabe}
+	Zeige $\alP \equiv \alP \alor \alP$ mittels natürlichem Schließen. \\
+	Welche zwei Aussagen müssen wir dafür zeigen? \pause
+	$\alP \alimpl \alP \alor \alP$ und $\alP \alor \alP\alimpl \alP$
+	\pause
+	\schlussregeln
+\end{frame}
+
+\begin{frame}{Lösung}
+	\begin{prooftree}
+		\def\ScoreOverhang{1em}
+		\def\extraVskip{3pt}
+		\def\fCenter{\mbox{~~$\alvdash$~~}}
+
+		\AxiomC{$~$}
+		\RightLabel{\rulename{Ax}}
+		\UnaryInf $\alP \fCenter \alP$
+		\RightLabel{\rulename{$\alor$I$_l$}}
+		\UnaryInf $\alP \fCenter \alP \alor \alP$
+
+		\def\fCenter{\mbox{~~$\alimpl$~~}}
+		\RightLabel{\rulename{$\alimpl$I}}
+		\UnaryInf $\alP \fCenter \alP \alor \alP$
+	\end{prooftree}
+
+	\begin{prooftree}
+		\def\ScoreOverhang{1em}
+		\def\extraVskip{3pt}
+		\def\fCenter{\mbox{~~$\alvdash$~~}}
+
+		\AxiomC{$~$}
+		\RightLabel{\rulename{Ax}}
+		\UnaryInf $\alP \alor \alP \fCenter \alP \alor \alP$
+
+		\def\fCenter{\mbox{~~$\alvdash$~~}}
+		\AxiomC{$~$}
+		\RightLabel{\rulename{Ax}}
+		\UnaryInf $\alP \fCenter \alP$
+		\def\fCenter{\mbox{~~$\alimpl$~~}}
+		\RightLabel{\rulename{$\alimpl$I}}
+		\UnaryInf $\alP \fCenter \alP$
+
+		\def\fCenter{\mbox{~~$\alvdash$~~}}
+		\AxiomC{$~$}
+		\RightLabel{\rulename{Ax}}
+		\UnaryInf $\alP \fCenter \alP$
+		\def\fCenter{\mbox{~~$\alimpl$~~}}
+		\RightLabel{\rulename{$\alimpl$I}}
+		\UnaryInf $\alP \fCenter \alP$
+
+		\def\fCenter{\mbox{~~$\alvdash$~~}}
+		\RightLabel{\rulename{$\alor$E}}
+		\TrinaryInf $\alP \alor \alP \fCenter \alP$
+
+		\def\fCenter{\mbox{~~$\alimpl$~~}}
+		\RightLabel{\rulename{$\alimpl$I}}
+		\UnaryInf $\alP \alor \alP \fCenter \alP$
+	\end{prooftree}
+\end{frame}
+
+
