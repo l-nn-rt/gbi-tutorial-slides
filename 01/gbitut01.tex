@@ -4,7 +4,7 @@
 % https://www.youtube.com/watch?v=Dy0hJWltsyE
 
 % Comment/uncomment this line to toggle handout mode
-% \newcommand{\handout}{}
+\newcommand{\handout}{}
 
 \input{../framework/PraeambelTut.tex}
 
@@ -13,7 +13,7 @@
 
 \section{\thassedaniel{Organisatorisches}{Orga-Kram}}
 
-\aboutMeFrame
+\only<handout:0>{\aboutMeFrame}
 
 \begin{frame}[t]{Was machen wir hier?}
 	\begin{itemize}[<+->]
@@ -86,7 +86,7 @@
 		\item Rechtzeitig! 
 		\item \textbf{Keine} Plagiate (sonst \textbf{Übungsschein weg}!)
 		\item Die \textbf{ersten 6} Übungsblätter in \textbf{Zweiergruppen}
-		\item Übungslätter \textbf{7-12 alleine!} (sonst \textbf{Übungsschein weg}!)
+		\item Übungslätter \textbf{7-12 alleine!} (sonst auch \textbf{Übungsschein weg}!)
 % 		\item \textbf{Rückgabe}: Hier im Tut \\ (Nach zwei Wochen Abholung beim Lehrstuhl. Details tba)
 	\end{itemize}
 \end{frame}
@@ -129,6 +129,8 @@
 	\end{block}
 \end{frame}
 
+\only<handout:0>{\aboutYouFrame}
+
 
 
 \mycomment{  % No time. Seriously, no.
@@ -165,6 +167,9 @@
 
 \input{../Bloecke/Relationen1a.tex}
 
+\input{../Bloecke/Relationen1b.tex}
+
+
 \appendix
 \beginbackup
 
@@ -173,16 +178,18 @@
 \begin{frame}
 	\begin{block}{Was ihr nun wissen solltet}
 		\begin{itemize}
-			\item wie man mit Mengen umgeht
-			\item wie man mit noch mehr Mengen umgeht
-			\item was Paare sind
-			\item wie man mehr als zwei Elemente geordnet zusammenbringt (Tupel)
-			\item wie man mit Relationen Chaos in die Ordnung bringt
+			\item Wie man mit Mengen umgeht
+			\item Wie man mit noch mehr Mengen umgeht
+			\item Was Paare sind
+			\item Wie man mehr als zwei Elemente geordnet zusammenbringt (Tupel)
+			\item Wie man mit Relationen Chaos in die Ordnung bringt
+			\item Welche Eigenschaften Relationen haben können
+			\item Was Abbildungen sind und welche Eigenschaften sie haben können
 		\end{itemize}
 	\end{block}
 	\begin{block}{Was nächstes Mal kommt}
 		\begin{itemize}
-			\item wie Funktionen funktionieren
+% 			\item wie Funktionen funktionieren
 			\item \textcolor{white}{.}\!% sHAME ON YOU, LATEX!!! I FUCKING HATE YOU!
 				  \word{ada}: eure ersten Wörter als Informatiker 
 		\end{itemize}

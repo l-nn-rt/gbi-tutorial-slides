@@ -78,6 +78,7 @@
 
 \begin{frame}{Hoare-Tripel}
 	\begin{Beispiel}
+        \vspace{0.2\baselineskip}
 		\begin{columns}[T] 
 			\begin{column}[T]{.4\textwidth} 
 				$\assert{x = 5}$ \\
@@ -196,9 +197,9 @@
 \begin{frame}{Beispiel: Berechnung von $\vert x \vert$}
 	
 	
-	\begin{minipage}{0.4\linewidth}
+	\begin{minipage}{0.5\linewidth}
 		Erinnerung:
-		\vspace{-.6\baselineskip}
+		\vspace{-1\baselineskip}
 		\begin{align*}
 		&\assert{ P } \\
 		& \textbf{if } B \textbf{ then} \\
@@ -320,7 +321,7 @@
 	\begin{block}{Schleifeninvarianten}
 		\begin{itemize}
 			\item sind Aussagen, die zu Beginn und Ende jedes Schleifendurchganges gültig sind
-			\item helfen, die Korrektheit eines Programmes zu beweisen
+			% \item helfen, die Korrektheit eines Programmes zu beweisen
 			\item muss man ebenfalls beweisen 
 			\item garantieren nicht die Korrektheit des Programms:\pause \\
 			 Terminierung der Schleife muss zusätzlich gezeigt werden! (nicht in GBI)
@@ -330,42 +331,42 @@
 	
 \begin{frame}{Beispiel Schleifeninvarianten}
 	\begin{columns}
-	\begin{column}[T]{0.49\linewidth}
-	\begin{align*}
-		&\assert{x=a \land y=b}  \\
-		&\assert{ \dots\ } \\
-		&\kw{while } y\not=0 \kw{ do } \\
-		&\qquad\assert{ \dots } \\
-		&\qquad y \gets y-1 \\
-		&\qquad\assert{ \dots } \\
-		&\qquad x \gets x+1 \\
-		&\qquad\assert{ \dots\ } \\
-		&\kw{od } \\
-		&\assert{ \dots\ } \\ \pause
-		&\assert{x=a+b} \\
-	\end{align*}
-	\end{column} 
-	
-	\begin{column}[T]{0.5\linewidth}
-		\visible<2->{
-			\bigskip
-			\begin{block}{Wertetabelle für $a=3$ und $b=4$}
-				\centering
-				\medskip
-				\begin{tabular}{c|cc}	 
-					Durchlauf $i$ & $x$ & $y$ \\ 
-					\hline 
-					0 & 3 & 4 \\
-					1 & 4 & 3 \\
-					2 & 5 & 2 \\
-					3 & 6 & 1 \\
-					4 & 7 & 0 \\
-				\end{tabular}
-			\end{block}
-			\pause
-			Schleifeninvariante: $$ x + y = a + b $$ 
-		}
-	\end{column}
+    	\begin{column}[T]{0.49\linewidth}
+        	\begin{align*}
+        		&\assert{x=a \land y=b}  \\
+        		&\assert{ \dots\ } \\
+        		&\kw{while } y\not=0 \kw{ do } \\
+        		&\qquad\assert{ \dots } \\
+        		&\qquad y \gets y-1 \\
+        		&\qquad\assert{ \dots } \\
+        		&\qquad x \gets x+1 \\
+        		&\qquad\assert{ \dots\ } \\
+        		&\kw{od } \\
+        		&\assert{ \dots\ } \\ 
+        		&\assert{x=a+b} \\
+        	\end{align*}
+    	\end{column} 
+
+        \pause
+        
+    	\begin{column}[T]{0.5\linewidth}
+    			\bigskip
+    			\begin{block}{Wertetabelle für $a=3$ und $b=4$}
+    				\centering
+    				\medskip
+    				\begin{tabular}{c|cc}	 
+    					Durchlauf $i$ & $x$ & $y$ \\ 
+    					\hline 
+    					0 & 3 & 4 \\
+    					1 & 4 & 3 \\
+    					2 & 5 & 2 \\
+    					3 & 6 & 1 \\
+    					4 & 7 & 0 \\
+    				\end{tabular}
+    			\end{block}
+    			\pause
+    			Schleifeninvariante: $$ x + y = a + b $$ 
+    	\end{column}
 	\end{columns}
 \end{frame}
 

@@ -10,20 +10,6 @@
 \begin{document}
 \starttut{9}
 
-\mycomment{
-	\begin{frame}{Zu Blatt \#3}
-		Durchschnitt: \quad etwa \thassedaniel{58}{53}~\% der Punkte \\
-		\begin{itemize}
-			\item \textbf{Induktionen}: Schreibt mir bitte die Aussage hin, über die ihr die Induktion macht. Wenn IV falsch, hab ich sonst keinen Plan, was ihr zeigen wollt.
-			\item \textbf{A3.1}: Schaut euch Injektivität/Surjektivität nochmal an...
-			\item \textbf{A3.2}: Huffman-Bäume: Es werden IMMER die zwei KLEINSTEN Knoten verbunden. Auch „über Kreuz“. 
-			\item \textbf{A3.3}: Terme mit zu vielen Pünktchen („...“) sind keine Definition. \\ Alles, was nicht rekursiv ist, muss falsch sein wegen Klammerausdrücken.
-			\item \textbf{A3.6}: Induktion über $n = \size{w_1} = \size{w_2}$, also beide Wortlängen gleichzeitig, geht NICHT! (Gibt nämlich auch Wörter, wo beide Längen nicht gleich sind... :P)
-			
-		\end{itemize}
-	\end{frame}
-}
-
 \framePrevEpisode
 
 
@@ -36,25 +22,31 @@
 	%	\end{frame}
 	
 \begin{frame}[t]{Wahr oder Falsch?}
-	Sei $\RPL = \{\word R, \word S\}$ mit $\ar(\word R) = 2$ und $\ar(\word S) = 1$, \\
-	$\FPL = \{\word f, \word g\}$ mit $\ar(\word f) = 1$ und $\ar(\word g) = 2$ . \\
-	\TrueQuestionE{$\word{R(y,g(x,y))}$ ist präd.log. syntaktisch korrekt.}{}
-	\FalseQuestionE{$\word{f(S(x))}$ ist präd.log. syntaktisch korrekt.}{Eine Relation kann nicht innerhalb einer Funktion auftauchen: Das geht nur mit Termen, nicht mit atomaren Formeln.}
-	\FalseQuestionE{\enquote{Nicht alle Kinder spielen nicht.} $\equiv \plall \word{x\,(child(x)} \alimpl \word{play(x)}\plkz $}{Der Text sagt nur, dass es mindestens ein Kind gibt, das spielt.}
-	\FalseQuestionE{\enquote{Wenn Person $a$ Person $b$ liebt, liebt $b$ nicht unbedingt $a$.} \\ $\equiv \plall \word a \plall \word b \, \plka \word{liebt(a,b)} \alimpl \alnot \word{liebt(b,a)}\plkz $}{Das hieße, dass es nur unerwiderte Gefühle gäbe. \textit{*schnief*} \\ Richtig wäre $\alnot \plall \word a \plall \word b \,\plka \word{liebt(a,b)} \alimpl \word{liebt(b,a)}\plkz $. \\ Umgeformt: „Es gilt nicht unbedingt, dass wenn $a$ $b$ liebt, dann auch $b$ $a$ liebt.“}
-	%TODO: Eine W/F-Frage zu freien/gebundenen Variablen
+    Sei $\RPL = \{\word R, \word S\}$ mit $\ar(\word R) = 2$ und $\ar(\word S) = 1$, \\
+    $\FPL = \{\word f, \word g\}$ mit $\ar(\word f) = 1$ und $\ar(\word g) = 2$ . \\
+    \TrueQuestionE{$\word{R(y,g(x,y))}$ ist präd.log. syntaktisch korrekt.}{}
+    \FalseQuestionE{$\word{f(S(x))}$ ist präd.log. syntaktisch korrekt.}{Eine Relation kann nicht innerhalb einer Funktion auftauchen: Das geht nur mit Termen, nicht mit atomaren Formeln.}
+    \FalseQuestionE{\enquote{Nicht alle Kinder spielen nicht.} $\equiv \plall \word{x\,(child(x)} \alimpl \word{play(x)}\plkz $}{Der Text sagt nur, dass es mindestens ein Kind gibt, das spielt.}
+    \FalseQuestionE{\enquote{Wenn Person $a$ Person $b$ liebt, liebt $b$ nicht unbedingt $a$.} \\ $\equiv \plall \word a \plall \word b \, \plka \word{liebt(a,b)} \alimpl \alnot \word{liebt(b,a)}\plkz $}{Das hieße, dass es nur unerwiderte Gefühle gäbe. \textit{*schnief*} \\ Richtig wäre $\alnot \plall \word a \plall \word b \,\plka \word{liebt(a,b)} \alimpl \word{liebt(b,a)}\plkz $. 
+    %\\ Umgeformt: „Es gilt nicht unbedingt, dass wenn $a$ $b$ liebt, dann auch $b$ $a$ liebt.“
+    }
+\end{frame}
+\begin{frame}[t]{Wahr oder Falsch?}
+    
+    $F = \plexist \plx \, \plE{\plka \plx \plcomma \ply \plkz}$ \\
+    \TrueQuestionE{$\fv(F) = \set{y}$}{}
+    \FalseQuestionE{$\bv(F) = \emptyset$}{$\bv(F) = \set{\plx}$, $\plx$ ist durch $\plexist$ gebunden}
+    \FalseQuestionE{$F$ ist geschlossen}{$\fv(F) \neq \emptyset$, eine Formel ist genau dann geschlossen, wenn keine freien Variablen vorkommen}
+
+    \FalseQuestionE{$\sigma_{\set{\plx / \plz}}(F) = \plexist \plz \, \plE{\plka \plz \plcomma \ply \plkz}$}{Es dürfen nur freie Variablen substituiert werden}
 	%TODO: Eine W/F-Frage zu PL Substitution
 \end{frame}	
 
 
 
-\thassedaniel{
-	\input{../Bloecke/DrMetaNordpol}
-	\input{../Bloecke/Hoare.tex}
-}{
-	\input{../Bloecke/Hoare.tex}
-	\input{../Bloecke/DrMetaNordpol}
-}
+\input{../Bloecke/Hoare.tex}
+% \input{../Bloecke/DrMetaNordpol}
+
 
 \appendix
 \beginbackup
@@ -82,7 +74,8 @@
 
 
 %% Letzte Seite
-\xkcdframevert{835}{Frohe Weihnachten und bis nächstes Jahr! \smiley}{2.2}
+\xkcdframe{704}{Danke für eure Aufmerksamkeit! \smiley}{2.5}
+%\xkcdframevert{835}{Frohe Weihnachten und bis nächstes Jahr! \smiley}{2.2}
 %\lastframetitled{0.47}{0}{xkcd/christmastree.png}{https://www.xkcd.com/835}{\vspace{-1.66\baselineskip}\\Frohe Weihnachten und einen \\ guten Start ins neue Jahr! \smiley}
 
 \only<beamer:0>{\slideThanks}

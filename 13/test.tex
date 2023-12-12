@@ -1,0 +1,41 @@
+\input{../framework/PraeambelTut.tex}
+
+\begin{document}
+    \begin{frame}{Aufgabe}
+    \vspace{-1.2cm}
+	\begin{center}
+        \begin{tikzpicture}[->,>=stealth,shorten >=1pt,auto,node distance=2.8cm,
+            semithick,initial text={},every initial by arrow/.style={gray}]
+            \tikzstyle{every state}=[]
+            
+            \node[initial,state] (A)                    {$a_1$};
+            \node[state]         (B) [right of=A] 	    {$a_2$};
+            \node[state]         (C) [below of=B] 	    {$a_3$};
+        
+            \node[state]         (E) [right of=C] 	    {$a_5$};
+            \node[state]         (D) [below of=E] 	    {$a_4$};
+            \node[state]         (F) [left of=C] 	    {$a_6$};
+            \node[state, accepting]         (G) [below of=F] 	    {$a_6$};
+            
+            \path 
+            (A)  edge 				 node {$\word (\io\word 0R$} (B)
+            
+            (B)  edge [loop above]   node {$\stackedtight{\word 0\io\word 0L \\ \word 1\io\word 1L}$} (B)
+            (B) edge [bend left=20] node[right] {$\9 \io\word 1R$} (C)
+            (C) edge [bend left=20] node[left] {$\word (\io \word 0L$} (B)
+            (C) edge                node[left] {$\word )\io \word 0L$} (D)
+            (C) edge                node {$\9 \io \9 L$} (F)
+            
+            (D) edge [loop right]   node {$\stackedtight{\word 0\io\word 0L \\ \word 1\io\word 1L}$} (D)
+            (D) edge                node[right] {$\9 \io \9R$} (E)
+
+            
+            (E) edge                node {$\word 1 \io \9bR$} (C)
+            
+            (F) edge [loop left]    node {$\word 0 \io \word 0 L$} (F)
+            (F) edge                node[left] {$\9 \io \9 R$} (G)
+            ;
+        \end{tikzpicture}
+    \end{center}
+\end{frame}
+\end{document}

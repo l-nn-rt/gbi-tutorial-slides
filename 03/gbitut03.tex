@@ -10,16 +10,20 @@
 \begin{document}
 \starttut{3}
 
+\begin{frame}{Zu Blatt \#2}
+	
+	Schnitt: \quad 12 / 21~P
+	
+	\pause
+	\begin{figure}
+	    \centering
+	    \includegraphics[scale=0.45]{./Punkteverteilung.pdf}
+	\end{figure}
+\end{frame}
+
 \framePrevEpisode
 
 \subsection{Wahr oder Falsch?}
-\begin{frame}[t]{Wahr oder Falsch?}
-	\FalseQuestionE{Eine Funktion muss linkseindeutig sein.}{\impl Eine Funktion muss rechtseindeutig \textbf{und linkstotal} sein.}
-	\TrueQuestion{Eine injektive Funktion ist linkseindeutig.}
-	\TrueQuestion{Eine surjektive Funktion ist rechtstotal.}
-	\FalseQuestion{Jede Relation ist eine Funktion.}
-	\TrueQuestion{Jede Funktion ist eine Relation.}
-\end{frame}
 
 \begin{frame}[t]{Wahr oder Falsch?}
 	\delimitershortfall=0pt
@@ -27,6 +31,14 @@
 	\FalseQuestionE{$\setsize{\{ \eps \}} = 0$}{$\{ \eps \} \neq \{\}$}
 	\FalseQuestionE{Wenn $\eps \in A^*$, dann $\size{\eps^3} = 3$.}{$\size{\eps^3} = 0$; außerdem gilt $\eps \in A^*$  immer, also für alle Alphabete $A$.}
 \end{frame}
+
+
+
+
+
+\input{../Bloecke/Aussagenlogik.tex}
+
+\input{../Bloecke/Aussagenlogik2}
 
 \section{Induktive Definitionen}
 
@@ -53,14 +65,14 @@
 		\end{align*}
 		\pause
 		\vspace{-\baselineskip}
-		\begin{table}
-			\centering
-			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-				\hline
-				$n$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ \hline
-				$\Fib_n$ & 0 & 1 & 1 & 2 & 3 & 5 & 8 & 13 & 21 & 34 \\ \hline
-			\end{tabular}
-		\end{table}
+% 		\begin{table}
+% 			\centering
+% 			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+% 				\hline
+% 				$n$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ \hline
+% 				$\Fib_n$ & 0 & 1 & 1 & 2 & 3 & 5 & 8 & 13 & 21 & 34 \\ \hline
+% 			\end{tabular}
+% 		\end{table}
 		
 		\pause
 		\textbf{Wohldefiniertheit}: 
@@ -74,10 +86,6 @@
 \end{frame}
 
 \input{../Bloecke/Induktion.tex}
-
-\input{../Bloecke/Aussagenlogik.tex}
-
-\input{../Bloecke/Aussagenlogik2}
 
 \appendix
 \beginbackup

@@ -1,0 +1,107 @@
+
+% This is a configuration file with personal tutor information.
+% It is therefore excluded from the git repository, so changes in this file will not conflict in git commits.
+
+% Copy this template, rename to config.tex and add your information below.
+
+\newcommand{\myname}{Lennart Rak}
+\newcommand{\mymail}{lennart.rak@student.kit.edu} % Consider using your named student mail address to keep your u**** account private.
+\newcommand{\mytutnumber}{02}
+
+% Don't forget to update ILIAS url. WARNING: Underscores '_' and Ampersands '&' have to be escaped with backslashes '\'. Blame TeX, not me.
+\newcommand{\myILIASurl}{http://s.kit.edu/gbi}
+
+% Uncommenting this will print Socrative info with here defined roomname whenever \Socrative is called.
+% (Otherwise, \Socrative will remain silent.)
+% \newcommand{\mysocrativeroom}{???}
+
+%\def\ThassesTut{}
+\def\DanielsTut{}
+
+\newcommand{\aboutMeFrame}{
+	\begin{frame}{Über mich}
+		\myname \\
+		Informatik, 5. Fachsemester (Bachelor)
+		
+		% Lebensgeschichte...
+		% Stammbaum...
+		% Aufarbeitung der eigenen Todesser-Vergangenheit...
+	\end{frame}
+}
+\newcommand{\aboutYouFrame}{
+	\begin{frame}{Über euch}
+	Wie heißt ihr? \\
+	In welcher O-Phasen Gruppe wart ihr und was war euer Highlight? \\
+	Habt ihr schon einen Partner zum Übungsblatt abgeben?
+	    
+	\end{frame}
+}
+
+\def\thisyear{2022}
+
+% Update date of exam
+\def\myKlausurtermin{27.~Februar~2023, 11:00–13:00~Uhr}
+
+\def\mydate#1{
+		  \ifnum#1=1\relax	  31. Oktober \thisyear \
+	\else \ifnum#1=2\relax	  07. November \thisyear \
+	\else \ifnum#1=3\relax    14. November \thisyear \
+	\else \ifnum#1=4\relax    21. November \thisyear \
+	\else \ifnum#1=5\relax    28. November \thisyear \
+	\else \ifnum#1=6\relax    05. Dezember \thisyear \
+	\else \ifnum#1=7\relax    12. Dezember \thisyear \
+	\else \ifnum#1=8\relax    19. Dezember \thisyear \
+	\else \ifnum#1=9\relax    09. Januar \thisyear \
+	\else \ifnum#1=10\relax   16. Januar \nextyear \
+	\else \ifnum#1=11\relax   23. Januar \nextyear \
+	\else \ifnum#1=12\relax   30. Januar \nextyear \
+	\else \ifnum#1=13\relax   06. Februar \nextyear \
+	\else \ifnum#1=14\relax   13. Februar \nextyear \
+	\else \textbf{Datum undefiniert!} 
+	\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+}
+\def\myshortdate#1{
+		  \ifnum#1=1\relax	  31. 10 \thisyear \
+	\else \ifnum#1=2\relax	  07. 11 \thisyear \
+	\else \ifnum#1=3\relax    14. 11 \thisyear \
+	\else \ifnum#1=4\relax    21. 11 \thisyear \
+	\else \ifnum#1=5\relax    28. 11 \thisyear \
+	\else \ifnum#1=6\relax    05. 12 \thisyear \
+	\else \ifnum#1=7\relax    12. 12 \thisyear \
+	\else \ifnum#1=8\relax    19. 12 \thisyear \
+	\else \ifnum#1=9\relax    09. 01 \thisyear \
+	\else \ifnum#1=10\relax   16. 01 \nextyear \
+	\else \ifnum#1=11\relax   23. 01 \nextyear \
+	\else \ifnum#1=12\relax   30. 01 \nextyear \
+	\else \ifnum#1=13\relax   06. 02 \nextyear \
+	\else \ifnum#1=14\relax   13. 02 \nextyear \
+	\else \textbf{Datum undefiniert!} 
+	\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+}
+
+\def\mylasttimestext{Was bisher geschah...}
+
+\colorlet{beamerlightred}{red!40}
+\colorlet{beamerlightgreen}{green!50}
+\colorlet{beamerlightyellow}{yellow!50}
+\colorlet{lightred}{red!30}
+\colorlet{lightgreen}{green!40}
+\colorlet{lightyellow}{yellow!50}
+\colorlet{fullred}{red!60}
+\colorlet{fullgreen}{green}
+
+\definecolor{myalertcolor}{rgb}{1,0.33,0.24}
+\setbeamercolor{alerted text}{fg=myalertcolor}
+
+% Flag to toggle display of KIT Logo.
+% If you want to conform to the official logo guidelines, 
+% you are not allowed to use the logo and should disable it
+% using the following flag. Just saying.
+% (But it's too beautiful, so best leave this commented. :P)
+\newcommand{\noKITLogo}{}
+
+% Toggle handout mode by including the following line before including PraeambelTut
+% and removing the % at the start (but do NOT remove the % char here, otherwise handout mode will always be on!)
+% Please keep handout mode off in all commits!
+
+% \newcommand{\handout}{}

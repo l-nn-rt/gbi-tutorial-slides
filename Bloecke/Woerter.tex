@@ -18,11 +18,11 @@
 	\end{block}
 
 	\pause
-	\begin{block}{Beispiel}
+	\begin{exampleblock}{Beispiel}
 		Sei $ A = \{ \word a, \word b \} $ ein Alphabet. 
-		Dann sind $ w_1 = \word{aabbabab}$ und $w_2 = \word{ab} $ zwei mögliche Wörter über $A$. 
+		Dann sind $ w_1 = \word{aabbabab}$ und $w_2 = \word{ab} $ zwei mögliche Wörter über $A$. \\
 		\impl $ w_1 \in A^*, w_2 \in A^*$
-	\end{block}
+	\end{exampleblock}
 
 \end{frame}
 
@@ -33,7 +33,7 @@
 		Zur Erinnerung: \; $ \Z_n = \{i \in \N_0 \mid 0 \leq i < n \} = \set{0, ..., n-1} $ 
 	\end{block}
 	
-	\begin{block}{Beispiel}
+	\begin{exampleblock}{Beispiel}
 		Sei $ A := \{ \word a, ..., \word z \} $ ein Alphabet und $B := \set{\word a, \word b, \word e, \word n, \word o, \word r, \word s, \word t} \subseteq A$. \\
 		Dann ist ein Wort $w$ gegeben durch $ w \from \Z_{12} \functionto B$, \\ 
 		\smallskip
@@ -44,7 +44,7 @@
 		\end{tabular} \\
 		\bigskip
 		Oder einfach wie vorhin: \quad  $w := \word{ananassorbet}$.
-	\end{block}
+	\end{exampleblock}
 \end{frame}
 
 \begin{frame}[t]{Das leere Wort}
@@ -132,7 +132,7 @@
 	\end{block}
 \end{frame}
 
-\begin{frame}{Aufgabe 3}
+\begin{frame}{Aufgabe 4}
 	\visible<+(-1)>{}
 	\begin{itemize}
 		\item Welche Wörter lassen sich aus dem Alphabet $A = \{ \word a , \word b \}$ bilden? Was enthält die Menge $A^*$? \\
@@ -156,5 +156,32 @@
 		\bigskip
 		Erinnerung: Für $f \from A \functionto B, M \subseteq A$ definieren wir $f(M) = \{f(a) \mid a \in M\}$
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{Aufgabe 5}
+    Es sei $n \in \N_0$. Wir definieren eine Abbildung $\tau: 2^{\Z_n} \to A^n$, sodass für $M \in 2^{\Z_n}$ das Wort $w = \tau(M) \ in A^n$ eindeutig durch folgende Eigenschaft gegeben ist: Für jedes $i \in \Z_n$ ist $w(i)=1$ genau dann, wenn $i \in M$ ist.
+    
+
+	\visible<+(-1)>{}
+	\begin{alist}
+		\item Es sei $n=4$. Geben Sie $\tau(M)$ für jedes $M \in \set{\set{1,2,3},\set{0,3},\set{\emptyset}}$ explizit an. \\
+		\visible<+-|handout:2->{
+			\impl $\tau(\set{\{1,2,3}) = \word{0111}, \tau(\set{0,3}) = \word{1001},\tau(\set{\{\emptyset}) = \word{0000}$
+		}
+		\item Es sei $n$ wieder beliebig. Zeigen Sie, dass $\tau$ bijektiv ist. \\
+		\visible<+-|handout:2->{
+			Injektiv: Seien $M_1, M_2 \in 2^{\Z_n} mit w = \tau(M_1)=\tau(M_2)$ Dann gilt:
+			\begin{center}
+			    $i \in M_1$ gdw. $w(i) = 1$ gdw. $i \in M_2$
+			\end{center}
+			Also ist $M_1 = M_2$ und damit $\tau$ injektiv. \\
+			Surjektiv: Wir beobachten $\size{2^{\Z_n}} = 2^{\size{\Z_n}} = 2^n = \size{A}^n = \size{A^n}$. Somit muss $\tau$ auch surjektiv sein.
+		}
+		\item Es sei $w \in A^n$. Geben Sie eine hinreichende und notwendige Bedingung für $M \in 2^{\Z_n}$ an, sodass $\tau(M)=w$ ist. In Ihrer Formulierung darf dabei $\tau$ nirgends vorkommen. \\
+			\visible<+-|handout:2->{
+				\impl $M = \set{i \in \Z_n \mid w(i) = 1}$
+			}
+		
+	\end{alist}
 \end{frame}
 

@@ -103,7 +103,7 @@ semithick,initial text={}]
 \begin{frame}{Beispiel: Automatengraphen}
 	%\vspace{-1\baselineskip} 
 	%\hspace{-\baselineskip}
-	\includegraphics[page=3,trim=18px 47px 18px 14px,clip]{U12.pdf}	
+	\includegraphics[page=3,trim=18px 47px 18px 14px,clip, scale=0.9]{U12.pdf}	
 \end{frame}
 
 %% Übung: Beispiel
@@ -182,20 +182,28 @@ semithick,initial text={}]
 		(M) edge [loop right] node {$\stackedtight{\word 0\io\word X \\ \word 1\io\word X \\ \word 2\io\word X}$} (M);
 		\end{tikzpicture}
 	\end{center}
-	\begin{align*}
-		f(a, \word 2) &= m \\
-		f(a, \word 0) &= a \\ 
-	\end{align*}
-	\pause  \vspace{-2.5\baselineskip}
-	\begin{align*}
-		f_*(a, \word{101}) &= \hphantom{aaa}a \\
-		f_{**}(a, \word{101}) &= aaaa \\ 
-	\end{align*}
-	\pause  \vspace{-2.5\baselineskip}
-	\begin{align*}
-		f_*(a, \word{1021}) &= \hphantom{aaam}m \\
-		f_{**}(a, \word{1021}) &= aaamm
-	\end{align*}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{align*}
+        		f(a, \word 2) &= m \\
+        		f(a, \word 0) &= a \\ 
+        	\end{align*}
+        	\pause  \vspace{-2.5\baselineskip}
+        	\begin{align*}
+        		f_*(a, \word{101}) &= \hphantom{aaa}a \\
+        		f_{**}(a, \word{101}) &= aaaa \\ 
+        	\end{align*}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \pause  \vspace{-5\baselineskip}
+        	\begin{align*}
+        		f_*(a, \word{1021}) &= \hphantom{aaam}m \\
+        		f_{**}(a, \word{1021}) &= aaamm
+        	\end{align*}
+        \end{column}
+    \end{columns}
+	
+	
 \end{frame}
 
 \begin{frame}{Ausgaben}
@@ -238,22 +246,30 @@ semithick,initial text={}]
 		(M) edge [loop right] node {$\stackedtight{\word 0\io\word X \\ \word 1\io\word X \\ \word 2\io\word X}$} (M);
 		\end{tikzpicture}
 	\end{center}
-	\vspace{-\baselineskip}
-	\begin{align*}
-	g(a, \word 2) &= \word X \\
-	g(a, \word 0) &= \word 1 \\ 
-	\end{align*}
-	\pause  \vspace{-2.5\baselineskip}
-	\begin{align*}
-	g_*(a, \word{101}) &= \hphantom{\word{01}}\word 0 \\
-	g_{**}(a, \word{101}) &= \word{010} \\ 
-	\end{align*}
-	\pause  \vspace{-2.5\baselineskip}
-	\begin{align*}
-	g_*(a, \word{1021}) &= \hphantom{\word{01X}}\word X \\
-	g_{**}(a, \word{1021}) &= \word{01XX} \\ 	\visible<+->{}
-	\visible<+->{g_*(m, \word{0110}) &= }\visible<+->{\word X}
-	\end{align*}
+	% \vspace{-\baselineskip}
+ \begin{columns}
+     \begin{column}{.5\textwidth}
+        \begin{align*}
+        	g(a, \word 2) &= \word X \\
+        	g(a, \word 0) &= \word 1 \\ 
+    	\end{align*}
+    	\pause  \vspace{-2.5\baselineskip}
+    	\begin{align*}
+        	g_*(a, \word{101}) &= \hphantom{\word{01}}\word 0 \\
+        	g_{**}(a, \word{101}) &= \word{010} \\ 
+    	\end{align*} 
+     \end{column}
+     \begin{column}{.5\textwidth}
+        \pause  \vspace{-3.5\baselineskip}
+        \begin{align*}
+            g_*(a, \word{1021}) &= \hphantom{\word{01X}}\word X \\
+            g_{**}(a, \word{1021}) &= \word{01XX} \\ 	\visible<+->{}
+            \visible<+->{g_*(m, \word{0110}) &= }\visible<+->{\word X}
+        \end{align*}
+     \end{column}
+ \end{columns}
+	
+	
 \end{frame}
 
 
@@ -299,7 +315,7 @@ semithick,initial text={}]
 
 
 \begin{frame}{Beispiel Moore-Automat}
-	\includegraphics[page=11,trim=18px 47px 18px 13px,clip]{U12.pdf}	
+	\includegraphics[page=11,trim=18px 47px 18px 13px,clip, scale=.9]{U12.pdf}	
 \end{frame}
 
 
@@ -317,45 +333,51 @@ semithick,initial text={}]
 \end{frame}
 
 \begin{frame}{Beispiel: Umwandlung von Mealy nach Moore}
-	%\vspace{-2\baselineskip}
-	\begin{tikzpicture}[->,>=stealth,shorten >=1pt,auto,node distance=2.8cm,
-	semithick,initial text={}]
-	\tikzstyle{every state}=[]
-	
-	\node[initial,state] (A)                    {$a$};
-	\node[state]         (M) [right of=A] 	    {$m$};
-	
-	\path (A) edge [loop above] node {$\word 1\io\word 0$} (A)
-	edge [loop below]  node {$\word 0\io\word 1$} (A)
-	edge 					  node {$\word{2}\io\word{X}$} (M)
-	(M) edge [loop right] node {$\stackedtight{\word 0\io\word X \\ \word 1\io\word X \\ \word 2\io\word X}$} (M);
-	\end{tikzpicture}
-	\\
-	\pause  
-	\vspace{-1\baselineskip}
-	%\mbox{}\hspace{.6\textwidth} 
-	\begin{tikzpicture}[->,>=stealth,shorten >=1pt,auto,node distance=2.1cm,
-	semithick,initial text={}]
-	\tikzstyle{every state}=[]
-	
-	\node[initial,state] (A)                    {$a\io\eps$};
-	\node[state]         (B) [above right of=A] 	    {$b\io\word 0$};
-	\node[state]         (C) [below right of=A] 	    {$c\io\word 1$};
-	\node[state]         (M) [below right of=B] 	    {$m\io\word X$};
-	
-	\path 
-		(A) edge 				node {\word 1} (B)
-		(A) edge 				node [below] {\word 0} (C)
-		(B) edge [bend left=8]	node {\word 0} (C)
-		(B) edge [loop right]   node {\word 1} (B)
-		(C) edge [bend left=8]	node {\word 1} (B)
-		(C) edge [loop right]   node {\word 0} (C)
-		(B) edge 				node {\word 2} (M)
-		(C) edge 				node [below] {\word 2} (M)
-		(M) edge [loop right]	node {\word 0, \word 1, \word 2} (M)
-	;
-	\draw[->] (A) to[out=-90,in=-76, looseness=1.94] (M) node [at start, below right = 48pt and 2pt] {\word 2}; %Fuck you, LaTeX. "midway" node option doesn't work at all. Beware: `below=48pt, right=2pt` doesn't seem to work anymore?! WTF!?
-	\end{tikzpicture}
+    \begin{columns}
+        \begin{column}{.5\textwidth}
+            %\vspace{-2\baselineskip}
+        	\begin{tikzpicture}[->,>=stealth,shorten >=1pt,auto,node distance=2.8cm,
+        	semithick,initial text={}]
+        	\tikzstyle{every state}=[]
+        	
+        	\node[initial,state] (A)                    {$a$};
+        	\node[state]         (M) [right of=A] 	    {$m$};
+        	
+        	\path (A) edge [loop above] node {$\word 1\io\word 0$} (A)
+        	edge [loop below]  node {$\word 0\io\word 1$} (A)
+        	edge 					  node {$\word{2}\io\word{X}$} (M)
+        	(M) edge [loop right] node {$\stackedtight{\word 0\io\word X \\ \word 1\io\word X \\ \word 2\io\word X}$} (M);
+        	\end{tikzpicture}
+        \end{column}
+        \pause  
+        \begin{column}{.5\textwidth}
+            % \vspace{-1\baselineskip}
+        	%\mbox{}\hspace{.6\textwidth} 
+        	\begin{tikzpicture}[->,>=stealth,shorten >=1pt,auto,node distance=2.1cm,
+        	semithick,initial text={}]
+        	\tikzstyle{every state}=[]
+        	
+        	\node[initial,state] (A)                    {$a\io\eps$};
+        	\node[state]         (B) [above right of=A] 	    {$b\io\word 0$};
+        	\node[state]         (C) [below right of=A] 	    {$c\io\word 1$};
+        	\node[state]         (M) [below right of=B] 	    {$m\io\word X$};
+        	
+        	\path 
+        		(A) edge 				node {\word 1} (B)
+        		(A) edge 				node [below] {\word 0} (C)
+        		(B) edge [bend left=8]	node {\word 0} (C)
+        		(B) edge [loop right]   node {\word 1} (B)
+        		(C) edge [bend left=8]	node {\word 1} (B)
+        		(C) edge [loop right]   node {\word 0} (C)
+        		(B) edge 				node {\word 2} (M)
+        		(C) edge 				node [below] {\word 2} (M)
+        		(M) edge [loop right]	node {\word 0, \word 1, \word 2} (M)
+        	;
+        	\draw[->] (A) to[out=-90,in=-76, looseness=1.94] (M) node [at start, below right = 48pt and 2pt] {\word 2}; %Fuck you, LaTeX. "midway" node option doesn't work at all. Beware: `below=48pt, right=2pt` doesn't seem to work anymore?! WTF!?
+        	\end{tikzpicture}
+        \end{column}
+    \end{columns}
+
 \end{frame}
 
 \begin{frame}{Aufgabe: Textersetzung mit Automaten}

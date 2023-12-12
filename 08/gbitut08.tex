@@ -1,7 +1,7 @@
 %beamer
 
 % Comment/uncomment this line to toggle handout mode
-% \newcommand{\handout}{}
+\newcommand{\handout}{}
 
 \input{../framework/PraeambelTut.tex}
 
@@ -10,33 +10,7 @@
 \begin{document}
 \starttut{8}
 
-\mycomment{
-	\begin{frame}{Schwarzes Brett}
-		\textbf{Bonusaufgaben} von Blatt 4 auch im \ILIAS im Ordner zu Tutorium~\mytutnumber\ ganz unten einreichbar! \\
-		\medskip
-		(\impl Weniger Chaos als per Mail. \smiley)
-	\end{frame}
-}
-
 \framePrevEpisode
-
-\begin{frame}{Achtung, Probeklausur!}
-	\textbf{Mi, den 16.01.19} \\
-	gewohnte GBI-Zeit und -Ort \\
-	Zählt \textbf{nicht}! {\small (keine Bonuspunkte, keine Prüfungsnote)}\\
-	Wird aber trotzdem von mir korrigiert. \smiley
-\end{frame}
-
-\mycomment{
-	\begin{frame}{Rückblick: MIMA}
-		\begin{itemize}[<+->]
-			\item Ein idealisierter Prozessor
-			\item Einfach zu verstehen, aufwändig zu programmieren
-			\item Hardware-Details beachten: Keine negativen Konstanten mit LDC möglich!
-			\item Programme sind oftmals mit \enquote{Bit-Magie} einfacher und kürzer (aber auch schwerer zu verstehen)
-		\end{itemize}
-	\end{frame}
-}
 
 \begin{frame}{Rückblick: Kontextfreie Grammatiken}
 	\begin{itemize}[<+->]
@@ -61,6 +35,8 @@
 
 \input{../Bloecke/Praedikatenlogik2}
 
+\input{../Bloecke/DrMetaNordpol.tex}
+
 \appendix
 \beginbackup
 
@@ -82,22 +58,13 @@
 	\end{block}
 \end{frame}
 
-\begin{frame}[plain]
-	\begin{center}
-		\large
-		Nicht vergessen, Kinder: Nächste Woche findet noch ein Tutorium statt! \smiley
-	\end{center}
-\mycomment{	\bigskip
-	Für alle die nicht kommen: \\
-	Frohe Weihnachten und einen guten Start in das neue Jahr!}
-\end{frame}
-
 \only<handout:0>{\slideThanks}
 
 
 
  %% Letzte Seite
-\xkcdframe{704}{Danke für eure Aufmerksamkeit! \smiley}{2.5}
+% \xkcdframe{704}{Danke für eure Aufmerksamkeit! \smiley}{2.5}
+\xkcdframevert{835}{Frohe Weihnachten und bis nächstes Jahr! \smiley}{2.2}
 %\lastframe{0.50}{0}{xkcd/logic_principle_of_explosion.png}{https://www.xkcd.com/}
 %\lastframe{0.50}{0}{xkcd/christmastree.png}{https://www.xkcd.com/835} % Dieses Jahr dürften noch genügend Tutanden beim nächsten Termin kommen
 

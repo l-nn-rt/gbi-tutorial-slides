@@ -67,6 +67,8 @@
 \usetikzlibrary{automata}
 \usetikzlibrary{tikzmark}
 \usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usetikzlibrary{fit}
 
 % Why has no-one come up with this yet? I mean, seriously. -.-
 \tikzstyle{loop below right} = [loop, out=-60,in=-30, looseness=7]
@@ -99,11 +101,11 @@
 %% Deutsche Silbentrennung und Beschriftungen
 \usepackage[ngerman]{babel}
 
-%\usepackage{kbordermatrix}
+% \input{../framework/kbordermatrix.sty}
 
 % kbordermatrix settings
-%\renewcommand{\kbldelim}{(} % Left delimiter
-%\renewcommand{\kbrdelim}{)} % Right delimiter
+% \renewcommand{\kbldelim}{(} % Left delimiter
+% \renewcommand{\kbrdelim}{)} % Right delimiter
 
 \input{../config.tex}
 
@@ -541,6 +543,7 @@
 \author[\myname]{\myname \xspace \normalfont (\mailto{\mymail})}
 \groupname{KIT -- Karlsruher Institut für Technologie}
 \date[\myshortdate{\theweeknum}]{\mydate{\theweeknum}}
+\grouplogo{../logos/kitlogo_de_rgb.pdf}
 
 % Modified, DJ (better safe than sorry)
 %\AuthorTitleSep{ – }

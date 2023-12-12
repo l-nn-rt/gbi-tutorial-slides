@@ -54,10 +54,10 @@
 		Band vorher: &\word{011101} &  nachher:&  \word{100010}$\9$\\
 		\hline
 		Zustand vorher: & a &  nachher: & \hphantom{\word{100010}}m \\
-		Band vorher: &\word{011102} &  nachher:&  \word{10001X}$\9$\\
-		\hline
-		Zustand vorher: & a &  nachher: & \hphantom{\word{100010}}m \\
-		Band vorher: &\word{012101} &  nachher:&  \word{10XXXX}$\9$\\
+		Band vorher: &\word{011102} &  nachher:&  \word{10001X}$\9$
+		% \hline
+		% Zustand vorher: & a &  nachher: & \hphantom{\word{100010}}m \\
+		% Band vorher: &\word{012101} &  nachher:&  \word{10XXXX}$\9$\\
 	\end{tabular}
 
 \end{frame}
@@ -107,10 +107,10 @@
 		Band vorher: &\word{011101} &  nachher:&  \word{100010}$\9$\\
 		\hline
 		Zustand vorher: & a &  nachher: & \hphantom{\word{10001}}a \\
-		Band vorher: &\word{011102} &  nachher:&  \word{100012}\\
-		\hline
-		Zustand vorher: & a &  nachher: & \hphantom{\word{10}}a \\
-		Band vorher: &\word{012101} &  nachher:&  \word{102101}\\
+		Band vorher: &\word{011102} &  nachher:&  \word{100012}
+		% \hline
+		% Zustand vorher: & a &  nachher: & \hphantom{\word{10}}a \\
+		% Band vorher: &\word{012101} &  nachher:&  \word{102101}\\
 	\end{tabular}
 	
 \end{frame}
@@ -140,10 +140,10 @@
 		Band vorher: &\word{011101} &  nachher:&  \word{100010}$\9$\\
 		\hline
 		Zustand vorher: & a &  nachher: & $m_2$\\
-		Band vorher: &\word{011102} &  nachher:&  $\9\9\9\9\9\9$\\
-		\hline
-		Zustand vorher: & a &  nachher: & $m_2$ \\
-		Band vorher: &\word{012101} &  nachher:& $\9\9\9\9\9\9$\\
+		Band vorher: &\word{011102} &  nachher:&  $\9\9\9\9\9\9$
+		% \hline
+		% Zustand vorher: & a &  nachher: & $m_2$ \\
+		% Band vorher: &\word{012101} &  nachher:& $\9\9\9\9\9\9$\\
 	\end{tabular}
 \end{frame}
 
@@ -368,6 +368,7 @@
 			\end{tikzpicture}
 		\end{center}
 	}
+    \vspace{-1cm}
 	\visible<3-|handout:3->{\§{\textbf{Achtung}:} Was passiert mit führenden Nullen?} \\ 
 	\visible<5-|handout:4->{\. Was, wenn es nur eine \word 0 gibt?} \\	
 \end{frame}
@@ -434,6 +435,7 @@
 				;
 			\end{tikzpicture}
 		\end{center}
+        \vspace{-1cm}
 		Welche Sprache akzeptiert diese TM? \\
 	}
 	\medskip
@@ -498,12 +500,6 @@
 }
 
 
-
-
-
-
-
-
 \begin{frame}{Entscheidbarkeit}
 	\begin{Definition}
 		Eine Sprache $L$ ist eine   
@@ -519,12 +515,80 @@
 
 \begin{frame}{Aufgabe}
 	Entwerft eine Turingmaschine, die die Sprache $ \{\word 0^k\word 1^k \mid k\in \N_0 \} $ akzeptiert.
-	% TODO Lösung
+    \pause
+	\begin{center}
+        \begin{tikzpicture}[->,>=stealth,shorten >=1pt,auto,node distance=2.8cm,
+            semithick,initial text={},every initial by arrow/.style={gray}]
+            \tikzstyle{every state}=[]
+            
+            \node[initial,state, accepting] (A)                    {$a_1$};
+            \node[state, accepting]         (B) [right of=A] 	    {$a_2$};
+            \node[state]         (C) [right of=B] 	    {$a_3$};
+            
+            \node[state]         (D) [below of=C] 	    {$a_4$};
+            \node[state]         (E) [below of=B] 	    {$a_5$};
+            
+            \path 
+            (A)  edge 				 node {$\word 0\io\9R$} (B)
+
+            (B) edge [loop above]   node {$\stackedtight{\word 0\io \word 0R \\ \word 1\io\word 1R}$} (B)
+            (B) edge                node {$\9 \io \9 L$} (C)
+            
+            (C) edge                node {$\word 1\io\9L$} (D)
+            
+            (D) edge [loop right]   node {$\stackedtight{\word 0\io \word 0L \\ \word 1\io\word 1L}$} (D)
+            (D) edge                node {$\9 \io \9 R$} (E)
+            
+            (E) edge                node {$\word 0 \io \9 R$} (B)
+            (E) edge                node {$\9 \io \9 L$} (A)
+            ;
+        \end{tikzpicture}
+    \end{center}
 \end{frame}
 
 \begin{frame}{Aufgabe}
 	Entwerft eine TM, die alle gültigen Klammerausdrücke entscheidet.\\
 	\medskip
 	Gültige Klammerausdrücke werden dabei von der folgenden Grammatik produziert: $ G = (\{S\},\{\word (, \word )\}, S, P )$ mit den Produktionen $\set{ S \to \eps \mid \word (S\word )S}$.
-	% TODO Lösung
+\end{frame}
+
+% TODO Lösung :(
+\begin{frame}{Lösung}
+    \vspace{-1.2cm}
+    \begin{center}
+        \begin{tikzpicture}[->,>=stealth,shorten >=1pt,auto,node distance=2.8cm,
+            semithick,initial text={},every initial by arrow/.style={gray}]
+            \tikzstyle{every state}=[]
+            
+            \node[initial,state, accepting] (A)                    {$a_1$};
+            \node[state]         (B) [right of=A] 	    {$a_2$};
+            \node[state]         (C) [below of=B] 	    {$a_3$};
+        
+            \node[state]         (E) [right of=C] 	    {$a_5$};
+            \node[state]         (D) [below of=E] 	    {$a_4$};
+            \node[state]         (F) [left of=C] 	    {$a_6$};
+            \node[state, accepting]         (G) [below of=F] 	    {$a_6$};
+            
+            \path 
+            (A)  edge 				node {$\word (\io\word 0L$} (B)
+            
+            (B)  edge [loop above]  node {$\stackedtight{\word 0\io\word 0L \\ \word 1\io\word 1L}$} (B)
+            (B) edge [bend left=20] node[right] {$\9 \io\word 1R$} (C)
+
+            (C) edge [loop  below]  node {$\stackedtight{\word 0\io\word 0R \\ \word 1\io\word 1R}$} (C)
+            (C) edge [bend left=20] node[left] {$\word (\io \word 0L$} (B)
+            (C) edge                node[right] {$\word )\io \word 0L$} (D)
+            (C) edge                node {$\9 \io \9 L$} (F)
+            
+            (D) edge [loop right]   node {$\stackedtight{\word 0\io\word 0L \\ \word 1\io\word 1L}$} (D)
+            (D) edge                node[right] {$\9 \io \9R$} (E)
+
+            
+            (E) edge                node[above] {$\word 1 \io \9R$} (C)
+            
+            (F) edge [loop left]    node {$\word 0 \io \word 0 L$} (F)
+            (F) edge                node[left] {$\9 \io \9 R$} (G)
+            ;
+        \end{tikzpicture}
+    \end{center}
 \end{frame}

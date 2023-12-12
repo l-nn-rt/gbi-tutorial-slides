@@ -26,28 +26,32 @@
 		\bigskip
 	}
 	\only<3-|handout:1>{
-		Wir nehmen ein $n$, von dem wir schon gezeigt haben, dass die Aussage gilt:\\ 
-		\vspace{-.5\baselineskip}
+				Wir nehmen ein $n$, von dem wir schon gezeigt haben, dass die Aussage gilt:\\
+        \vspace{-.5\baselineskip}
 		\begin{block}{Induktionsvoraussetzung (IV)}
 			Für \textbf{ein beliebiges (aber festes)} $n \in \N_0$ gelte: $(n^3 - n)$ ist durch 3 tb. 
 		\end{block}
 	}
-	\pause
-	\only<4-|handout:2>{
-		\begin{block}{Induktionsschritt (IS)}
-			Zeige die Aussage für $n+1$, verwende dabei die IV (und \textbf{dasselbe} $n$ wie in der IV!).\\
-			\pause
-			\medskip
-			Wir formen erst mal um:
-			\begin{align*}
-			(n+1)^3 - (n+1) &= n^3 + 3n^2 + 3n + 1 - n - 1 \\
-			&= (n^3 - n) + (3n^2 + 3n) \\
-			&= \underbrace{(n^3-n)}_{\shortstack{\footnotesize nach IV \\ \footnotesize durch 3 tb.}} + \underbrace{3 \* (n^2 + n)}_{\shortstack{\footnotesize offensichtlich \\ \footnotesize durch 3 tb.}}. \qed
-			\end{align*}
-		\end{block}
-	}
-	
 \end{frame}
+\begin{frame}[t]{Vorgehen}
+	\vspace{-.5\baselineskip}
+	\begin{block}{Induktionsvoraussetzung (IV)}
+		Für \textbf{ein beliebiges (aber festes)} $n \in \N_0$ gelte: $(n^3 - n)$ ist durch 3 tb. 
+	\end{block}
+	\begin{block}{Induktionsschritt (IS)}
+	    \pause
+		Zeige die Aussage für $n+1$, verwende dabei die IV (und \textbf{dasselbe} $n$ wie in der IV!).\\
+		\pause
+		\medskip
+		Wir formen erst mal um:
+		\begin{align*}
+		(n+1)^3 - (n+1) &= n^3 + 3n^2 + 3n + 1 - n - 1 \\
+		&= (n^3 - n) + (3n^2 + 3n) \\
+		&= \underbrace{(n^3-n)}_{\shortstack{\footnotesize nach IV \\ \footnotesize durch 3 tb.}} + \underbrace{3 \* (n^2 + n)}_{\shortstack{\footnotesize offensichtlich \\ \footnotesize durch 3 tb.}}. \qed
+		\end{align*}
+	\end{block}
+\end{frame}
+
 
 \begin{frame}{Induktionsvoraussetzung}
 	\Huge \centering
@@ -63,17 +67,55 @@
 
 \begin{frame}[t]{Vollständige Induktion}
 	\begin{itemize}
-		\item Der Schraubenzieher im Beweis-Werkzeugkasten des Informatikers
 		\item \textbf{Einfaches} Prinzip (Muss man \textit{verstehen}, reines Auswendiglernen des Schemas kann schief gehen!), vielfältige Anwendungsmöglichkeiten
 		\item \textbf{Variationen} möglich: Induktionsanfang bei $1, 42, ...$
 	\end{itemize}
 	
-	\FalseQuestionE{Ich benutze für jeden Beweis Induktion.}{Mit einem Schraubenzieher bekommt man keinen Nagel in die Wand.}
+	\FalseQuestionE{Ich benutze für jeden Beweis Induktion.}{}
 \end{frame}
 
-\input{../Bloecke/Induktion_Vogel.tex}
+%\input{../Bloecke/Induktion_Vogel.tex}
 
 % Induktion Übung
+
+\begin{frame}{Und jetzt ihr}
+    Betrachten Sie die Abbildung $f: \N_0 \to \N_0$, die wie folgt festgelegt ist:
+    \begin{align*}
+        f(0) = 0&&\forall n \in \N_0: f(n+1) = 2f(n) + n + 5
+    \end{align*}
+% 	Behauptung: \[\forall n \in \N_+ : \sum_{k=0}^{n}{\frac{1}{2^k}} = 2 \* \tuple{1 - \frac{1}{2^{n+1}}}\]
+    Beweisen Sie durch vollständige Induktion, dass für jedes $n \in \N_0$ gilt:
+    \[f(n) = 6(2^n - 1) - n\]
+	\pause
+	\begin{block}{Induktionsanfang}
+		$n = 0$: $f(0)=0 = 6 \cdot 0 - 0 = 6 \cdot (2^0 - 1) - 0 $. \; \textbf{\checked}
+	\end{block}
+	\pause
+	\begin{block}{Induktionsvoraussetzung}
+		Für ein $n \in \N_0$ gelte: $f(n) = 6(2^n - 1) - n$.
+	\end{block}
+\end{frame}
+
+\begin{frame}[t]
+	\begin{block}{Induktionsvoraussetzung}
+		Für ein $n \in \N_0$ gelte: $f(n) = 6(2^n - 1) - n$.
+	\end{block}
+	\uncover<+->{}
+	\begin{block}{Induktionsschritt}
+		Zeige die Aussage für $n+1$:\\
+		\begin{align*}
+			f(n+1)
+				&= \uncover<+->{2f(n)+n+5}\\
+				\uncover<+->{&\stackrel{\text{IV}}{=} 2(6(2^n-1)-n)+n+5\\}
+				\uncover<+->{
+				&= 6(2^{n+1}-2)-2n+n+5\\}
+				\uncover<+->{
+				&= 6(2^{n+1}-1)-6-n-1+6\\}
+				\uncover<+->{
+				&= 6(2^{n+1}-1)-(n+1) \qed}
+		\end{align*}
+	\end{block}
+\end{frame}
 
 \begin{frame}{Und jetzt ihr}
 	Behauptung: \[\forall n \in \N_+ : \sum_{k=0}^{n}{\frac{1}{2^k}} = 2 \* \tuple{1 - \frac{1}{2^{n+1}}}\]
@@ -102,54 +144,54 @@
 \end{frame}
 
 % Induktion Wörter Länge
-\begin{frame}{Und jetzt mit Wörtern}
-	\begin{block}{Behauptung}
-		Seien $A, B$ zwei beliebige Alphabete. Definiere die Funktion $f \from A^* \functionto A^*$,
-		\begin{align*}
-			f(\eps) &:= \eps \\
-			\text{Für } w \in A^*, \mu \in A: \quad f(\mu \* w) &:= 
-			\begin{cases}
-				\mu \* f(w), &\mu \in B \\
-				f(w), &\text{sonst}
-			\end{cases}\\
-		\end{align*}
+% \begin{frame}{Und jetzt mit Wörtern}
+% 	\begin{block}{Behauptung}
+% 		Seien $A, B$ zwei beliebige Alphabete. Definiere die Funktion $f \from A^* \functionto A^*$,
+% 		\begin{align*}
+% 			f(\eps) &:= \eps \\
+% 			\text{Für } w \in A^*, \mu \in A: \quad f(\mu \* w) &:= 
+% 			\begin{cases}
+% 				\mu \* f(w), &\mu \in B \\
+% 				f(w), &\text{sonst}
+% 			\end{cases}\\
+% 		\end{align*}
 	
-	Dann gilt $\forall w \in A^*: \size{f(w)} \le \size w$.
-	\end{block}
-\end{frame}
+% 	Dann gilt $\forall w \in A^*: \size{f(w)} \le \size w$.
+% 	\end{block}
+% \end{frame}
 
-\begin{frame}{Und jetzt mit Wörtern}
-	Induktion über die Wortlänge ($n = \size w$):\\[0.5em]
-	\pause
-	\begin{block}{Induktionsanfang}
-		$n = 0$: Nur das leere Wort hat Länge 0. Also $w = \eps$.\\
-		$f(\eps) = \eps \impl \size{f(w)} = \size w = 0$. \; \textbf{\checked}
-	\end{block}
-	\pause
-	\begin{block}{Induktionsvoraussetzung}
-		Für \textbf{ein} $n \in \N_0$ gelte: Für alle Wörter der Länge $n$ über $A$ (also $w \in A^n$) ist $\size{f(w)} \le \size w$.
-	\end{block}
-\end{frame}
+% \begin{frame}{Und jetzt mit Wörtern}
+% 	Induktion über die Wortlänge ($n = \size w$):\\[0.5em]
+% 	\pause
+% 	\begin{block}{Induktionsanfang}
+% 		$n = 0$: Nur das leere Wort hat Länge 0. Also $w = \eps$.\\
+% 		$f(\eps) = \eps \impl \size{f(w)} = \size w = 0$. \; \textbf{\checked}
+% 	\end{block}
+% 	\pause
+% 	\begin{block}{Induktionsvoraussetzung}
+% 		Für \textbf{ein} $n \in \N_0$ gelte: Für alle Wörter der Länge $n$ über $A$ (also $w \in A^n$) ist $\size{f(w)} \le \size w$.
+% 	\end{block}
+% \end{frame}
 
-\begin{frame}{Und jetzt mit Wörtern}
-	\begin{block}{Induktionsschritt}
-		Zeige die Aussage für $n+1$:\\
-		Sei $w \in A^{n+1}$ ein Wort der Länge $n+1$.\\
-		\pause
-		Dann teilen wir es auf in $w = \mu \* v$, wobei $\mu \in A$ und $v \in A^n$.\\
-		Nach IV gilt: $\size{f(v)} \le \size v$.\\
-		\pause
-		\smallskip
-		\textbf{Fall 1}: \\
-			\quad $\mu \in B$: $f(w) = \mu \* f(v)$ \\
-			\quad \impl $\size{f(w)} = 1 + \size{f(v)} \le 1 + \size v = 1+n = \size w$.\\
-		\pause
-		\smallskip
-		\textbf{Fall 2}: \\
-			\quad $\mu \notin B$: $f(w) = f(v)$ \\
-			\quad \impl $\size{f(w)} = \size{f(v)} \le \size v = n \le n+1 = \size w$.\\
-		\pause
-		\smallskip
-		Also gilt: $\size{f(w)} \le \size w. \qed$
-	\end{block}
-\end{frame}
+% \begin{frame}{Und jetzt mit Wörtern}
+% 	\begin{block}{Induktionsschritt}
+% 		Zeige die Aussage für $n+1$:\\
+% 		Sei $w \in A^{n+1}$ ein Wort der Länge $n+1$.\\
+% 		\pause
+% 		Dann teilen wir es auf in $w = \mu \* v$, wobei $\mu \in A$ und $v \in A^n$.\\
+% 		Nach IV gilt: $\size{f(v)} \le \size v$.\\
+% 		\pause
+% 		\smallskip
+% 		\textbf{Fall 1}: \\
+% 			\quad $\mu \in B$: $f(w) = \mu \* f(v)$ \\
+% 			\quad \impl $\size{f(w)} = 1 + \size{f(v)} \le 1 + \size v = 1+n = \size w$.\\
+% 		\pause
+% 		\smallskip
+% 		\textbf{Fall 2}: \\
+% 			\quad $\mu \notin B$: $f(w) = f(v)$ \\
+% 			\quad \impl $\size{f(w)} = \size{f(v)} \le \size v = n \le n+1 = \size w$.\\
+% 		\pause
+% 		\smallskip
+% 		Also gilt: $\size{f(w)} \le \size w. \qed$
+% 	\end{block}
+% \end{frame}

@@ -1,5 +1,4 @@
 \section{Funktionen von Funktionen}
-
 \begin{frame}{Funktionen}
 	\begin{Definition}
 		Seien A und B Mengen. Dann ist $$B^A := \set{f \Mid f \from A \functionto B }$$ die Menge aller Abbildungen von $A$ nach $B$.
@@ -94,57 +93,57 @@
 \end{frame}
 
 % TOO MUCH FOR THE FIRST TIME, I GUESS...
-\mycomment{
-	\begin{frame}{Charakteristische Funktion}
-		Sei $M$ eine abzählbar unendliche Menge und $L \subseteq M$.
+% \mycomment{
+% 	\begin{frame}{Charakteristische Funktion}
+% 		Sei $M$ eine abzählbar unendliche Menge und $L \subseteq M$.
 		
-		\begin{Definition}
-			Die \textbf{Charakteristische Funktion} einer (Teil-)Menge $L$ ist die Funktion 
-			\begin{threealign}
-			C_L : M &\functionto& \{0, 1\}\\
-			x &\mapsto& \begin{cases}
-			1 &x \in L \\
-			0 &x \notin L
-			\end{cases}.
-			\end{threealign}
-		\end{Definition}
+% 		\begin{Definition}
+% 			Die \textbf{Charakteristische Funktion} einer (Teil-)Menge $L$ ist die Funktion 
+% 			\begin{threealign}
+% 			C_L : M &\functionto& \{0, 1\}\\
+% 			x &\mapsto& \begin{cases}
+% 			1 &x \in L \\
+% 			0 &x \notin L
+% 			\end{cases}.
+% 			\end{threealign}
+% 		\end{Definition}
 		
-		Also ist $C_L \in \{0, 1\}^M$.
-		\smallskip
+% 		Also ist $C_L \in \{0, 1\}^M$.
+% 		\smallskip
 		
-		Klar ist außerdem: Es gibt eine Bijektion $C$ zwischen Mengen und Charakteristischen Funktionen: $$C : 2^M \to \{0, 1\}^M, L \mapsto C_L$$
-	\end{frame}
+% 		Klar ist außerdem: Es gibt eine Bijektion $C$ zwischen Mengen und Charakteristischen Funktionen: $$C : 2^M \to \{0, 1\}^M, L \mapsto C_L$$
+% 	\end{frame}
 	
-	\begin{frame}{Charakteristische Funktion}
-		Jetzt können wir auf diesen Funktionen äquivalente Operationen wie auf Mengen definieren...
+% 	\begin{frame}{Charakteristische Funktion}
+% 		Jetzt können wir auf diesen Funktionen äquivalente Operationen wie auf Mengen definieren...
 		
-		Vereinigung: $V\colon \{0,1\}^M \times \{0,1\}^M\to \{0,1\}^M$\\[1em]
+% 		Vereinigung: $V\colon \{0,1\}^M \times \{0,1\}^M\to \{0,1\}^M$\\[1em]
 		
-		\only<2|handout:1>{
-			Beispielbild für $L_1=\{a,c,d\}$ und $L_2=\{b,c\}$
+% 		\only<2|handout:1>{
+% 			Beispielbild für $L_1=\{a,c,d\}$ und $L_2=\{b,c\}$
 			
-			\begin{tabular}{*{4}{>{$}c<{$}}}
-				& L_1 & L_2 & L_1\cup L_2 \\
-				x & f_1(x) & f_2(x) & V(f_1,f_2) \\
-				a & 1 & 0 & 1 \\
-				b & 0 & 1 & 1 \\
-				c & 1 & 1 & 1 \\
-				d & 1 & 0 & 1 \\
-				e & 0 & 0 & 0 \\
-			\end{tabular}
-		}
+% 			\begin{tabular}{*{4}{>{$}c<{$}}}
+% 				& L_1 & L_2 & L_1\cup L_2 \\
+% 				x & f_1(x) & f_2(x) & V(f_1,f_2) \\
+% 				a & 1 & 0 & 1 \\
+% 				b & 0 & 1 & 1 \\
+% 				c & 1 & 1 & 1 \\
+% 				d & 1 & 0 & 1 \\
+% 				e & 0 & 0 & 0 \\
+% 			\end{tabular}
+% 		}
 		
-		\only<3-|handout:2> {
-			Wie definiert man $V(f_1,f_2)$? Zum Beispiel so:
-			\begin{align*}
-			V \colon \{0,1\}^M \times  \{0,1\}^M &\to \{0,1\}^M \\
-			(f_1,f_2) &\mapsto (x \mapsto \max(f_1(x),f_2(x))) \\
-			\end{align*}
-		} \only<4|handout:2> {
-		Oder so: $V(f_1,f_2) (x) = \max(f_1(x),f_2(x))$
-	}
-	\end{frame}
-}
+% 		\only<3-|handout:2> {
+% 			Wie definiert man $V(f_1,f_2)$? Zum Beispiel so:
+% 			\begin{align*}
+% 			V \colon \{0,1\}^M \times  \{0,1\}^M &\to \{0,1\}^M \\
+% 			(f_1,f_2) &\mapsto (x \mapsto \max(f_1(x),f_2(x))) \\
+% 			\end{align*}
+% 		} \only<4|handout:2> {
+% 		Oder so: $V(f_1,f_2) (x) = \max(f_1(x),f_2(x))$
+% 	}
+% 	\end{frame}
+% }
 
 \newcommand{\yellow}[1]{\fcolorbox{white}{yellow!60}{\ensuremath{#1}}}
 \begin{frame}{Funktionen auf LSD: Filter}
@@ -219,16 +218,15 @@
 	%Hier interessiert uns nicht die konkrete Realisierung der Speicherung, sondern nur die abstrakte Funktionsweise.
 	\pause
 	
-	\begin{block}{Hinweis}
-		Häufig: Adressen und Werte als Binärzahlen. \\
-		%Im Umgang mit Speichern benutzen wir hier nur Zahlen im Binärsystem. \\
-		% Zu detailliert:                     und was ist mit negatiuven Zahlen?
-		%$\Adr = \set{0, ..., 2^k-1}, \Val = {0,...,2^l-1} \quad \text{für } k,l \in \N_+$.
-	\end{block}
+	% \begin{block}{Hinweis}
+	% 	Häufig: Adressen und Werte als Binärzahlen. \\
+	% 	%Im Umgang mit Speichern benutzen wir hier nur Zahlen im Binärsystem. \\
+	% 	% Zu detailliert:                     und was ist mit negatiuven Zahlen?
+	% 	%$\Adr = \set{0, ..., 2^k-1}, \Val = {0,...,2^l-1} \quad \text{für } k,l \in \N_+$.
+	% \end{block}
 \end{frame}
 
 \begin{frame}{Speicher}
-
 	Operationen: \\
 	\begin{itemize}
 		\item $\memread(m, adr)$, um eine Speicherzelle zu lesen 
@@ -257,7 +255,7 @@
 \end{frame}
 
 \begin{frame}{Speicher}
-	\begin{block}{Beispiel}
+	\begin{exampleblock}{Beispiel}
 		
 	$\memread(m, \word{01}) = \only<2->{\word{00000111}}$\\
 	\visible<2-|handout:2>{$m' := \memwrite(m, \word{01}, \word{11111100})$\\}
@@ -294,7 +292,53 @@
 		}
 	\end{table}
 
+	\end{exampleblock}
+\end{frame}
+
+%Übungsblatt 2015, Aufgabe 4.2
+\begin{frame}{Speicher}
+	\begin{block}{Aufgabe}
+    Es sei $\Val = \set{0, 1}^4$, es sei $\Adr = \set{0, 1}^4$ und es sei $\Mem = \Val^\Adr$.
+    \begin{enumerate}
+        \item[a)] Es sei $m \in \Mem$, es sei $a \in \Adr$, es sei $a' \in \Adr$, es sei $v \in \Val$ und es sei $v' \in \Val$. Geben Sie
+        \begin{center}
+            $\memread(\memwrite(m, a, v), a)$, \\
+            $\memread(\memwrite(\memwrite(m, a, v), a', v'), a)$ und\\
+            $\memread(\memwrite(\memwrite(m, a, v), a', v'), a')$
+        \end{center}
+            
+        an.
+        \item[b)] Es sei $m \in \Mem$ derart, dass $m(\word{0001}) = \word{0010}$ und $m(\word{0010}) = \word{0101}$. Geben Sie
+        \begin{center}
+            $\memread(\memwrite(m, Repr_2(Num_2(\memread(m, \word{0001})) \\ + Num_2(\memread(m, \word{0010}))), \word{0011}), \word{0011})$
+        \end{center}
+        an.
+    \end{enumerate}
 	\end{block}
+\end{frame}
+\begin{frame}{Speicher}
+    \begin{block}{Lösung a)}
+        \begin{align*}
+            \memread(\memwrite(m, a, v), a) &= \visible<2-|handout:1>{v} \\
+            \memread(\memwrite(\memwrite(m, a, v), a', v'), a) &= \visible<3-|handout:1>{
+            \begin{cases*}
+                v', &\text{falls } a = a', \\
+                v, &\text{falls} a \neq a'
+            \end{cases*}
+            } \\
+            \memread(\memwrite(\memwrite(m, a, v), a', v'), a') &= \visible<4-|handout:1>{v'}
+        \end{align*}
+    \end{block}
+\end{frame}
+\begin{frame}{Speicher}
+    \begin{block}{Lösung b)}
+        \begin{align*}
+            &\memread(\memwrite(m, Repr_2(Num_2(\memread(m, \word{0001})) \\
+            &\hspace{1cm} + Num_2(\memread(m, \word{0010}))), \word{0011}), \word{0011}) \\
+            \visible<2-|handout:1>{&= \memread(\memwrite(m, \word{1001}, \word{0011}), \word{0011})} \\
+            \visible<3-|handout:1>{&= m(\word{0011})}
+        \end{align*}        
+    \end{block}
 \end{frame}
 
 \mycomment{

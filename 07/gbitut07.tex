@@ -1,7 +1,7 @@
 %beamer
 
 % Comment/uncomment this line to toggle handout mode
-% \newcommand{\handout}{}
+\newcommand{\handout}{}
 
 \input{../framework/PraeambelTut.tex}
 
@@ -13,25 +13,25 @@
 % Was hat das mit MIMA zu tun? => Vllt. ans Ende?
 % \lastframe{0.40}{25}{xkcd/password_strength.png}{https://www.xkcd.com/936/}
 
-\mycomment{
-	\begin{frame}{Zu Blatt \#2}
-		Durchschnitt: etwa \thassedaniel{60}{61} \% der Punkte 
-		\begin{itemize}		
-			\item Vollständige Induktion: Eine Standard-IV lautet \\
-			{\enquote{für \textbf{\alert{ein}} $n$ gilt...}}.\\
-			Für alle $n$ wollt ihr's ja \textbf{zeigen}!
-			\item \textbf{A~2.2}: IV mit „$K=L$“ funktioniert nicht: \\ 
-			Das ist ne $\forall$-Aussage wegen der $\bigcup\limits^\infty_{n=0}$-Definition \\
-			\impl Besser $K_n = L_n$ zeigen
-			\item \textbf{A~2.3}: hat 11 statt 10 Gesamtpunkte (Zenkel hat sich verrechnet...~:P) \\
-			\impl Nicht wundern, wenn ihr einen Punkt mehr habt, als ihr solltet
-			\item \textbf{A~2.3b}: IA für $n=0 \textbf{ und } 1$, \; IS: $n \?> n+\mathbf{2}$ \quad --- alles andere geht nicht
-			\item \textbf{A~2.6}: \emph{Surjektivität} per Induktion geht NICHT!
-			\item \textbf{A~2.7}: \emph{Induktive} Definitionen: KEINE Set comprehensions mit Wortlängen-Magie! (Sonst könnt ihr direkt die Def. abschreiben)
-		\end{itemize}
-		
-	\end{frame}
-}
+\begin{frame}{Zu Blatt \#6}
+	
+	Schnitt: \quad 11 / 19~P
+	
+	\pause
+	\begin{figure}
+	    \centering
+	    \includegraphics[scale=0.45]{./Punkteverteilung.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Zu Blatt \#7}
+	\begin{itemize}
+	    \item \textbf{Abgaben alleine!!}
+        \item Aufgabe 7.3 und 7.4 kann online Abgegeben werden als .mima
+        \item \href{https://github.com/mattulbrich/mimaflux}{https://github.com/mattulbrich/mimaflux}
+	\end{itemize}
+	
+\end{frame}
 
 
 \framePrevEpisode
@@ -60,7 +60,50 @@
 \end{frame}
 
 %\input{../Bloecke/MIMA.tex}
+\section{MIMA Aufgaben}
+%2019 Aufgabe 6.2
+\begin{frame}{Aufgabe}
+    Geben Sie jeweils zu INC $a$ und DEC $a$ eine Folge von MIMA-Befehlen an, die den Befehl realisiert. Verwenden Sie dabei jeweils höchstens fünf MIMA-Befehle. Sie dürfen ausschließlich die Befehle verwenden, die in der Vorlesung vorgestellt wurden. Sprungbefehle sind nicht zugelassen.
+\end{frame}
+\begin{frame}{Lösung}{INC $a$}
+    \begin{tabbing}
+		INC $a$: \; \= LDC 1 \quad  //$= 000000000000000000000001_2$ \\
+				\> ADD $a$ \\
+				\> STV $a$ \\
+				\> HALT
+	\end{tabbing}
+\end{frame}
+\begin{frame}{Lösung}{DEC $a$}
+    \begin{tabbing}
+		DEC $a$: \; \= LDC 0 \\
+                \> NOT \\
+				\> ADD $a$ \\
+				\> STV $a$ \\
+				\> HALT
+	\end{tabbing}
+\end{frame}
 
+\begin{frame}{Aufgabe}
+    Im Speicher stehe in Adresse $a_1$ die Zweierkomplementdarstellung einer positiven ganzen Zahl $x_1$. Schreiben Sie ein Minimalmaschinenprogramm, nach dessen Ausführung die Zweierkomplementdarstellung von $x_1$ \textbf{div} $2$ im Akkumulator steht und das höchstens die Adressen $a_1$ und $a_2$ verwendet.
+\end{frame}
+
+\begin{frame}{Lösung}
+    \begin{tabbing}
+        \;\= LDV $a_1$ \\
+        \> RAR \\
+        \> STV $a_1$ \\
+        \> LDC $0$ \\
+        \> NOT \\
+        \> STV $a_2$ \\
+        \> LDC $1$ \\
+        \> XOR $a_2$ \\
+        \> RAR \\
+        \> AND $a_1$ \\
+        \> HALT
+	\end{tabbing}
+\end{frame}
+
+\section{}
 \begin{frame}{Noch offen: Klammerausdrücke}
 	A long, long time ago, in a land far away:\\
 	\medskip
@@ -80,7 +123,7 @@
 \input{../Bloecke/Grammatiken.tex}
 
 % Nicht unbed. nötig. Je nach Zeitbudget.
-\input{../Bloecke/Relationen2.tex}
+%\input{../Bloecke/Relationen2.tex}
 
 \appendix
 \beginbackup
@@ -93,7 +136,7 @@
 			%\item Mehr Eigenschaften von Relationen
 			\item Was eine kontextfreie Grammatik ist
 			\item Wie man Sprachen mit Grammatiken beschreiben kann
-			\item Welche Eigenschaften Relationen haben können
+			%\item Welche Eigenschaften Relationen haben können
 		\end{itemize}
 	\end{block}
 	
