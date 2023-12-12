@@ -1,0 +1,110 @@
+
+% This is a configuration file with personal tutor information.
+% It is therefore excluded from the git repository, so changes in this file will not conflict in git commits.
+
+% Copy this template, rename to config.tex and add your information below.
+
+\newcommand{\myname}{Lennart Rak}
+\newcommand{\mymail}{lennart.rak@student.kit.edu} % Consider using your named student mail address to keep your u**** account private.
+\newcommand{\mytutnumber}{27}
+\newcommand{\myroom}{-107 }
+
+% Don't forget to update ILIAS url. WARNING: Underscores '_' and Ampersands '&' have to be escaped with backslashes '\'. Blame TeX, not me.
+\newcommand{\myILIASurl}{http://s.kit.edu/gbi}
+\newcommand{\myArchiveurl}{http://s.kit.edu/gbi-archiv}
+
+% Uncommenting this will print Socrative info with here defined roomname whenever \Socrative is called.
+% (Otherwise, \Socrative will remain silent.)
+% \newcommand{\mysocrativeroom}{???}
+
+%\def\ThassesTut{}
+\def\DanielsTut{}
+
+\newcommand{\aboutMeFrame}{
+	\begin{frame}{Über mich}
+		\myname \\
+		Informatik, 7. Fachsemester (Bachelor)
+		
+		% Lebensgeschichte...
+		% Stammbaum...
+		% Aufarbeitung der eigenen Todesser-Vergangenheit...
+	\end{frame}
+}
+\newcommand{\aboutYouFrame}{
+	\begin{frame}{Über euch}
+		\begin{itemize}
+			\item Wie heißt ihr?
+			% \item In welcher O-Phasen Gruppe wart ihr und was war euer Highlight?
+			\item Habt ihr schon einen Partner zum Übungsblatt abgeben?
+		\end{itemize}
+	\end{frame}
+}
+
+\def\thisyear{2023}
+
+% Update date of exam
+\def\myKlausurtermin{27.~Februar~2024, 08:00–10:00~Uhr}
+
+\def\mydate#1{
+		  \ifnum#1=1\relax	  01. November \thisyear \
+	\else \ifnum#1=2\relax	  08. November \thisyear \
+	\else \ifnum#1=3\relax    15. November \thisyear \
+	\else \ifnum#1=4\relax    22. November \thisyear \
+	\else \ifnum#1=5\relax    29. November \thisyear \
+	\else \ifnum#1=6\relax    06. Dezember \thisyear \
+	\else \ifnum#1=7\relax    13. Dezember \thisyear \
+	\else \ifnum#1=8\relax    20. Dezember \thisyear \
+	\else \ifnum#1=9\relax    10. Januar \thisyear \
+	\else \ifnum#1=10\relax   17. Januar \nextyear \
+	\else \ifnum#1=11\relax   24. Januar \nextyear \
+	\else \ifnum#1=12\relax   31. Januar \nextyear \
+	\else \ifnum#1=13\relax   07. Februar \nextyear \
+	\else \ifnum#1=14\relax   14. Februar \nextyear \
+	\else \textbf{Datum undefiniert!} 
+	\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+}
+\def\myshortdate#1{
+		  \ifnum#1=1\relax	  01. 11 \thisyear \
+	\else \ifnum#1=2\relax	  08. 11 \thisyear \
+	\else \ifnum#1=3\relax    15. 11 \thisyear \
+	\else \ifnum#1=4\relax    22. 11 \thisyear \
+	\else \ifnum#1=5\relax    29. 11 \thisyear \
+	\else \ifnum#1=6\relax    06. 12 \thisyear \
+	\else \ifnum#1=7\relax    13. 12 \thisyear \
+	\else \ifnum#1=8\relax    20. 12 \thisyear \
+	\else \ifnum#1=9\relax    10. 01 \thisyear \
+	\else \ifnum#1=10\relax   17. 01 \nextyear \
+	\else \ifnum#1=11\relax   24. 01 \nextyear \
+	\else \ifnum#1=12\relax   31. 01 \nextyear \
+	\else \ifnum#1=13\relax   07. 02 \nextyear \
+	\else \ifnum#1=14\relax   14. 02 \nextyear \
+	\else \textbf{Datum undefiniert!} 
+	\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+}
+
+\def\mylasttimestext{Was bisher geschah...}
+
+\colorlet{beamerlightred}{red!40}
+\colorlet{beamerlightgreen}{green!50}
+\colorlet{beamerlightyellow}{yellow!50}
+\colorlet{lightred}{red!30}
+\colorlet{lightgreen}{green!40}
+\colorlet{lightyellow}{yellow!50}
+\colorlet{fullred}{red!60}
+\colorlet{fullgreen}{green}
+
+\definecolor{myalertcolor}{rgb}{1,0.33,0.24}
+\setbeamercolor{alerted text}{fg=myalertcolor}
+
+% Flag to toggle display of KIT Logo.
+% If you want to conform to the official logo guidelines, 
+% you are not allowed to use the logo and should disable it
+% using the following flag. Just saying.
+% (But it's too beautiful, so best leave this commented. :P)
+\newcommand{\noKITLogo}{}
+
+% Toggle handout mode by including the following line before including PraeambelTut
+% and removing the % at the start (but do NOT remove the % char here, otherwise handout mode will always be on!)
+% Please keep handout mode off in all commits!
+
+% \newcommand{\handout}{}
