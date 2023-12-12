@@ -296,53 +296,56 @@
 \end{frame}
 
 %Übungsblatt 2015, Aufgabe 4.2
-\begin{frame}{Speicher}
-	\begin{block}{Aufgabe}
-    Es sei $\Val = \set{0, 1}^4$, es sei $\Adr = \set{0, 1}^4$ und es sei $\Mem = \Val^\Adr$.
-    \begin{enumerate}
-        \item[a)] Es sei $m \in \Mem$, es sei $a \in \Adr$, es sei $a' \in \Adr$, es sei $v \in \Val$ und es sei $v' \in \Val$. Geben Sie
-        \begin{center}
-            $\memread(\memwrite(m, a, v), a)$, \\
-            $\memread(\memwrite(\memwrite(m, a, v), a', v'), a)$ und\\
-            $\memread(\memwrite(\memwrite(m, a, v), a', v'), a')$
-        \end{center}
-            
-        an.
-        \item[b)] Es sei $m \in \Mem$ derart, dass $m(\word{0001}) = \word{0010}$ und $m(\word{0010}) = \word{0101}$. Geben Sie
-        \begin{center}
-            $\memread(\memwrite(m, Repr_2(Num_2(\memread(m, \word{0001})) \\ + Num_2(\memread(m, \word{0010}))), \word{0011}), \word{0011})$
-        \end{center}
-        an.
-    \end{enumerate}
-	\end{block}
-\end{frame}
-\begin{frame}{Speicher}
-    \begin{block}{Lösung a)}
-        \begin{align*}
-            \memread(\memwrite(m, a, v), a) &= \visible<2-|handout:1>{v} \\
-            \memread(\memwrite(\memwrite(m, a, v), a', v'), a) &= \visible<3-|handout:1>{
-            \begin{cases*}
-                v', &\text{falls } a = a', \\
-                v, &\text{falls} a \neq a'
-            \end{cases*}
-            } \\
-            \memread(\memwrite(\memwrite(m, a, v), a', v'), a') &= \visible<4-|handout:1>{v'}
-        \end{align*}
-    \end{block}
-\end{frame}
-\begin{frame}{Speicher}
-    \begin{block}{Lösung b)}
-        \begin{align*}
-            &\memread(\memwrite(m, Repr_2(Num_2(\memread(m, \word{0001})) \\
-            &\hspace{1cm} + Num_2(\memread(m, \word{0010}))), \word{0011}), \word{0011}) \\
-            \visible<2-|handout:1>{&= \memread(\memwrite(m, \word{1001}, \word{0011}), \word{0011})} \\
-            \visible<3-|handout:1>{&= m(\word{0011})}
-        \end{align*}        
-    \end{block}
-\end{frame}
 
-\mycomment{
-	\only<handout:0>{\begin{frame}{Aufgaben}
+
+
+% \begin{frame}{Speicher}
+% 	\begin{block}{Aufgabe}
+%     Es sei $\Val = \set{0, 1}^4$, es sei $\Adr = \set{0, 1}^4$ und es sei $\Mem = \Val^\Adr$.
+%     \begin{enumerate}
+%         \item[a)] Es sei $m \in \Mem$, es sei $a \in \Adr$, es sei $a' \in \Adr$, es sei $v \in \Val$ und es sei $v' \in \Val$. Geben Sie
+%         \begin{center}
+%             $\memread(\memwrite(m, a, v), a)$, \\
+%             $\memread(\memwrite(\memwrite(m, a, v), a', v'), a)$ und\\
+%             $\memread(\memwrite(\memwrite(m, a, v), a', v'), a')$
+%         \end{center}
+            
+%         an.
+%         \item[b)] Es sei $m \in \Mem$ derart, dass $m(\word{0001}) = \word{0010}$ und $m(\word{0010}) = \word{0101}$. Geben Sie
+%         \begin{center}
+%             $\memread(\memwrite(m, Repr_2(Num_2(\memread(m, \word{0001})) \\ + Num_2(\memread(m, \word{0010}))), \word{0011}), \word{0011})$
+%         \end{center}
+%         an.
+%     \end{enumerate}
+% 	\end{block}
+% \end{frame}
+% \begin{frame}{Speicher}
+%     \begin{block}{Lösung a)}
+%         \begin{align*}
+%             \memread(\memwrite(m, a, v), a) &= \visible<2-|handout:1>{v} \\
+%             \memread(\memwrite(\memwrite(m, a, v), a', v'), a) &= \visible<3-|handout:1>{
+%             \begin{cases*}
+%                 v', &\text{falls } a = a', \\
+%                 v, &\text{falls} a \neq a'
+%             \end{cases*}
+%             } \\
+%             \memread(\memwrite(\memwrite(m, a, v), a', v'), a') &= \visible<4-|handout:1>{v'}
+%         \end{align*}
+%     \end{block}
+% \end{frame}
+% \begin{frame}{Speicher}
+%     \begin{block}{Lösung b)}
+%         \begin{align*}
+%             &\memread(\memwrite(m, Repr_2(Num_2(\memread(m, \word{0001})) \\
+%             &\hspace{1cm} + Num_2(\memread(m, \word{0010}))), \word{0011}), \word{0011}) \\
+%             \visible<2-|handout:1>{&= \memread(\memwrite(m, \word{1001}, \word{0011}), \word{0011})} \\
+%             \visible<3-|handout:1>{&= m(\word{0011})}
+%         \end{align*}        
+%     \end{block}
+% \end{frame}
+
+% \mycomment{
+% 	\only<handout:0>{\begin{frame}{Aufgaben}
 		
-	\end{frame}}
-}
+% 	\end{frame}}
+% }

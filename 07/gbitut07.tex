@@ -1,3 +1,4 @@
+% !TeX root = gbitut07.tex
 %beamer
 
 % Comment/uncomment this line to toggle handout mode
@@ -40,68 +41,72 @@
 	\Socrative
 	\FalseQuestionE{$\memwrite(m,a,v) \in \Val$.}{$\memwrite(m,a,v) \in \Val^\Adr$.}
 	\FalseQuestionE{$\memread(\memwrite(m,a,v), a) = m(a)$ \quad für alle $m,a,v$.}{$\memread(\memwrite(m,a,v), a) = v$.}
-	\FalseQuestionE{Im IR wird die Adresse des aktuellen Befehls gespeichert.}{Das geschieht im IAR – Im IR steht der Befehl selbst.}
-	%\TrueQuestionE{Die Befehlsholphase ist jede Ausführungsrunde identisch.}{}
-	\TrueQuestionE{Ein MIMA-Programm, welches von $-1$ abwärts zählt, kommt \\ irgendwann bei null raus.}{Unterlauf: Nach $-2^{23}$ kommt $2^{23}-1$.}
+	% \FalseQuestionE{Im IR wird die Adresse des aktuellen Befehls gespeichert.}{Das geschieht im IAR – Im IR steht der Befehl selbst.}
+	% %\TrueQuestionE{Die Befehlsholphase ist jede Ausführungsrunde identisch.}{}
+	% \TrueQuestionE{Ein MIMA-Programm, welches von $-1$ abwärts zählt, kommt \\ irgendwann bei null raus.}{Unterlauf: Nach $-2^{23}$ kommt $2^{23}-1$.}
 \end{frame}
 
-\begin{frame}[t]{Wahr oder falsch?}
-	\FalseQuestionE{Der Akku führt bei der MIMA Berechnungen aus.}{Das macht die ALU. Im Akku wird das letzte Ergebnis zwischengespeichert.}
-	\FalseQuestionE{LDC $-5$ lädt $-5$ in den Akku.}{LDC funktioniert nicht mit negativen Konstanten!}
-	\FalseQuestionE{Mit der MIMA können wir Zufallszahlen erzeugen.}{Die MIMA arbeitet rein deterministisch und damit ohne jeden Zufall. 
-		\vspace{-.8\baselineskip}
-		\begin{figure}[H]
-			\centering
-			\includegraphics[scale=0.6]{xkcd/random_number} \\
-			%\vspace{-7pt}
-			{\url{http://xkcd.com/221}}
-		\end{figure}
-	}
-\end{frame}
+% \begin{frame}[t]{Wahr oder falsch?}
+% 	\FalseQuestionE{Der Akku führt bei der MIMA Berechnungen aus.}{Das macht die ALU. Im Akku wird das letzte Ergebnis zwischengespeichert.}
+% 	\FalseQuestionE{LDC $-5$ lädt $-5$ in den Akku.}{LDC funktioniert nicht mit negativen Konstanten!}
+% 	\FalseQuestionE{Mit der MIMA können wir Zufallszahlen erzeugen.}{Die MIMA arbeitet rein deterministisch und damit ohne jeden Zufall. 
+% 		\vspace{-.8\baselineskip}
+% 		\begin{figure}[H]
+% 			\centering
+% 			\includegraphics[scale=0.6]{xkcd/random_number} \\
+% 			%\vspace{-7pt}
+% 			{\url{http://xkcd.com/221}}
+% 		\end{figure}
+% 	}
+% \end{frame}
 
 %\input{../Bloecke/MIMA.tex}
-\section{MIMA Aufgaben}
-%2019 Aufgabe 6.2
-\begin{frame}{Aufgabe}
-    Geben Sie jeweils zu INC $a$ und DEC $a$ eine Folge von MIMA-Befehlen an, die den Befehl realisiert. Verwenden Sie dabei jeweils höchstens fünf MIMA-Befehle. Sie dürfen ausschließlich die Befehle verwenden, die in der Vorlesung vorgestellt wurden. Sprungbefehle sind nicht zugelassen.
-\end{frame}
-\begin{frame}{Lösung}{INC $a$}
-    \begin{tabbing}
-		INC $a$: \; \= LDC 1 \quad  //$= 000000000000000000000001_2$ \\
-				\> ADD $a$ \\
-				\> STV $a$ \\
-				\> HALT
-	\end{tabbing}
-\end{frame}
-\begin{frame}{Lösung}{DEC $a$}
-    \begin{tabbing}
-		DEC $a$: \; \= LDC 0 \\
-                \> NOT \\
-				\> ADD $a$ \\
-				\> STV $a$ \\
-				\> HALT
-	\end{tabbing}
-\end{frame}
+% \section{MIMA Aufgaben}
+% %2019 Aufgabe 6.2
+% \begin{frame}{Aufgabe}
+%     Geben Sie jeweils zu INC $a$ und DEC $a$ eine Folge von MIMA-Befehlen an, die den Befehl realisiert. Verwenden Sie dabei jeweils höchstens fünf MIMA-Befehle. Sie dürfen ausschließlich die Befehle verwenden, die in der Vorlesung vorgestellt wurden. Sprungbefehle sind nicht zugelassen.
+% \end{frame}
+% \begin{frame}{Lösung}{INC $a$}
+%     \begin{tabbing}
+% 		INC $a$: \; \= LDC 1 \quad  //$= 000000000000000000000001_2$ \\
+% 				\> ADD $a$ \\
+% 				\> STV $a$ \\
+% 				\> HALT
+% 	\end{tabbing}
+% \end{frame}
+% \begin{frame}{Lösung}{DEC $a$}
+%     \begin{tabbing}
+% 		DEC $a$: \; \= LDC 0 \\
+%                 \> NOT \\
+% 				\> ADD $a$ \\
+% 				\> STV $a$ \\
+% 				\> HALT
+% 	\end{tabbing}
+% \end{frame}
 
-\begin{frame}{Aufgabe}
-    Im Speicher stehe in Adresse $a_1$ die Zweierkomplementdarstellung einer positiven ganzen Zahl $x_1$. Schreiben Sie ein Minimalmaschinenprogramm, nach dessen Ausführung die Zweierkomplementdarstellung von $x_1$ \textbf{div} $2$ im Akkumulator steht und das höchstens die Adressen $a_1$ und $a_2$ verwendet.
-\end{frame}
+% \begin{frame}{Aufgabe}
+%     Im Speicher stehe in Adresse $a_1$ die Zweierkomplementdarstellung einer positiven ganzen Zahl $x_1$. Schreiben Sie ein Minimalmaschinenprogramm, nach dessen Ausführung die Zweierkomplementdarstellung von $x_1$ \textbf{div} $2$ im Akkumulator steht und das höchstens die Adressen $a_1$ und $a_2$ verwendet.
+% \end{frame}
 
-\begin{frame}{Lösung}
-    \begin{tabbing}
-        \;\= LDV $a_1$ \\
-        \> RAR \\
-        \> STV $a_1$ \\
-        \> LDC $0$ \\
-        \> NOT \\
-        \> STV $a_2$ \\
-        \> LDC $1$ \\
-        \> XOR $a_2$ \\
-        \> RAR \\
-        \> AND $a_1$ \\
-        \> HALT
-	\end{tabbing}
-\end{frame}
+% \begin{frame}{Lösung}
+%     \begin{tabbing}
+%         \;\= LDV $a_1$ \\
+%         \> RAR \\
+%         \> STV $a_1$ \\
+%         \> LDC $0$ \\
+%         \> NOT \\
+%         \> STV $a_2$ \\
+%         \> LDC $1$ \\
+%         \> XOR $a_2$ \\
+%         \> RAR \\
+%         \> AND $a_1$ \\
+%         \> HALT
+% 	\end{tabbing}
+% \end{frame}
+
+%Übungsblatt 2015, Aufgabe 4.2
+
+
 
 \section{}
 \begin{frame}{Noch offen: Klammerausdrücke}
@@ -123,7 +128,7 @@
 \input{../Bloecke/Grammatiken.tex}
 
 % Nicht unbed. nötig. Je nach Zeitbudget.
-%\input{../Bloecke/Relationen2.tex}
+% \input{../Bloecke/Relationen2.tex}
 
 \appendix
 \beginbackup
@@ -142,7 +147,7 @@
 	
 	\begin{block}{Was nächstes Mal kommt}
 		\begin{itemize}
-			\item Noch mehr Grammatiken
+			% \item Noch mehr Grammatiken
 			\item Nachts sind alle Katzen grau -- Prädikatenlogik
 			%\item Algorithmen: Kochrezepte der Informatik
 		\end{itemize}

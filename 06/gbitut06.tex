@@ -1,3 +1,4 @@
+% !TeX root = gbitut06.tex
 %beamer
 
 % Comment/uncomment this line to toggle handout mode
@@ -13,31 +14,35 @@
 
 %\thasse{\lastframe{0.65}{25}{xkcd/advent_calendar.png}{https://www.xkcd.com/994/}}
 
-\begin{frame}{Übungsschein-/Klausuranmeldung}
-	\centering \Large Übungsschein- und Klausuranmeldung sind freigeschaltet! \\
-	\bigskip
-	\Impl \textbf{ANMELDEN}! \textbf{Rechtzeitig}! Am besten \textbf{sofort}, falls man jetzt schon weiß, dass man die Klausur schreibt. \\
-	\bigskip
-	(Übungsschein sowieso anmelden, weil nix zu verlieren!)
-\end{frame}
+\mycomment{
+	\begin{frame}{Übungsschein-/Klausuranmeldung}
+		\centering \Large Übungsschein- und Klausuranmeldung sind freigeschaltet! \\
+		\bigskip
+		\Impl \textbf{ANMELDEN}! \textbf{Rechtzeitig}! Am besten \textbf{sofort}, falls man jetzt schon weiß, dass man die Klausur schreibt. \\
+		\bigskip
+		(Übungsschein sowieso anmelden, weil nix zu verlieren!)
+	\end{frame}
+}
 
 \framePrevEpisode
 
-\begin{frame}[t]{Wahr oder falsch?} 
-		% Socrative: https://b.socrative.com/teacher/#import-quiz/31589970
-		
-		\Socrative
-		\TrueQuestionE{$\forall x \in \Z: \quad x \mod 2 = 0 \iff x \text{ ist gerade}$.}{ $\text{Und auch: \quad} x \mod 2 = 1 \iff \text{x ist ungerade}$.}
-		\FalseQuestionE{$4 \cdot (x \div 4) = x$.}{ $ 4 \cdot (x \div 4) + (x \mod 4) = x$}
-		% \TrueQuestionE{$\left(\{\word a\}^\ast\cdot \{\word b,\eps\}\right)^\ast = \{\word a,\word b\}^\ast$}{}  % not fitting here
-		% \FalseQuestionE{Jede Abbildung besitzt eine Umkehrabbildung.}{ Nur bijektive Abbildungen besitzen eine Umkehrabbildung.}  % ditto
-		% \TrueQuestionE{Für jede Abbildung können wir das Urbild angeben.}{}  % ditto
-		\TrueQuestionE{Das Zweierkomplement ist gut zum Rechnen.}{(Für den Rechner schon!)}
+\begin{frame}[t]{Wahr oder falsch?}
+	% Socrative: https://b.socrative.com/teacher/#import-quiz/31589970
+
+	\Socrative
+	\TrueQuestionE{$\forall x \in \Z: \quad x \mod 2 = 0 \iff x \text{ ist gerade}$.}{ $\text{Und auch: \quad} x \mod 2 = 1 \iff \text{x ist ungerade}$.}
+	\FalseQuestionE{$4 \cdot (x \div 4) = x$.}{ $ 4 \cdot (x \div 4) + (x \mod 4) = x$}
+	% \TrueQuestionE{$\left(\{\word a\}^\ast\cdot \{\word b,\eps\}\right)^\ast = \{\word a,\word b\}^\ast$}{}  % not fitting here
+	% \FalseQuestionE{Jede Abbildung besitzt eine Umkehrabbildung.}{ Nur bijektive Abbildungen besitzen eine Umkehrabbildung.}  % ditto
+	% \TrueQuestionE{Für jede Abbildung können wir das Urbild angeben.}{}  % ditto
+	\TrueQuestionE{Das Zweierkomplement ist gut zum Rechnen.}{(Für den Rechner schon!)}
+	\mycomment{
 		\FalseQuestionE{Für jede Codierung gilt $h(\eps) = \eps$.}{Das muss nur für Homomorphismen gelten.}
 		\FalseQuestion{Jeder Homomorphismus ist präfixfrei.}
 		\TrueQuestion{Jede Huffman-Codierung ist präfixfrei.}
-		\FalseQuestionE{Jeder $\eps$-freie Homomorphismus ist präfixfrei.}{ Aber: Jeder präfixfreie Homomorphismus ist $\varepsilon$-frei.}		
+		\FalseQuestionE{Jeder $\eps$-freie Homomorphismus ist präfixfrei.}{ Aber: Jeder präfixfreie Homomorphismus ist $\varepsilon$-frei.}
 		\TrueQuestionE{Präfixfreie Codes sind einfach zu decodieren.}{}
+	}
 \end{frame}
 
 
@@ -53,14 +58,14 @@
 	\end{frame}
 }
 
-\begin{frame}{Inverse Abbildung}
-    \begin{block}{Definition}
-        Sei $f: A \to B$ und $g: B \to A$, \\
-        dann ist $g$ die Linksinverse zu $f$, wenn $g \circ f = I_A$, bzw. $\forall x \in A: (g \circ f)(x) = x$ \\
-        Analog ist die Rechtsinverse definiert: \\
-        $g$ ist Rechtsinverse zu $f$, wenn $f \circ g = I_B$, bzw. $\foall y \in B: (f \circ g)(y) = y$.
-    \end{block}
-\end{frame}
+% \begin{frame}{Inverse Abbildung}
+%     \begin{block}{Definition}
+%         Sei $f: A \to B$ und $g: B \to A$, \\
+%         dann ist $g$ die Linksinverse zu $f$, wenn $g \circ f = I_A$, bzw. $\forall x \in A: (g \circ f)(x) = x$ \\
+%         Analog ist die Rechtsinverse definiert: \\
+%         $g$ ist Rechtsinverse zu $f$, wenn $f \circ g = I_B$, bzw. $\foall y \in B: (f \circ g)(y) = y$.
+%     \end{block}
+% \end{frame}
 
 
 
@@ -68,16 +73,20 @@
 
 %% Inhalt
 
+\input{../Bloecke/Codierungen.tex}
+
+\input{../Bloecke/Huffmann.tex}
+
 \input{../Bloecke/Speicher.tex}
 
-\input{../Bloecke/MIMA.tex}
+% \input{../Bloecke/MIMA.tex}
 
 \appendix
 \beginbackup
 
 \section{Zusammenfassung und Ausblick}
 
-\begin{frame}	
+\begin{frame}
 	\begin{block}{Was ihr nun wissen solltet}
 		\begin{itemize}
 			%\item Wie die Huffman-Codierung funktioniert
@@ -87,18 +96,18 @@
 			\item Wie man die MIMA für einfache Aufgaben nutzt
 		\end{itemize}
 	\end{block}
-	
+
 	\begin{block}{Was nächstes Mal kommt}
 		\begin{itemize}
 			%\item MIMA – Den Bits beim Arbeiten zuschauen
-			\item Grammatiken – mehr als Subjekt, Objekt, Prädikat
+			\item Grammatiken - mehr als Subjekt, Objekt, Prädikat
 		\end{itemize}
 	\end{block}
 \end{frame}
 
 \only<handout:0>{\slideThanks}
 
-\xkcdframevert{676}{Danke für eure Aufmerksamkeit! \smiley}{2.5}
+% \xkcdframevert{676}{Danke für eure Aufmerksamkeit! \smiley}{2.5}
 
 \only<beamer:0>{\slideThanks}
 
