@@ -277,6 +277,29 @@
 
 \end{frame}
 
+\begin{frame}{Aufgabe Grammatiken}
+	\begin{block}{Aufgabe}
+		Es sei $G = (\set{S, X, Y}, \set{\word{a}, \word{b}}, S, P)$ mit $P = \set{S \to SS \mid XX, X \to \word a X \word b \mid \word b X \word b \mid Y, Y \to \word{aa} \mid \word{bb} \mid \word a \mid \word b}$
+
+		
+		\begin{itemize}
+			\item[a)] Zeichnen Sie einen Ableitungsbaum zu dem Wort $\word{abbaabbbabbba} \in L(G)$.
+			\item[b)] Geben Sie Wörter $u, v, x \in \set{S, X, Y, \word a, \word b}^*$ mit $S \derives^2 u \derives v \derives^* x \derives \word{abbaabbbabbba}$ an.
+			\item[c)] Geben Sie die Sprache $L(G)$ an, ohne auf $G$ bezug zu nehmen.\\
+			\textbf{Hinweis:} Eine Möglichkeit, das zu tun, ist es die Menge $M = \set{w \in \set{\word a, \word b}^* \mid X \derives^* w} \subseteq A^*$ der aus dem Nichtterminal $X$ ableitbaren Worte anzugeben und mit Hilfe von $M$ einen Ausdruck in Mengenschreibweise für $L(G)$ anzugeben.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Lösung}
+	\begin{itemize}
+		\item[b)] $u = SXX, v=SXY, w = \word{abbaabbbab}Y\word{ba}$
+		\item[c)] $M = \set{w \in \set{\word{a}, \word{b}}^* \mid w = w^R \land \size{w} \ge 0}, L(G) = (MM)^+$
+	\end{itemize}
+\end{frame}
+
+
+
 \begin{frame}{Gibt es noch mehr?}
 	Viele Sprachen in der Informatik sind kontextfrei.\\[1em]
 	Was ist mit der Sprache $L_{vv} = \{v\word cv \mid v \in \{\word a,\word b\}^*\}$\\
