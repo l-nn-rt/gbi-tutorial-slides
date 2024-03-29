@@ -1,7 +1,8 @@
+% !TeX root = gbitut10.tex
 %beamer
 
 % Comment/uncomment this line to toggle handout mode
-% \newcommand{\handout}{}
+\newcommand{\handout}{}
 
 \input{../framework/PraeambelTut.tex}
 
@@ -38,6 +39,59 @@
 \end{frame}
 
 \input{../Bloecke/Graphen}
+
+\input{../Bloecke/Graphen2}
+
+
+\begin{frame}{Übung: Adjazenzmatrix}
+	\begin{columns}
+		\column{0.4\linewidth}
+		$$ A = 
+		\begin{pmatrix} 
+		1 & 1 & 0 & 1 & 0 & 0 \\ 
+		0 & 0 & 0 & 1 & 0 & 0 \\ 
+		0 & 1 & 1 & 1 & 0 & 0 \\ 
+		0 & 0 & 1 & 0 & 0 & 0 \\
+		1 & 0 & 0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 & 0 & 0 \\
+		\end{pmatrix} $$
+		
+		\column{0.4\linewidth}
+		\only<7->{
+			\begin{tikzpicture}[->,>=stealth,baseline=-5mm]
+			\matrix[matrix of math nodes,nodes={draw,circle,minimum size=6mm,inner sep=2pt},row sep=13mm,column sep=10mm,ampersand replacement=\&]
+			{
+				|(0)| 0 \& |(1)| 1 \& |(2)| 2 \\
+				|(4)| 4 \& |(3)| 3 \& |(5)| 5 \\
+			};
+			\draw  (0) -- (1);
+			\draw  (0) -- (3);
+			\draw  (4) -- (0);
+			\draw  (1) -- (3);
+			\draw  (2)  to [bend left] (3);
+			\draw  (2) -- (1);
+			\draw  (3) to [bend left] (2);
+			\path  (2) edge [loop right] ();
+			\path  (0) edge [loop left] ();
+			\end{tikzpicture}
+		}
+	\end{columns}
+	
+	\bigskip
+	Was kann man an der Adjazenzmatrix ablesen?
+	\begin{itemize}
+		\item Gerichtet oder ungerichtet? \\ \pause
+		\impl gerichtet (weil $A$ nicht symm.) \pause
+		\item Schlingen? \\ \pause
+		\impl Auf der Diagonalen von $A$: \quad Knoten 0, 2 \pause
+		\item Zusammenhängend? \\ \pause
+		\impl Nein (5 ist isoliert). 
+	\end{itemize}
+\end{frame}
+
+\input{../Bloecke/Graphen3Matrix}
+
+% \input{../Bloecke/GrossO}
 
 \appendix
 \beginbackup

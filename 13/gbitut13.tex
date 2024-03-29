@@ -5,7 +5,7 @@
 % \newcommand{\handout}{}
 
 \input{../framework/PraeambelTut.tex}
-
+\graphicspath{{../figures/}}
 \morescalingdelimiters
 
 \begin{document}
@@ -20,48 +20,35 @@
 
 \framePrevEpisode
 
-\begin{frame}[t]{Wahr oder Falsch?}
-	\FalseQuestionE{Das (komplizierte) Master-Theorem kann man immer anwenden.}{ Nur bei rekursiven Algorithmen, bei denen das Problem in gleich große Teilprobleme aufgeteilt wird.}
-	\FalseQuestionE{Jeder Moore-Automat kann in einen Mealy-Automaten umgewandelt werden, der für jedes Wort die gleiche Ausgabe produziert.}{ Für das leere Wort kann ein Mealy-Automat niemals eine Ausgabe produzieren.}
-	\TrueQuestionE{Endliche Akzeptoren sind Moore-Automaten mit dem Ausgabealphabet $\{\word 0,\word 1\}$.}{}
-	\FalseQuestionE{Mit endlichen Automaten kann jede beliebige Sprache erkannt \\ werden.}{Tatsächlich ist die Menge der akzeptierbaren Sprachen sogar sehr eingeschränkt.}	
-\end{frame}
 
-\input{../Bloecke/Turing}
 
-\input{../Bloecke/TMKomplexitaet}
+\input{../Bloecke/NerodeRelation}
 
-\begin{frame}{Turingmaschinen: Klausur}
-	Noch ein Hinweis zum Schluss:\\
-	Bisher kam in {\tiny fast} \textbf{jeder} Klausur eine Aufgabe zu Turingmaschinen dran.\\
-	Diese gibt meist relativ viele Punkte.\\
-	
-	\bigskip
-	Zu 99 \% wird auch dieses Mal wieder eine TM-Aufgabe drankommen.\\
-	\textbf{Also übt das!} Hier zählt vor allem Geschwindigkeit (und Präzision).
-\end{frame}
+\input{../Bloecke/Halbordnungen}
+
+\input{../Bloecke/MIMA.tex}
 
 \appendix
 \beginbackup
 
 \section{Zusammenfassung und Ausblick}
 
-\begin{frame}
-	\begin{block}{Was ihr nun wissen solltet}
-		\begin{itemize}
-			\item Turingmaschinen
-			\item Komplexität
-			\item Entscheidbarkeit -- Wir können alles. Außer Halteproblem. Und so Zeug.
-		\end{itemize}
-	\end{block}
+% \begin{frame}
+% 	\begin{block}{Was ihr nun wissen solltet}
+% 		\begin{itemize}
+% 			\item Turingmaschinen
+% 			\item Komplexität
+% 			\item Entscheidbarkeit -- Wir können alles. Außer Halteproblem. Und so Zeug.
+% 		\end{itemize}
+% 	\end{block}
 	
-	\begin{block}{Was nächstes Mal kommt}
-		\begin{itemize}
-			\item Reguläre Ausdrücke
-			\item Rechtslineare Grammatiken
-		\end{itemize}
-	\end{block}
-\end{frame}
+% 	% \begin{block}{Was nächstes Mal kommt}
+% 	% 	\begin{itemize}
+% 	% 		\item Reguläre Ausdrücke
+% 	% 		\item Rechtslineare Grammatiken
+% 	% 	\end{itemize}
+% 	% \end{block}
+% \end{frame}
 
 % TODO ?
 %input{../Bloecke/StrukturelleInduktion}

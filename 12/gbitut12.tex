@@ -15,59 +15,6 @@
 \begin{document}
 \starttut{12}
 
-\mycomment{
-\begin{frame}{Probeklausur}
-	\daniel{Schnitt: \quad \thassedaniel{XX}{22.8}~/~38~P \quad $\hat{=}$ Note \thassedaniel{XX}{3.2} \\}
-	\begin{columns}[T] 
-		\hspace{.5\baselineskip}
-		\begin{column}[T]{.30\textwidth} 
-			Skala: \\
-			\begin{tabular}{|r|l|}
-				\hline
-				Note & Punkte \\
-				\hline
-				5.0	& \hphantom{0}0.0 – 18.5 	\\ \hline
-				4.0 & 19.0 – 20.0	\\ \hline
-				3.7 & 20.5 – 22.0	\\ \hline
-				3.3	& 22.5 – 24.0	\\ \hline
-				3.0	& 24.5 – 26.0	\\ \hline
-				2.7	& 26.5 – 28.0	\\ \hline
-				2.3	& 28.5 – 30.0	\\ \hline
-				2.0	& 30.5 – 32.0   \\ \hline
-				1.7	& 32.5 – 24.0	\\ \hline
-				1.3	& 34.5 – 36.0	\\ \hline
-				1.0	& 36.5 – 38.0	\\ \hline
-			\end{tabular}
-		\end{column}
-		\hspace{-\baselineskip}
-		\begin{column}[T]{.68\textwidth} 
-			\begin{itemize}
-				\item Wer regelmäßig Blätter machte, hatte mehr Punkte! :P {\small (As promised...)}
-				\item Generell: Schaut euch alte Blätter an und vor allem, \alert{was ich in rot dazugekritzelt} hab. \\
-				\impl Manche wiederholen ihre Fehler.
-				\item Aufgabenstellung \textbf{genau} lesen! \\
-				Z.~B.: „Geben Sie an...“ – Ergebnis langt! \\ \impl Keine Zeit verschwenden! 
-				
-			\end{itemize}
-		\end{column}
-	\end{columns}
-	
-\end{frame}
-}
-
-{
-	\begin{frame}{Schwarzes Brett}
-     Es wird auf den \textbf{12~Blättern} insgesammt höchstens 250~Punkte geben (wahrscheinlich etwas weniger). \\
-     Damit wären
-		\begin{itemize}
-            \item 125~P insgesammt
-            \item 45~P für Blätter 1-6
-            \item 50~P für Blätter 7-12
-		\end{itemize}
-    auf jeden Fall hinreichend, um den Übungsschein zu bestehen
-	\end{frame}
-}
-
 
 \framePrevEpisode
 
@@ -124,43 +71,29 @@
 	}
 \end{frame}
 
+\begin{frame}[t]{Wahr oder Falsch?}
+	\FalseQuestionE{Das (komplizierte) Master-Theorem kann man immer anwenden.}{ Nur bei rekursiven Algorithmen, bei denen das Problem in gleich große Teilprobleme aufgeteilt wird.}
+	\FalseQuestionE{Jeder Moore-Automat kann in einen Mealy-Automaten umgewandelt werden, der für jedes Wort die gleiche Ausgabe produziert.}{ Für das leere Wort kann ein Mealy-Automat niemals eine Ausgabe produzieren.}
+	\TrueQuestionE{Endliche Akzeptoren sind Moore-Automaten mit dem Ausgabealphabet $\{\word 0,\word 1\}$.}{}
+	\FalseQuestionE{Mit endlichen Automaten kann jede beliebige Sprache erkannt \\ werden.}{Tatsächlich ist die Menge der akzeptierbaren Sprachen sogar sehr eingeschränkt.}	
+\end{frame}
 
-\input{../Bloecke/MasterTheorem}
 
-\input{../Bloecke/Automaten}
+\input{../Bloecke/RechtslineareGrammatiken}
 
-\input{../Bloecke/Akzeptoren}
+\input{../Bloecke/Turing}
 
-% ---------
+\input{../Bloecke/TMKomplexitaet}
 
-% WiSe 10/11 Aufgabe 6 c 
-\begin{frame}{Übung: Akzeptoren}
-	Die Sprache $L\subseteq \{\word a,\word b\}^\ast $ sei definiert als die Menge aller Wörter $w$, die folgende Bedingungen erfüllen:
-	\begin{align*}
-	N_{\word b}(w) &> N_{\word a}(w)\\ 
-	\forall v_1,v_2 \in \{\word a,\word b\}^\ast : \qquad w &\neq v_1 \word{bb} v_2 
-	\end{align*}
-	
-	Gebt einen endlichen Akzeptor an, der $L$ erkennt. \\
+\begin{frame}{Turingmaschinen: Klausur}
+	Noch ein Hinweis zum Schluss:\\
+	Bisher kam in {\tiny fast} \textbf{jeder} Klausur eine Aufgabe zu Turingmaschinen dran.\\
+	Diese gibt meist relativ viele Punkte.\\
 	
 	\bigskip
-	\pause
-	\begin{block}{Tipps}
-		\begin{itemize}[<+->]
-			\item Die zweite Bedingung bedeutet: Das Wort darf nirgends zwei \word b hintereinander enthalten.
-			\item Was passiert, wenn das Wort mit einem \word a beginnt?\\
-			Kann das Wort noch akzeptiert werden?
-		\end{itemize}
-	\end{block}
+	Zu 99 \% wird auch dieses Mal wieder eine TM-Aufgabe drankommen.\\
+	\textbf{Also übt das!} Hier zählt vor allem Geschwindigkeit (und Präzision).
 \end{frame}
-
-\begin{frame}{Übung: Akzeptoren: Lösung}
-	\begin{figure}
-		\centering
-		\includegraphics[height=6cm]{automaten/Loesung2.pdf}
-	\end{figure}
-\end{frame}
-
 
 \appendix
 \beginbackup

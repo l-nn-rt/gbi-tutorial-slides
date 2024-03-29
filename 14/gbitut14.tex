@@ -5,7 +5,7 @@
 % https://www.youtube.com/watch?v=VxvY4rI15sM
 
 % Comment/uncomment this line to toggle handout mode
-% \newcommand{\handout}{}
+\newcommand{\handout}{}
 
 \input{../framework/PraeambelTut.tex}
 
@@ -40,21 +40,122 @@
 	% TODO: W/F Fragen?
 \end{frame}
 
-\input{../Bloecke/Regulaer}
-
-\input{../Bloecke/UebungRegexAutomaten}
-
-\input{../Bloecke/RechtslineareGrammatiken}
-
-
-
-\begin{frame}[t]{Wahr oder Falsch?}
-	\FalseQuestionE{Jede kontextfreie Grammatik lässt sich als regulärer Ausdruck \\ darstellen.}{Die Grammatik muss dafür rechtslinear sein, kontextfrei ist \enquote{zu mächtig}.}
-	\TrueQuestion{Jeder reguläre Ausdruck lässt sich durch eine kontextfreie Grammatik darstellen.}
-	\TrueQuestion{Für jede Sprache $L$ und jedes Wort $w \in L$ gilt: Es existiert ein endlicher Automat, der $w$ erkennt.}
-	\FalseQuestion{Die Sprache der gültigen Klammerausdrücke ist regulär.}
-	\TrueQuestionE{Die Sprache der gültigen Klammerausdrücke ist kontextfrei.}{}
+\begin{frame}{MIMA Programm erkennen}
+	\begin{block}{Aufgabe}
+		Was macht folgendes MIMA Programm?
+		\begin{tabbing}
+		$start$: 	\quad \quad \quad \quad \= STV x \\
+											\> JMN $is\_negative$ \\
+											\> JMP $fin$ \\
+		$is\_negative$:						\> ADD x \\
+											\> STV x \\
+											\> LDC 1 \\
+		$fin$:								\> ADD x \\
+		\end{tabbing}
+	\end{block}
 \end{frame}
+\begin{frame}{MIMA Programm erkennen}
+	\begin{block}{Lösung}
+		Das Programm führt die Umkerfunktion zum MIMA-Befehl \textbf{RAR} aus, also den Wert des Akkumulators um eine Stelle zyklisch nach link rotiert und ih zurück in den Akkumulator schreibt.
+	\end{block}
+\end{frame}
+
+\begin{frame}{MIMA Programm erkennen 2}
+	\begin{block}{Aufgabe}
+		Was macht folgendes MIMA Programm?
+		\begin{tabbing}
+		$start$: 	\quad \quad \= LDV b \\
+								\> NOT \\
+								\> STV x \\
+								\> LDC 1 \\
+								\> ADD x \\
+								\> ADD a \\
+								\> JMN $addr_1$ \\
+								\> JMP $addr_2$ \\
+		\end{tabbing}
+	\end{block}
+\end{frame}
+\begin{frame}{MIMA Programm erkennen 2}
+	\begin{block}{Lösung}
+		Das Programm führt einen bedingten Sprung aus, wenn der Wert der Speicherstelle $a$ (echt) kleiner ist als der Wert an der Speicherstelle $b$ (jeweils als Zweierkomplement interpretiert).
+	\end{block}
+\end{frame}
+
+\newcommand{\inferrule}[2]{\displaystyle\frac{\quad #1 \quad}{\quad #2 \quad}}
+\newcommand{\rulename}[1]{{~\textsf{\scriptsize(#1)}}}
+\newcommand{\schlussregeln}{
+	\centering
+	\begin{displaymath}
+		\begin{array}
+			{c@{\hspace{2cm}}c} \displaystyle
+			\inferrule{A \quad B}{A \aland B} \rulename{$\aland$I}
+			 & \inferrule{A \aland B}{A}\rulename{$\aland$E$_l$} \quad
+			\inferrule{A \aland B}{B} \rulename{$\aland$E$_r$}                                \\[2ex]
+			\inferrule{A}{A \alor B}\rulename{$\alor$I$_l$} \quad
+			\inferrule{B}{A \alor B}\rulename{$\alor$I$_r$}
+			 & \inferrule{A \alor B\quad A \alimpl C \quad B \alimpl C}{C}\rulename{$\alor$E} \\[2ex]
+			\inferrule{A \alvdash B}{A \alimpl B}\rulename{$\alimpl$I}
+			 & \inferrule{A \quad A \alimpl B}{B}\rulename{MP}\rulename{$\alimpl$E}           \\[2ex]
+			\inferrule{A \alimpl \alfalse}{\alnot A}\rulename{$\alnot$I}
+			 & \inferrule{A \quad \alnot A}{\alfalse}\rulename{$\alnot$E} \quad
+			\inferrule{\alnot \alnot A}{A}\rulename{$\alnot\alnot$E}
+			\\[2ex]
+			\inferrule{\alnot A \alimpl \alfalse}{A}\rulename{RAA}
+			 & \inferrule{}{A \alvdash A}\rulename{Ax}
+		\end{array}
+	\end{displaymath}
+}
+
+\begin{frame}{Natürliches Schließen}
+	\begin{block}{Aufgabe}
+		Zeigen Sie mittels natürlichem Schließen: $ A \alor (B \aland C) \alimpl (A \alor B) \aland (A \alor C) $
+	\end{block}
+		\schlussregeln
+\end{frame}
+
+\begin{frame}{Natürliches Schließen Lösung}
+	\vspace{3cm}
+	%left bottom right top
+	\includepdf[pages=11,clip=true,trim=100 320 100 180, scale=1]{woche_04_korrektur.pdf}
+\end{frame}
+
+\begin{frame}{Mehr Übungsaufgaben zu natürlichem Schließen}
+	\url{https://formal.kastel.kit.edu/~ulbrich/natuerlich/}
+\end{frame}
+
+\begin{frame}{Reguläre Sprachen WS 2022}
+	\includepdf[pages=11,clip=true,trim=20 530 20 100, scale=1]{kl-2022-ws.pdf}
+\end{frame}
+
+\begin{frame}{Reguläre Sprachen WS 2022}
+	\includepdf[pages=13,clip=true,trim=20 620 20 100, scale=1]{kl-2022-ws.pdf}
+\end{frame}
+
+\begin{frame}{Reguläre Sprachen WS 2022}
+	\includepdf[pages=11,clip=true,trim=20 80 20 440, scale=0.7]{kl-2022-ws.pdf}
+\end{frame}
+
+\begin{frame}{Reguläre Sprachen WS 2022}
+	\includepdf[pages=13,clip=true,trim=20 500 20 220, scale=1]{kl-2022-ws.pdf}
+\end{frame}
+
+\begin{frame}{Reguläre Sprachen WS 2022}
+	\includepdf[pages=12,clip=true,trim=20 700 20 50, scale=1]{kl-2022-ws.pdf}
+\end{frame}
+
+\begin{frame}{Reguläre Sprachen WS 2022}
+	\vspace{3cm}
+	\includepdf[pages=13,clip=true,trim=20 150 100 350, scale=0.9]{kl-2022-ws.pdf}
+\end{frame}
+
+
+% \begin{frame}[t]{Wahr oder Falsch?}
+% 	\FalseQuestionE{Jede kontextfreie Grammatik lässt sich als regulärer Ausdruck \\ darstellen.}{Die Grammatik muss dafür rechtslinear sein, kontextfrei ist \enquote{zu mächtig}.}
+% 	\TrueQuestion{Jeder reguläre Ausdruck lässt sich durch eine kontextfreie Grammatik darstellen.}
+% 	\TrueQuestion{Für jede Sprache $L$ und jedes Wort $w \in L$ gilt: Es existiert ein endlicher Automat, der $w$ erkennt.}
+% 	\FalseQuestion{Die Sprache der gültigen Klammerausdrücke ist regulär.}
+% 	\TrueQuestionE{Die Sprache der gültigen Klammerausdrücke ist kontextfrei.}{}
+% \end{frame}
 
 
 
@@ -66,12 +167,12 @@
 \section{Zusammenfassung und Ausblick}
 
 \begin{frame}
-	\begin{block}{Was ihr nun wissen solltet}
-		\begin{itemize}
-			\item Rechtslineare Grammatiken
-			\item Reguläre Ausdrücke
-		\end{itemize}
-	\end{block}
+	% \begin{block}{Was ihr nun wissen solltet}
+	% 	\begin{itemize}
+	% 		\item Rechtslineare Grammatiken
+	% 		\item Reguläre Ausdrücke
+	% 	\end{itemize}
+	% \end{block}
 	
 	\begin{block}{Und so geht es weiter...}
 		\vspace{-.3\baselineskip}
